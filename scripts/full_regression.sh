@@ -19,4 +19,5 @@ for t in foundation_hardening smoke commerce_core configurator bespoke makeos pr
   echo "== $t =="
   php "tests/$t.php"
 done
-echo "PASS: disposable isolated regression suite"
+bash tests/seo_http.sh
+echo "PASS: disposable isolated regression suite with HTTP SEO smoke"

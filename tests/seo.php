@@ -36,6 +36,7 @@ if($first){
     $graph=seo_document_graph('/product/'.$first['slug'],$first['name'],$first['short'],$first);
     seo_check(count(array_filter($graph['@graph'],fn($n)=>($n['@type']??'')==='BreadcrumbList'))===1,'BreadcrumbList missing.');
     seo_check(count(array_filter($graph['@graph'],fn($n)=>($n['@type']??'')==='Product'))===1,'Product duplicated in schema.');
+    seo_check(($schema['offers']['price']??-1)===seo_product_price($first),'Default configured price mismatch.');
     seo_check(!isset($schema['aggregateRating']),'Invented rating detected.');
 }
 foreach($products as $p) {

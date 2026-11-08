@@ -45,6 +45,7 @@ function seo_robots_txt(): string {
         'Disallow: /configuration/',
     ];
     if (seo_indexable_environment()) $lines[]='Sitemap: '.absolute_url('/sitemap.xml');
+    else $lines[]='Disallow: /assets/';
     return implode("\n",$lines)."\n";
 }
 
@@ -145,7 +146,7 @@ function seo_document_graph(string $path,string $title,string $description,?arra
         $node['mainEntityOfPage']=['@id'=>$link.'#webpage'];
         $graph[]=$node;
     }
-    if ($article) {
+    if ($article && in_array((string)($article['type']??''),['GUIDE','JOURNAL','ROOM_STORY'],true)) {
         $node=['@type'=>'Article','@id'=>$link.'#article','mainEntityOfPage'=>['@id'=>$link.'#webpage'],
             'headline'=>(string)$article['title'],'description'=>trim((string)($article['excerpt']??'')),
             'author'=>['@id'=>$home.'#organization'],'publisher'=>['@id'=>$home.'#organization']];
