@@ -101,7 +101,13 @@ function customer_request_password_reset(string $email): array {
     $u=customer_by_email($email); if(!$u)return[true,null];
     $token=bin2hex(random_bytes(24));$hash=hash('sha256',$token);$row=['guid'=>uuidv7(),'customer_guid'=>$u['guid'],'token_hash'=>$hash,'expires_at'=>time()+1800,'used_at'=>null,'created_at'=>gmdate('c')];
     commerce_private_mutate(commerce_reset_file(),'atelierwood:password-resets:v1',function(array $rows)use($row,$u){$now=time();$rows=array_values(array_filter($rows,fn($r)=>(int)($r['expires_at']??0)>$now && empty($r['used_at']) && ($r['customer_guid']??'')!==$u['guid']));$rows[]=$row;return$rows;},'customer.password_reset.request');
-    commerce_audit('customer.password_reset.request',['customer_guid'=>$u['guid']]); return[true,$token];
+    commerce_audit('customer.password_reset.request',['customer_guid'=>$u['guid']]);
+    if(strlen((string)getenv('ATELIER_SENDGRID_API_KEY'))>=20){
+        $link=absolute_url('/account/reset-password?token='.rawurlencode($token));
+        notification_enqueue((string)$u['email'],'Reset your Atelier Wood password',
+          "You requested a password reset. Open the link below within 30 minutes:\n\n".$link."\n\nIf you did not request this, you can ignore this message.");
+    }
+    return[true,$token];
 }
 function customer_reset_password(string $token,string $password): array {
     if(text_len($password)<10)return[false,'Use at least 10 characters for your password.'];$hash=hash('sha256',trim($token));$customerGuid=null;$resetGuid=null;$now=time();

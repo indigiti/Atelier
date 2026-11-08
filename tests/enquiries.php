@@ -8,6 +8,8 @@ $_SERVER['HTTP_HOST']='staging.example.test';
 $_SERVER['REMOTE_ADDR']='127.0.0.2';
 require dirname(__DIR__).'/src/bootstrap.php';
 @unlink(enquiry_store_path());
+putenv('ATELIER_MAIL_FROM=studio@example.test');
+putenv('ATELIER_SENDGRID_API_KEY='.str_repeat('T',40));
 $errors=[];
 [$ok,$result]=enquiry_submit(['name'=>'Test Client','phone'=>'+919876543210','email'=>'client@example.test','project'=>'A wall-mounted bespoke wood sculpture for the entryway.']);
 if(!$ok||!is_string($result))$errors[]='Valid enquiry rejected.';
@@ -19,5 +21,8 @@ enquiry_set_status((string)$rows[0]['guid'],'CONTACTED');
 if((enquiries_all()[0]['status']??'')!=='CONTACTED')$errors[]='Enquiry admin update failed.';
 [$invalid]=enquiry_submit(['name'=>'A','phone'=>'xx','project'=>'short']);
 if($invalid)$errors[]='Invalid enquiry accepted.';
+$id=notification_enqueue('customer@example.test','Test delivery','Private message test');
+$raw=(string)file_get_contents(notification_outbox_path());
+if(!str_contains($raw,'ciphertext')||str_contains($raw,'customer@example.test'))$errors[]='Notification outbox was not encrypted.';
 if($errors){fwrite(STDERR,implode("\n",$errors)."\n");exit(1);}
 echo "PASS: encrypted enquiry storage, confidentiality, validation, and admin state transitions.\n";

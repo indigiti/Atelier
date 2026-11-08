@@ -31,7 +31,11 @@ function asset(string $path): string {
 
 function absolute_url(string $path='/'): string {
     $scheme=request_is_https()?'https':'http';
-    $host=(string)($_SERVER['HTTP_HOST']??'localhost');
+    $host=strtolower(trim((string)($_SERVER['HTTP_HOST']??'localhost')));
+    if(!preg_match('/^[a-z0-9.-]+(?::[0-9]{1,5})?$/i',$host))throw new RuntimeException('Invalid HTTP host.');
+    $allowed=array_values(array_filter(array_map('trim',explode(',',strtolower((string)getenv('ATELIER_ALLOWED_HOSTS'))))));
+    if($allowed && !in_array($host,$allowed,true))throw new RuntimeException('Untrusted HTTP host.');
+    if(!$allowed && strlen((string)getenv('ATELIER_SENDGRID_API_KEY'))>=20)throw new RuntimeException('ATELIER_ALLOWED_HOSTS is required for password reset mail.');
     return $scheme.'://'.$host.url($path);
 }
 

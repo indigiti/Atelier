@@ -20,6 +20,10 @@ try {
     $tampered=$env; $raw=base64_decode($tampered['ciphertext'],true); $raw[0]=chr(ord($raw[0])^1); $tampered['ciphertext']=base64_encode($raw);
     try { confidential_decrypt($tampered,'test:context'); $errors[]='Tampered ciphertext was accepted.'; } catch(Throwable) {}
     if(foundation_incomplete_transactions()) $errors[]='Incomplete transactions detected after test.';
+    $bad=$root.'/storage/tmp/corrupted-store-test.json';file_put_contents($bad,'{broken');
+    try { foundation_json_mutate($bad,fn(array $rows)=>['replaced'=>true],'test.corrupt_guard');$errors[]='Corrupted JSON store was silently replaced.'; } catch(Throwable) {}
+    if(file_get_contents($bad)!=='{broken')$errors[]='Corrupted JSON bytes were overwritten.';
+    @unlink($bad);
 } catch(Throwable $e){ $errors[]=$e->getMessage(); }
 @unlink($path);
 if($errors){fwrite(STDERR,implode("\n",$errors)."\n");exit(1);} 
