@@ -43,7 +43,7 @@ Run only the isolated suite:
 
     bash scripts/full_regression.sh
 
-SEO tests are in tests/seo.php and run automatically inside the disposable isolated workspace. Do not run regression files directly against staging or real data.
+SEO unit tests are in tests/seo.php and HTTP smoke checks are in tests/seo_http.sh. Both run automatically inside the disposable isolated workspace. Do not run regression files directly against staging or real data.
 
 Admin: /admin/seo
 Public: /sitemap.xml, /robots.txt, /llms.txt,

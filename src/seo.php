@@ -95,6 +95,8 @@ function seo_product_price(array $p): int {
 function seo_product_schema(array $p): array {
     $link=seo_canonical('/product/'.(string)$p['slug']);
     $images=[];
+    $hero=mediaos_primary_file($p);
+    if ($hero!=='') $images[]=absolute_url(image_url($hero));
     foreach ((array)($p['gallery']??[]) as $file) {
         if (is_string($file) && $file!=='') $images[]=absolute_url(image_url($file));
     }
