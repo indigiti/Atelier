@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root=dirname(__DIR__);putenv('APP_ENV=staging');if(!getenv('ATELIER_DATA_KEY'))putenv('ATELIER_DATA_KEY='.base64_encode(str_repeat('M',32)));if(!getenv('ATELIER_SANDBOX_WEBHOOK_SECRET'))putenv('ATELIER_SANDBOX_WEBHOOK_SECRET=mediaos-test');$_SERVER['SCRIPT_NAME']='/index.php';$_SERVER['HTTP_HOST']='staging.example.test';$_SERVER['REMOTE_ADDR']='127.0.0.1';require $root.'/src/bootstrap.php';
 mediaos_ensure_catalog();$store=mediaos_store();$errors=[];
 if(count($store['products'])<count(products_all()))$errors[]='MediaOS catalogue coverage is incomplete.';

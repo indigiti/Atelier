@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root=dirname(__DIR__);
 putenv('APP_ENV=staging');
 putenv('ATELIER_DATA_KEY='.base64_encode(str_repeat('D',32)));

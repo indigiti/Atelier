@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 require dirname(__DIR__) . '/src/bootstrap.php';
 $items=array_values(array_filter(products_public(),fn($p)=>(string)($p['category']??'')==='sacred-spaces'));
 if(count($items)!==20) throw new RuntimeException('Expected 20 Sacred Spaces products, got '.count($items));

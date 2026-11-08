@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root=dirname(__DIR__);putenv('APP_ENV=staging');putenv('ATELIER_DATA_KEY='.base64_encode(str_repeat('F',32)));putenv('ATELIER_SANDBOX_WEBHOOK_SECRET=fulfilment-test-secret');$_SERVER['REMOTE_ADDR']='127.0.0.1';$_SERVER['REQUEST_URI']='/';$_SERVER['SCRIPT_NAME']='/index.php';require $root.'/src/bootstrap.php';
 $errors=[];function fcheck(bool $ok,string $msg):void{global $errors;if(!$ok)$errors[]=$msg;}
 foreach([commerce_customer_file(),commerce_address_file(),commerce_order_file(),commerce_payment_file(),commerce_request_file(),commerce_cart_file(),commerce_reset_file(),commerce_rate_file(),fulfilment_file(),makeos_job_file()] as $f)@unlink($f);$_SESSION=[];$_SESSION['_created_at']=time();$_SESSION['_last_activity']=time();

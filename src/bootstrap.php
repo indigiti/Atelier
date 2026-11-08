@@ -11,6 +11,8 @@ require_once $root . '/src/foundation.php';
 require_once $root . '/src/security.php';
 require_once $root . '/src/admin.php';
 require_once $root . '/src/commerce.php';
+require_once $root . '/src/enquiries.php';
+require_once $root . '/src/notifications.php';
 require_once $root . '/src/configurator.php';
 require_once $root . '/src/bespoke.php';
 require_once $root . '/src/makeos.php';

@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root=dirname(__DIR__);
 putenv('APP_ENV=staging');
 if(!getenv('ATELIER_DATA_KEY'))putenv('ATELIER_DATA_KEY='.base64_encode(str_repeat('M',32)));
@@ -23,7 +24,7 @@ try{
     $job=makeos_add_bom_line($job['guid'],['type'=>'MATERIAL','name'=>'Ash board 25 mm','spec'=>'A/B grade, kiln dried','qty'=>2,'unit'=>'sq.ft','waste_percent'=>10,'unit_cost'=>500]);$last=$job['bom'][array_key_last($job['bom'])];mcheck((int)$last['line_cost']===1100,'BOM line cost with waste is incorrect.');
     $job=makeos_lock_bom($job['guid']);mcheck(!empty($job['bom_locked'])&&hash_equals((string)$job['bom_fingerprint'],makeos_bom_hash($job['bom'])),'BOM lock/fingerprint invalid.');
     try{makeos_add_bom_line($job['guid'],['name'=>'Should fail','qty'=>1,'unit'=>'set']);$errors[]='BOM allowed edit after lock.';}catch(Throwable){}
-    $job=makeos_update_assignment($job['guid'],['artisan'=>'Team Ash','station'=>'Bench 04','priority'=>'HIGH','planned_start'=>'2026-09-15','due_date'=>'2026-09-28','instructions'=>'Protect visible grain orientation.']);
+    $job=makeos_update_assignment($job['guid'],['artisan'=>'Team Ash','station'=>'Bench 04','priority'=>'HIGH','planned_start'=>gmdate('Y-m-d',strtotime('+7 days')),'due_date'=>gmdate('Y-m-d',strtotime('+21 days')),'instructions'=>'Protect visible grain orientation.']);
     $job=makeos_reserve_materials($job['guid'],'Rack A3 · staged for this job.');mcheck(($job['status']??'')==='MATERIALS_RESERVED','Material reservation failed.');
     $job=makeos_start_job($job['guid']);mcheck(($job['status']??'')==='IN_PRODUCTION'&&($job['current_stage']??'')==='MATERIAL_PREP','Production did not start at Material Prep.');
     foreach(['MATERIAL_PREP','CUTTING','JOINERY','SANDING','FINISHING','ASSEMBLY'] as $stage){$job=makeos_complete_stage($job['guid'],$stage,$stage.' completed.');}

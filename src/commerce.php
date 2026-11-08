@@ -101,7 +101,13 @@ function customer_request_password_reset(string $email): array {
     $u=customer_by_email($email); if(!$u)return[true,null];
     $token=bin2hex(random_bytes(24));$hash=hash('sha256',$token);$row=['guid'=>uuidv7(),'customer_guid'=>$u['guid'],'token_hash'=>$hash,'expires_at'=>time()+1800,'used_at'=>null,'created_at'=>gmdate('c')];
     commerce_private_mutate(commerce_reset_file(),'atelierwood:password-resets:v1',function(array $rows)use($row,$u){$now=time();$rows=array_values(array_filter($rows,fn($r)=>(int)($r['expires_at']??0)>$now && empty($r['used_at']) && ($r['customer_guid']??'')!==$u['guid']));$rows[]=$row;return$rows;},'customer.password_reset.request');
-    commerce_audit('customer.password_reset.request',['customer_guid'=>$u['guid']]); return[true,$token];
+    commerce_audit('customer.password_reset.request',['customer_guid'=>$u['guid']]);
+    if(strlen((string)getenv('ATELIER_SENDGRID_API_KEY'))>=20){
+        $link=absolute_url('/account/reset-password?token='.rawurlencode($token));
+        notification_enqueue((string)$u['email'],'Reset your Atelier Wood password',
+          "You requested a password reset. Open the link below within 30 minutes:\n\n".$link."\n\nIf you did not request this, you can ignore this message.");
+    }
+    return[true,$token];
 }
 function customer_reset_password(string $token,string $password): array {
     if(text_len($password)<10)return[false,'Use at least 10 characters for your password.'];$hash=hash('sha256',trim($token));$customerGuid=null;$resetGuid=null;$now=time();
@@ -203,7 +209,18 @@ function create_order_from_checkout(string $addressGuid,bool $installation=false
     require_customer('/checkout');$cg=(string)customer_identity()['guid'];$address=customer_address($addressGuid,$cg);if(!$address)throw new RuntimeException('Choose a valid delivery address.');$checkoutKey=trim($checkoutKey);if($checkoutKey==='')throw new RuntimeException('Checkout session is invalid. Refresh and try again.');$checkoutHash=hash('sha256',$checkoutKey);foreach(customer_orders($cg) as $existingOrder)if(($existingOrder['checkout_key_hash']??'')===$checkoutHash)return$existingOrder;$totals=commerce_calculate_totals((string)$address['pincode'],$installation);if(empty($totals['ok']))throw new RuntimeException((string)($totals['shipping_quote']['error']??'Delivery unavailable.'));if(!$totals['lines'])throw new RuntimeException('Your cart is empty.');
     $items=[];foreach($totals['lines'] as $l){$p=$l['p'];$items[]=['product_guid'=>$p['guid'],'sku'=>$p['sku'],'slug'=>$p['slug'],'name'=>$p['name'],'image'=>$p['image'],'qty'=>$l['qty'],'material'=>$l['material'],'finish'=>$l['finish'],'unit_price'=>$l['unit'],'line_total'=>$l['line_total'],'configuration_snapshot'=>$l['configuration']??[],'configuration_summary'=>$l['configuration_summary']??[],'configuration_signature'=>$l['configuration_signature']??'','pricing_version'=>$l['pricing_version']??'','tax_snapshot'=>'GST inclusive'];}
     $customer=customer_by_guid($cg);$order=['guid'=>uuidv7(),'number'=>order_number(),'customer_guid'=>$cg,'customer_snapshot'=>['name'=>$customer['name']??'','email'=>$customer['email']??'','phone'=>$customer['phone']??''],'address_snapshot'=>$address,'items'=>$items,'pricing'=>['currency'=>'INR','subtotal'=>$totals['subtotal'],'shipping'=>$totals['shipping'],'installation'=>$totals['installation'],'tax_inclusive'=>$totals['tax_inclusive'],'tax_rate'=>$totals['tax_rate'],'grand_total'=>$totals['grand_total']],'shipping_snapshot'=>$totals['shipping_quote'],'status'=>'PENDING_PAYMENT','payment_status'=>'PENDING','checkout_key_hash'=>$checkoutHash,'invoice'=>null,'timeline'=>[['ts'=>gmdate('c'),'from'=>null,'to'=>'PENDING_PAYMENT','actor'=>'customer','note'=>'Checkout submitted']], 'created_at'=>gmdate('c'),'updated_at'=>gmdate('c')];
-    commerce_private_mutate(commerce_order_file(),'atelierwood:orders:v1',function(array $rows)use($order){foreach($rows as $x)if(($x['number']??'')===$order['number'])throw new RuntimeException('Order number collision.');$rows[]=$order;return$rows;},'order.create');commerce_audit('order.create',['order_guid'=>$order['guid'],'customer_guid'=>$cg,'total'=>$order['pricing']['grand_total']]);return$order;
+    $created=null;
+    commerce_private_mutate(commerce_order_file(),'atelierwood:orders:v1',function(array $rows)use($order,$cg,$checkoutHash,&$created){
+        foreach($rows as $existing){
+            if(($existing['customer_guid']??'')===$cg && ($existing['checkout_key_hash']??'')===$checkoutHash){
+                $created=$existing;return $rows;
+            }
+            if(($existing['number']??'')===$order['number'])throw new RuntimeException('Order number collision.');
+        }
+        $rows[]=$order;$created=$order;return$rows;
+    },'order.create');
+    if(($created['guid']??'')===$order['guid'])commerce_audit('order.create',['order_guid'=>$order['guid'],'customer_guid'=>$cg,'total'=>$order['pricing']['grand_total']]);
+    return $created;
 }
 function order_set_payment_status(string $orderGuid,string $paymentStatus,?array $paymentRef=null): array {
     $updated=null;commerce_private_mutate(commerce_order_file(),'atelierwood:orders:v1',function(array $rows)use($orderGuid,$paymentStatus,$paymentRef,&$updated){foreach($rows as &$o)if(($o['guid']??'')===$orderGuid){$o['payment_status']=$paymentStatus;if($paymentRef)$o['payment_reference']=$paymentRef;$o['updated_at']=gmdate('c');if($paymentStatus==='PAID'&&empty($o['invoice']))$o['invoice']=['number'=>invoice_number(),'issued_at'=>gmdate('c')];$updated=$o;break;}return$rows;},'order.payment_status');if(!$updated)throw new RuntimeException('Order not found.');return$updated;
@@ -219,14 +236,66 @@ function create_payment_attempt(array $order): array {
 function payment_attempt_by_guid(string $guid): ?array { foreach(payment_attempts()['attempts']??[] as $a)if(($a['guid']??'')===$guid)return$a;return null; }
 function payment_attempt_for_order(string $orderGuid): ?array { $rows=payment_attempts()['attempts']??[]; for($i=count($rows)-1;$i>=0;$i--){$a=$rows[$i];if(($a['order_guid']??'')===$orderGuid && in_array(($a['status']??''),['CREATED','FAILED'],true))return$a;}return null; }
 function sandbox_signature(string $raw): string { $secret=sandbox_webhook_secret();if($secret==='')throw new RuntimeException('ATELIER_SANDBOX_WEBHOOK_SECRET is not configured.');return hash_hmac('sha256',$raw,$secret); }
+/**
+ * Reconcile the durable provider event with its order on every delivery, including retries.
+ * A crash between writing the event and the order must never make a retry a no-op.
+ */
+function reconcile_sandbox_payment(string $attemptGuid): array {
+    $attempt=payment_attempt_by_guid($attemptGuid);
+    if(!$attempt)throw new RuntimeException('Payment attempt not found.');
+    $order=order_by_guid((string)$attempt['order_guid']);
+    if(!$order)throw new RuntimeException('Order not found for payment attempt.');
+    $state=(string)($attempt['status']??'');
+    if($state==='PAID') {
+        if(($order['payment_status']??'')!=='PAID') {
+            if(in_array(($order['status']??''),['CANCELLED','REFUNDED'],true))throw new RuntimeException('Payment requires manual reconciliation for terminal order.');
+            order_set_payment_status($order['guid'],'PAID',['provider'=>'sandbox','attempt_guid'=>$attemptGuid,'provider_reference'=>$attempt['provider_reference']??null]);
+        }
+        $order=order_by_guid($order['guid']);
+        if(($order['status']??'')==='PENDING_PAYMENT')order_transition($order['guid'],'PAID','payment-webhook','Sandbox payment verified.');
+    } elseif($state==='FAILED' && ($order['payment_status']??'')==='PENDING') {
+        order_set_payment_status($order['guid'],'FAILED',['provider'=>'sandbox','attempt_guid'=>$attemptGuid]);
+    }
+    return ['ok'=>true,'order_guid'=>$order['guid'],'payment_status'=>$state];
+}
 function process_payment_event(array $event,string $raw,string $signature): array {
-    $secret=sandbox_webhook_secret();if($secret==='')throw new RuntimeException('Sandbox webhook secret is not configured.');$expected=hash_hmac('sha256',$raw,$secret);if(!hash_equals($expected,$signature))throw new RuntimeException('Webhook signature verification failed.');
-    foreach(['event_id','attempt_guid','status'] as $k)if(empty($event[$k]))throw new RuntimeException('Webhook payload is incomplete.');$status=strtoupper((string)$event['status']);if(!in_array($status,['SUCCESS','FAILED'],true))throw new RuntimeException('Unsupported payment event status.');$attempt=payment_attempt_by_guid((string)$event['attempt_guid']);if(!$attempt)throw new RuntimeException('Payment attempt not found.');
-    $processed=false;$duplicate=false;commerce_private_mutate(commerce_payment_file(),'atelierwood:payments:v1',function(array $store)use($event,$status,&$processed,&$duplicate){$store+=['attempts'=>[],'events'=>[]];foreach($store['events'] as $e)if(($e['event_id']??'')===$event['event_id']){$duplicate=true;return$store;}foreach($store['attempts'] as &$a)if(($a['guid']??'')===$event['attempt_guid']){$a['status']=$status==='SUCCESS'?'PAID':'FAILED';$a['updated_at']=gmdate('c');$a['provider_reference']=$event['provider_reference']??null;}$store['events'][]=['event_id'=>$event['event_id'],'attempt_guid'=>$event['attempt_guid'],'status'=>$status,'provider_reference'=>$event['provider_reference']??null,'received_at'=>gmdate('c')];$processed=true;return$store;},'payment.webhook');
-    if($duplicate)return['ok'=>true,'duplicate'=>true,'order_guid'=>$attempt['order_guid']];if(!$processed)throw new RuntimeException('Payment event was not processed.');
-    if($status==='SUCCESS'){$o=order_by_guid($attempt['order_guid']);if(!$o)throw new RuntimeException('Order not found.');if(($o['payment_status']??'')!=='PAID'){order_set_payment_status($o['guid'],'PAID',['provider'=>'sandbox','attempt_guid'=>$attempt['guid'],'provider_reference'=>$event['provider_reference']??null]);$o=order_by_guid($o['guid']);if(($o['status']??'')==='PENDING_PAYMENT')order_transition($o['guid'],'PAID','payment-webhook','Sandbox payment verified.');commerce_cart_clear();}}
-    else { order_set_payment_status($attempt['order_guid'],'FAILED',['provider'=>'sandbox','attempt_guid'=>$attempt['guid']]); }
-    commerce_audit('payment.webhook',['event_id'=>$event['event_id'],'attempt_guid'=>$attempt['guid'],'status'=>$status]);return['ok'=>true,'duplicate'=>false,'order_guid'=>$attempt['order_guid']];
+    $secret=sandbox_webhook_secret();
+    if($secret==='')throw new RuntimeException('Sandbox webhook secret is not configured.');
+    if(!hash_equals(hash_hmac('sha256',$raw,$secret),$signature))throw new RuntimeException('Webhook signature verification failed.');
+    foreach(['event_id','attempt_guid','status'] as $key)if(!is_string($event[$key]??null)||trim($event[$key])==='')throw new RuntimeException('Webhook payload is incomplete.');
+    $status=strtoupper($event['status']);
+    if(!in_array($status,['SUCCESS','FAILED'],true))throw new RuntimeException('Unsupported payment status.');
+    $attemptGuid=$event['attempt_guid'];
+    $duplicate=false;
+    $store=commerce_private_mutate(commerce_payment_file(),'atelierwood:payments:v1',function(array $store)use($event,$attemptGuid,$status,&$duplicate){
+        $store+=['attempts'=>[],'events'=>[]];
+        foreach($store['events'] as $previous) {
+            if(($previous['event_id']??'')===($event['event_id']??'')) {
+                if(($previous['attempt_guid']??'')!==$attemptGuid||($previous['status']??'')!==$status)throw new RuntimeException('Conflicting webhook replay.');
+                $duplicate=true;
+                return $store;
+            }
+        }
+        $found=false;
+        foreach($store['attempts'] as &$attempt) {
+            if(($attempt['guid']??'')!==$attemptGuid)continue;
+            $found=true;
+            if(($attempt['status']??'')==='PAID'&&$status==='FAILED')throw new RuntimeException('Cannot regress successful payment.');
+            $attempt['status']=$status==='SUCCESS'?'PAID':'FAILED';
+            $attempt['updated_at']=gmdate('c');
+            if(isset($event['provider_reference']))$attempt['provider_reference']=(string)$event['provider_reference'];
+            break;
+        }
+        unset($attempt);
+        if(!$found)throw new RuntimeException('Payment attempt not found.');
+        $store['events'][]=['event_id'=>$event['event_id'],'attempt_guid'=>$attemptGuid,'status'=>$status,'provider_reference'=>$event['provider_reference']??null,'received_at'=>gmdate('c')];
+        return $store;
+    },'payment.webhook');
+    // Reconciliation occurs even when an event was previously recorded as processed.
+    // Do not clear the current HTTP session cart: provider webhooks are session independent.
+    $result=reconcile_sandbox_payment($attemptGuid);
+    commerce_audit('payment.webhook',['event_id'=>$event['event_id'],'attempt_guid'=>$attemptGuid,'status'=>$status,'duplicate'=>$duplicate]);
+    return ['ok'=>true,'duplicate'=>$duplicate,'order_guid'=>$result['order_guid']];
 }
 function sandbox_complete_attempt(string $attemptGuid,string $status): array {
     $attempt=payment_attempt_by_guid($attemptGuid);if(!$attempt)throw new RuntimeException('Payment attempt not found.');$event=['event_id'=>'evt_'.bin2hex(random_bytes(10)),'attempt_guid'=>$attemptGuid,'status'=>$status,'provider_reference'=>'sbx_'.bin2hex(random_bytes(6))];$raw=json_encode($event,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR);return process_payment_event($event,$raw,sandbox_signature($raw));
