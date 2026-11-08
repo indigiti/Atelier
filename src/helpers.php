@@ -90,7 +90,9 @@ function category_label(string $category): string {
 }
 
 function image_url(string $file): string {
-    return asset('images/products/' . $file);
+    $file=basename($file);
+    if(is_file(atelier_upload_root().'/products/'.$file))return url('/media/products/'.rawurlencode($file));
+    return asset('images/products/'.$file);
 }
 
 function flash(string $key, ?string $value = null): ?string {

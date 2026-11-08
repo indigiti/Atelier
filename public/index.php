@@ -21,6 +21,18 @@ if ($base && str_starts_with($uriPath, $base)) $uriPath = substr($uriPath, strle
 $path = '/' . trim($uriPath, '/');
 if ($path === '//') $path = '/';
 $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+/* Runtime-generated images are served from persistent private storage. */
+if ($method==='GET' && preg_match('#^/media/(products|passports)/([A-Za-z0-9._-]+\\.(?:webp|jpe?g|png))$#',$path,$mediaRoute)) {
+    $kind=$mediaRoute[1];$filename=$mediaRoute[2];
+    $pathOnDisk=atelier_upload_root().'/'.$kind.'/'.$filename;
+    if(!is_file($pathOnDisk)||!is_readable($pathOnDisk)){http_response_code(404);exit('Media not found.');}
+    $ext=strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+    header('Content-Type: '.match($ext){'png'=>'image/png','jpg','jpeg'=>'image/jpeg',default=>'image/webp'});
+    header('Content-Length: '.(string)filesize($pathOnDisk));
+    header('Cache-Control: public, max-age=86400');
+    readfile($pathOnDisk);exit;
+}
+
 if (!headers_sent() && (!seo_indexable_environment() || seo_private_route($path))) {
     header('X-Robots-Tag: noindex, nofollow, noarchive');
 }

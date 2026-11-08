@@ -9,7 +9,7 @@ declare(strict_types=1);
  * in the domain layer, and explicit confidential-data encryption helpers.
  */
 
-function foundation_root(): string { return dirname(__DIR__) . '/storage'; }
+function foundation_root(): string { return function_exists('data_root') ? data_root() : (trim((string)getenv('ATELIER_STORAGE_ROOT')) ?: dirname(__DIR__).'/storage'); }
 function foundation_lock_dir(): string { return foundation_root() . '/locks'; }
 function foundation_tx_dir(): string { return foundation_root() . '/journals/transactions'; }
 function foundation_security_dir(): string { return foundation_root() . '/private-domain/security'; }

@@ -24,3 +24,14 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check pillow qrcode
       - name: Verify test isolation and run disposable suite
         run: bash scripts/full_regression.sh
+      - name: Validate DigiOps staging release and persistent-state protection
+        run: bash tests/digiops_package.sh
+      - name: Publish DigiOps release artifact from verified main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: digiops-release
+          path: build/digiops/release/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error

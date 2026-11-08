@@ -29,6 +29,34 @@ require_once $root . '/src/tradeos.php';
 require_once $root . '/src/integrations.php';
 require_once $root . '/src/seo.php';
 require_once $root . '/src/commerceux.php';
+
+/** Populate private persistent storage exactly once. Never replace existing runtime data. */
+function atelier_seed_runtime_storage(string $sourceRoot): void {
+    $target=data_root();
+    if(rtrim($sourceRoot.'/storage','/')===rtrim($target,'/'))return;
+    if(!is_dir($target) && !@mkdir($target,0750,true) && !is_dir($target))throw new RuntimeException('Persistent storage is unavailable.');
+    $lock=@fopen($target.'/.atelier-seed.lock','c+');
+    if(!$lock||!flock($lock,LOCK_EX))throw new RuntimeException('Persistent storage seed lock unavailable.');
+    try {
+        foreach(['catalog/products.json','catalog/taxonomies.json','catalog/configurator-rules.json','commerce/shipping-zones.json','content/cms.json','media/mediaos.json','themes/theme-settings.json'] as $relative){
+            $source=$sourceRoot.'/storage/public-domain/'.$relative;
+            if(!is_file($source))throw new RuntimeException('Required release seed missing: '.$relative);
+            $destination=$target.'/public-domain/'.$relative;
+            $directory=dirname($destination);
+            if(!is_dir($directory)&&!@mkdir($directory,0750,true)&&!is_dir($directory))throw new RuntimeException('Could not create persistent storage directory.');
+            if(!is_file($destination)){
+                $content=file_get_contents($source);
+                if($content===false)throw new RuntimeException('Could not read release seed.');
+                $handle=@fopen($destination,'x');
+                if(!$handle)throw new RuntimeException('Could not seed persistent state: '.$relative);
+                try { if(fwrite($handle,$content)!==strlen($content))throw new RuntimeException('Incomplete seed write: '.$relative);fflush($handle); }
+                finally { fclose($handle); }
+                @chmod($destination,0640);
+            }
+        }
+    } finally { flock($lock,LOCK_UN);fclose($lock); }
+}
+atelier_seed_runtime_storage($root);
 mediaos_ensure_catalog();
 designos_ensure_dirs();
 intelligence_ensure_dirs();
@@ -73,7 +101,7 @@ $_SESSION['_last_activity'] = $now;
 foundation_ensure_dirs();
 ensure_storage_dirs();
 
-$catalogPath = $root . '/storage/public-domain/catalog/products.json';
+$catalogPath = data_root().'/public-domain/catalog/products.json';
 $products = foundation_json_read($catalogPath, []);
 $GLOBALS['products'] = is_array($products) ? $products : [];
 $GLOBALS['catalog_checksum'] = foundation_checksum($catalogPath);
