@@ -1,10 +1,20 @@
 <?php
 $app = $GLOBALS['app'];
-$pageTitle = isset($title) ? $title . ' — ' . $app['name'] : $app['name'];
+$pageTitle = isset($title) ? (preg_match('/(?:[|—-])\s*'.preg_quote($app['name'],'/').'$/iu',(string)$title) ? (string)$title : $title . ' — ' . $app['name']) : $app['name'];
 $pageDescription = $description ?? 'Handcrafted wooden objects for beautiful living.';
-$pageRobots = $robots ?? 'index,follow,max-image-preview:large';
-$pageCanonical = $canonical ?? absolute_url(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/');
-$pageOgType = $og_type ?? 'website';
+$seoPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$seoBase = base_path();
+if($seoBase && str_starts_with($seoPath,$seoBase.'/')) $seoPath=substr($seoPath,strlen($seoBase)) ?: '/';
+$pageRobots = seo_robots_directive($seoPath,(array)($_GET??[]));
+if (seo_indexable_environment() && isset($robots)) $pageRobots = (string)$robots;
+if (http_response_code() >= 400) $pageRobots='noindex,nofollow';
+$pageCanonical = $canonical ?? seo_canonical($seoPath);
+$pageOgType = $og_type ?? (isset($product)?'product':(isset($item)?'article':'website'));
+$pageOgImage = isset($product) ? absolute_url(image_url(mediaos_primary_file($product))) : absolute_url(image_url('branch-sculpture.webp'));
+$pageSchema = seo_document_graph($seoPath,(string)($title??$app['name']),(string)$pageDescription,$product??null,$item??null);
+if (!isset($product) && !isset($item) && !empty($schema) && !empty($schema['@type'])) {
+    $extra=$schema;unset($extra['@context']);$pageSchema['@graph'][]=$extra;
+}
 $themeSurface = $themeSurface ?? 'default';
 $pageTheme = function_exists('theme_resolve') ? theme_resolve($themeSurface) : ['key'=>'atelier-natural','surface'=>$themeSurface,'tokens'=>['bg'=>'#f4efe6']];
 $themeStyle = function_exists('theme_css_variables') ? theme_css_variables($pageTheme) : '';
@@ -25,8 +35,14 @@ $error = flash('error');
 <meta property="og:description" content="<?= e($pageDescription) ?>">
 <meta property="og:type" content="<?= e($pageOgType) ?>">
 <meta property="og:url" content="<?= e($pageCanonical) ?>">
+<meta property="og:site_name" content="<?= e($app['name']) ?>">
+<meta property="og:image" content="<?= e($pageOgImage) ?>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= e($pageTitle) ?>">
+<meta name="twitter:description" content="<?= e($pageDescription) ?>">
+<meta name="twitter:image" content="<?= e($pageOgImage) ?>">
 <link rel="stylesheet" href="<?= e(asset('css/app.css')) ?>">
-<?php if (!empty($schema)): ?><script type="application/ld+json" nonce="<?= e($GLOBALS['csp_nonce'] ?? '') ?>"><?= json_encode($schema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?></script><?php endif; ?>
+<script type="application/ld+json" nonce="<?= e($GLOBALS['csp_nonce'] ?? '') ?>"><?= json_encode($pageSchema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_THROW_ON_ERROR) ?></script>
 </head>
 <body class="page-theme page-theme-<?= e($pageTheme['key'] ?? 'atelier-natural') ?> surface-<?= e(str_replace('_','-',$pageTheme['surface'] ?? 'default')) ?>" style="<?= e($themeStyle) ?>" data-page-theme="<?= e($pageTheme['key'] ?? 'atelier-natural') ?>">
 <a class="skip-link" href="#main">Skip to content</a>

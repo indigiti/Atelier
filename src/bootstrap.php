@@ -27,6 +27,7 @@ require_once $root . '/src/intelligence.php';
 require_once $root . '/src/passport.php';
 require_once $root . '/src/tradeos.php';
 require_once $root . '/src/integrations.php';
+require_once $root . '/src/seo.php';
 require_once $root . '/src/commerceux.php';
 mediaos_ensure_catalog();
 designos_ensure_dirs();

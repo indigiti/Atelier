@@ -5,18 +5,18 @@
             "type": "GUIDE",
             "title": "Test Wood Guide",
             "slug": "test-wood-guide",
-            "status": "PUBLISHED",
+            "status": "DRAFT",
             "excerpt": "A useful test guide for SEO publishing.",
             "body": "## Start here\n\nTest editorial body.\n\n[[block:care-note]]",
             "hero_image": "",
             "seo": {
                 "title": "Test Wood Guide | Atelier Wood",
                 "description": "A complete staging test guide for the CMS and SEO layer.",
-                "noindex": false
+                "noindex": true
             },
             "created_at": "2026-09-14T11:56:54+00:00",
             "updated_at": "2026-09-14T11:56:54+00:00",
-            "published_at": "2026-09-14T11:56:54+00:00",
+            "published_at": null,
             "author": "Admin"
         }
     ],

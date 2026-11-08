@@ -247,3 +247,16 @@ body.sheet-open{overflow:hidden}
 
 /* Secure consultation capture */
 .consultation-form{display:grid;gap:1rem;margin-block:1.5rem}.consultation-form label{display:grid;gap:.4rem;font-size:.85rem;font-weight:600}.consultation-form input,.consultation-form textarea{width:100%;max-width:100%;padding:.85rem;border:1px solid var(--line,#c9c2b8);border-radius:8px;background:var(--surface,#fff);color:inherit;font:inherit}.consultation-form .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}@media(max-width:640px){.consultation-form .form-grid{grid-template-columns:1fr}}
+
+
+/* SEO / AI Discoverability admin diagnostics */
+.seo-metrics {margin-block:1.5rem}
+.seo-source-panel {margin-block:1.5rem}
+.seo-source-links {display:flex;flex-wrap:wrap;gap:.75rem}
+.seo-source-links a {display:inline-block;padding:.55rem .8rem;border:1px solid currentColor;border-radius:8px;text-decoration:none}
+.seo-product-head {margin-block:1.8rem .8rem}
+.seo-count {display:inline-block;min-width:2.1rem;text-align:center;padding:.2rem .55rem;border-radius:20px;font-weight:700}
+.seo-count-warn {background:#fdf0d7;color:#7c4a06}
+.seo-count-ok {background:#e9f6ee;color:#17643a}
+.seo-good {color:#17643a}
+.seo-issue-list {margin:0;padding-left:1rem;line-height:1.65}
