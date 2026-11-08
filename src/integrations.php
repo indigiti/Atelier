@@ -8,7 +8,7 @@ function agent_product_dto(array $p): array { $d=ai_product_dto($p);$d['sku']=$p
 function integration_public_catalog(string $q=''): array { $q=text_lower(trim($q));$rows=[];foreach(products_public() as $p){if($q!==''&&!str_contains(text_lower($p['name'].' '.$p['short'].' '.$p['category_label'].' '.implode(' ',(array)($p['tags']??[]))),$q))continue;$rows[]=public_product_dto($p);}return$rows; }
 function merchant_xml(): string {
     $esc=fn($v)=>htmlspecialchars((string)$v,ENT_QUOTES|ENT_XML1,'UTF-8');
-    $xml='<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0"><channel>';
+    $xml="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<rss version=\"2.0\" xmlns:g=\"http://base.google.com/ns/1.0\"><channel>";
     $xml.='<title>Atelier Wood</title><link>'.$esc(absolute_url('/')).'</link><description>Atelier Wood product feed</description>';
     foreach(products_public() as $p){$d=merchant_product_dto($p);$xml.='<item>';
         foreach($d as $k=>$v){$tag=in_array($k,['title','description','link'],true)?$k:'g:'.$k;$xml.='<'.$tag.'>'.$esc($v).'</'.$tag.'>';}

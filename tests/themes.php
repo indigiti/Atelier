@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 require dirname(__DIR__).'/src/bootstrap.php';
 $registry=theme_registry();
 foreach(['atelier-natural','sacred-luxury','sacred-ivory','heritage-walnut','sacred-noir'] as $key){

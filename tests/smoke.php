@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root = dirname(__DIR__);
 $catalog = json_decode((string)file_get_contents($root . '/storage/public-domain/catalog/products.json'), true);
 $tax = json_decode((string)file_get_contents($root . '/storage/public-domain/catalog/taxonomies.json'), true);

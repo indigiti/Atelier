@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root=dirname(__DIR__);putenv('APP_ENV=staging');putenv('ATELIER_DATA_KEY='.base64_encode(str_repeat('C',32)));putenv('ATELIER_SANDBOX_WEBHOOK_SECRET=cms-test-secret');$_SERVER['REMOTE_ADDR']='127.0.0.1';$_SERVER['REQUEST_URI']='/';$_SERVER['SCRIPT_NAME']='/index.php';require $root.'/src/bootstrap.php';
 $errors=[];function ccheck(bool $ok,string $msg):void{global $errors;if(!$ok)$errors[]=$msg;}$_SESSION['admin_user']=['guid'=>'019-test-admin','email'=>'admin@example.invalid','name'=>'Admin','role'=>'admin'];@unlink(cms_file());
 try{

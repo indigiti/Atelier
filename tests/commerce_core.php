@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root=dirname(__DIR__);
 putenv('APP_ENV=staging');
 if(!getenv('ATELIER_DATA_KEY')) putenv('ATELIER_DATA_KEY='.base64_encode(random_bytes(32)));
@@ -42,11 +43,16 @@ try {
     $sig=sandbox_signature($raw);
     $r1=process_payment_event($event,$raw,$sig); $r2=process_payment_event($event,$raw,$sig);
     check(empty($r1['duplicate']) && !empty($r2['duplicate']),'Payment event idempotency failed.');
+    try { process_payment_event(['event_id'=>'evt_fixed_001','attempt_guid'=>$attempt['guid'],'status'=>'FAILED'],$raw,$sig); $errors[]='Conflicting webhook replay accepted.'; } catch(Throwable) {}
+    // Re-send an already persisted SUCCESS event after simulating an incomplete order update.
+    order_set_payment_status($order['guid'],'PENDING');
+    $reconciled=process_payment_event($event,$raw,$sig);
+    check(!empty($reconciled['duplicate']) && (order_by_guid($order['guid'])['payment_status']??'')==='PAID','Payment retry did not reconcile order state.');
     $paid=order_by_guid($order['guid']);
     check(($paid['status']??'')==='PAID' && ($paid['payment_status']??'')==='PAID','Successful payment did not update order.');
     check(!empty($paid['invoice']['number']),'Invoice was not issued on verified payment.');
     try { process_payment_event($event,$raw,'invalid-signature'); $errors[]='Invalid webhook signature accepted.'; } catch(Throwable) {}
-    check(commerce_cart_count()===0,'Cart did not clear after verified payment.');
+    check(commerce_cart_count()===2,'Webhook must not clear an unrelated browser cart.');
     check(!order_can_transition('DELIVERED','PENDING_PAYMENT'),'Invalid order rollback transition is allowed.');
 
     // Object authorization: a second customer cannot resolve the first customer's address/order.

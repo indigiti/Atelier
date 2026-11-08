@@ -123,13 +123,14 @@ function foundation_json_write(string $path, array $payload, ?string $expectedCh
 function foundation_json_read(string $path, array $default = []): array {
     if (!is_file($path)) return $default;
     $raw = @file_get_contents($path);
-    if ($raw === false) return $default;
+    if ($raw === false) throw new RuntimeException('Existing JSON store is unreadable: '.basename($path));
     try {
         $value = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
-        return is_array($value) ? $value : $default;
-    } catch (Throwable) {
-        return $default;
+    } catch (JsonException $e) {
+        throw new RuntimeException('Existing JSON store is corrupt: '.basename($path), 0, $e);
     }
+    if (!is_array($value)) throw new RuntimeException('Existing JSON store has invalid shape: '.basename($path));
+    return $value;
 }
 
 function foundation_incomplete_transactions(): array {
@@ -258,7 +259,10 @@ function confidential_json_mutate(string $path, string $context, callable $mutat
         $current = [];
         if (is_file($path)) {
             $env = foundation_json_read($path, []);
-            if ($env) $current = confidential_decrypt($env, $context);
+            if (!isset($env['alg'], $env['ciphertext'])) {
+                throw new RuntimeException('Existing confidential store has invalid envelope: '.basename($path));
+            }
+            $current = confidential_decrypt($env, $context);
         }
         $next = $mutator($current);
         if (!is_array($next)) throw new RuntimeException('Confidential mutator must return an array.');

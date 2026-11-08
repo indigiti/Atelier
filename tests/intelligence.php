@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require __DIR__.'/_isolation.php';
 $root=dirname(__DIR__);putenv('APP_ENV=staging');if(!getenv('ATELIER_DATA_KEY'))putenv('ATELIER_DATA_KEY='.base64_encode(str_repeat('I',32)));if(!getenv('ATELIER_SANDBOX_WEBHOOK_SECRET'))putenv('ATELIER_SANDBOX_WEBHOOK_SECRET=intel-test');$_SERVER['SCRIPT_NAME']='/index.php';$_SERVER['HTTP_HOST']='staging.example.test';$_SERVER['REMOTE_ADDR']='127.0.0.1';require $root.'/src/bootstrap.php';
 foreach([commerce_customer_file(),commerce_rate_file(),designos_room_file(),designos_style_file(),intelligence_file()] as $f) @unlink($f); $_SESSION=[]; $_SESSION['_created_at']=time(); $_SESSION['_last_activity']=time();
 $errors=[];$email='intel'.bin2hex(random_bytes(3)).'@example.test';[$ok,$u]=customer_register(['name'=>'Visual Client','email'=>$email,'password'=>'StrongPassword!123']);if(!$ok)$errors[]='Customer setup failed.';customer_login($email,'StrongPassword!123');$room=designos_create_room(['name'=>'Visual Living','room_type'=>'living-room','width_cm'=>360,'length_cm'=>480,'ceiling_cm'=>280,'budget'=>50000]);

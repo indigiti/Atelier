@@ -219,14 +219,66 @@ function create_payment_attempt(array $order): array {
 function payment_attempt_by_guid(string $guid): ?array { foreach(payment_attempts()['attempts']??[] as $a)if(($a['guid']??'')===$guid)return$a;return null; }
 function payment_attempt_for_order(string $orderGuid): ?array { $rows=payment_attempts()['attempts']??[]; for($i=count($rows)-1;$i>=0;$i--){$a=$rows[$i];if(($a['order_guid']??'')===$orderGuid && in_array(($a['status']??''),['CREATED','FAILED'],true))return$a;}return null; }
 function sandbox_signature(string $raw): string { $secret=sandbox_webhook_secret();if($secret==='')throw new RuntimeException('ATELIER_SANDBOX_WEBHOOK_SECRET is not configured.');return hash_hmac('sha256',$raw,$secret); }
+/**
+ * Reconcile the durable provider event with its order on every delivery, including retries.
+ * A crash between writing the event and the order must never make a retry a no-op.
+ */
+function reconcile_sandbox_payment(string $attemptGuid): array {
+    $attempt=payment_attempt_by_guid($attemptGuid);
+    if(!$attempt)throw new RuntimeException('Payment attempt not found.');
+    $order=order_by_guid((string)$attempt['order_guid']);
+    if(!$order)throw new RuntimeException('Order not found for payment attempt.');
+    $state=(string)($attempt['status']??'');
+    if($state==='PAID') {
+        if(($order['payment_status']??'')!=='PAID') {
+            if(in_array(($order['status']??''),['CANCELLED','REFUNDED'],true))throw new RuntimeException('Payment requires manual reconciliation for terminal order.');
+            order_set_payment_status($order['guid'],'PAID',['provider'=>'sandbox','attempt_guid'=>$attemptGuid,'provider_reference'=>$attempt['provider_reference']??null]);
+        }
+        $order=order_by_guid($order['guid']);
+        if(($order['status']??'')==='PENDING_PAYMENT')order_transition($order['guid'],'PAID','payment-webhook','Sandbox payment verified.');
+    } elseif($state==='FAILED' && ($order['payment_status']??'')==='PENDING') {
+        order_set_payment_status($order['guid'],'FAILED',['provider'=>'sandbox','attempt_guid'=>$attemptGuid]);
+    }
+    return ['ok'=>true,'order_guid'=>$order['guid'],'payment_status'=>$state];
+}
 function process_payment_event(array $event,string $raw,string $signature): array {
-    $secret=sandbox_webhook_secret();if($secret==='')throw new RuntimeException('Sandbox webhook secret is not configured.');$expected=hash_hmac('sha256',$raw,$secret);if(!hash_equals($expected,$signature))throw new RuntimeException('Webhook signature verification failed.');
-    foreach(['event_id','attempt_guid','status'] as $k)if(empty($event[$k]))throw new RuntimeException('Webhook payload is incomplete.');$status=strtoupper((string)$event['status']);if(!in_array($status,['SUCCESS','FAILED'],true))throw new RuntimeException('Unsupported payment event status.');$attempt=payment_attempt_by_guid((string)$event['attempt_guid']);if(!$attempt)throw new RuntimeException('Payment attempt not found.');
-    $processed=false;$duplicate=false;commerce_private_mutate(commerce_payment_file(),'atelierwood:payments:v1',function(array $store)use($event,$status,&$processed,&$duplicate){$store+=['attempts'=>[],'events'=>[]];foreach($store['events'] as $e)if(($e['event_id']??'')===$event['event_id']){$duplicate=true;return$store;}foreach($store['attempts'] as &$a)if(($a['guid']??'')===$event['attempt_guid']){$a['status']=$status==='SUCCESS'?'PAID':'FAILED';$a['updated_at']=gmdate('c');$a['provider_reference']=$event['provider_reference']??null;}$store['events'][]=['event_id'=>$event['event_id'],'attempt_guid'=>$event['attempt_guid'],'status'=>$status,'provider_reference'=>$event['provider_reference']??null,'received_at'=>gmdate('c')];$processed=true;return$store;},'payment.webhook');
-    if($duplicate)return['ok'=>true,'duplicate'=>true,'order_guid'=>$attempt['order_guid']];if(!$processed)throw new RuntimeException('Payment event was not processed.');
-    if($status==='SUCCESS'){$o=order_by_guid($attempt['order_guid']);if(!$o)throw new RuntimeException('Order not found.');if(($o['payment_status']??'')!=='PAID'){order_set_payment_status($o['guid'],'PAID',['provider'=>'sandbox','attempt_guid'=>$attempt['guid'],'provider_reference'=>$event['provider_reference']??null]);$o=order_by_guid($o['guid']);if(($o['status']??'')==='PENDING_PAYMENT')order_transition($o['guid'],'PAID','payment-webhook','Sandbox payment verified.');commerce_cart_clear();}}
-    else { order_set_payment_status($attempt['order_guid'],'FAILED',['provider'=>'sandbox','attempt_guid'=>$attempt['guid']]); }
-    commerce_audit('payment.webhook',['event_id'=>$event['event_id'],'attempt_guid'=>$attempt['guid'],'status'=>$status]);return['ok'=>true,'duplicate'=>false,'order_guid'=>$attempt['order_guid']];
+    $secret=sandbox_webhook_secret();
+    if($secret==='')throw new RuntimeException('Sandbox webhook secret is not configured.');
+    if(!hash_equals(hash_hmac('sha256',$raw,$secret),$signature))throw new RuntimeException('Webhook signature verification failed.');
+    foreach(['event_id','attempt_guid','status'] as $key)if(!is_string($event[$key]??null)||trim($event[$key])==='')throw new RuntimeException('Webhook payload is incomplete.');
+    $status=strtoupper($event['status']);
+    if(!in_array($status,['SUCCESS','FAILED'],true))throw new RuntimeException('Unsupported payment status.');
+    $attemptGuid=$event['attempt_guid'];
+    $duplicate=false;
+    $store=commerce_private_mutate(commerce_payment_file(),'atelierwood:payments:v1',function(array $store)use($event,$attemptGuid,$status,&$duplicate){
+        $store+=['attempts'=>[],'events'=>[]];
+        foreach($store['events'] as $previous) {
+            if(($previous['event_id']??'')===($event['event_id']??'')) {
+                if(($previous['attempt_guid']??'')!==$attemptGuid||($previous['status']??'')!==$status)throw new RuntimeException('Conflicting webhook replay.');
+                $duplicate=true;
+                return $store;
+            }
+        }
+        $found=false;
+        foreach($store['attempts'] as &$attempt) {
+            if(($attempt['guid']??'')!==$attemptGuid)continue;
+            $found=true;
+            if(($attempt['status']??'')==='PAID'&&$status==='FAILED')throw new RuntimeException('Cannot regress successful payment.');
+            $attempt['status']=$status==='SUCCESS'?'PAID':'FAILED';
+            $attempt['updated_at']=gmdate('c');
+            if(isset($event['provider_reference']))$attempt['provider_reference']=(string)$event['provider_reference'];
+            break;
+        }
+        unset($attempt);
+        if(!$found)throw new RuntimeException('Payment attempt not found.');
+        $store['events'][]=['event_id'=>$event['event_id'],'attempt_guid'=>$attemptGuid,'status'=>$status,'provider_reference'=>$event['provider_reference']??null,'received_at'=>gmdate('c')];
+        return $store;
+    },'payment.webhook');
+    // Reconciliation occurs even when an event was previously recorded as processed.
+    // Do not clear the current HTTP session cart: provider webhooks are session independent.
+    $result=reconcile_sandbox_payment($attemptGuid);
+    commerce_audit('payment.webhook',['event_id'=>$event['event_id'],'attempt_guid'=>$attemptGuid,'status'=>$status,'duplicate'=>$duplicate]);
+    return ['ok'=>true,'duplicate'=>$duplicate,'order_guid'=>$result['order_guid']];
 }
 function sandbox_complete_attempt(string $attemptGuid,string $status): array {
     $attempt=payment_attempt_by_guid($attemptGuid);if(!$attempt)throw new RuntimeException('Payment attempt not found.');$event=['event_id'=>'evt_'.bin2hex(random_bytes(10)),'attempt_guid'=>$attemptGuid,'status'=>$status,'provider_reference'=>'sbx_'.bin2hex(random_bytes(6))];$raw=json_encode($event,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR);return process_payment_event($event,$raw,sandbox_signature($raw));
