@@ -21,11 +21,15 @@ if ($base && str_starts_with($uriPath, $base)) $uriPath = substr($uriPath, strle
 $path = '/' . trim($uriPath, '/');
 if ($path === '//') $path = '/';
 $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+if (!headers_sent() && (!seo_indexable_environment() || seo_private_route($path))) {
+    header('X-Robots-Tag: noindex, nofollow, noarchive');
+}
 if (str_starts_with($path,'/account') || str_starts_with($path,'/admin') || str_starts_with($path,'/trade')) { header('Cache-Control: no-store, private'); header('Pragma: no-cache'); }
 
 if ($method==='GET' && !str_starts_with($path,'/admin/')) {
-    if ($path==='/robots.txt') { header('Content-Type: text/plain; charset=utf-8'); echo "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /account/\nSitemap: ".absolute_url('/sitemap.xml')."\n"; exit; }
-    if ($path==='/sitemap.xml') { header('Content-Type: application/xml; charset=utf-8'); echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"; foreach(cms_sitemap_urls() as $u){echo '<url><loc>'.e(absolute_url($u['loc'])).'</loc><lastmod>'.e($u['lastmod']).'</lastmod></url>';} echo '</urlset>'; exit; }
+    if ($path==='/robots.txt') { header('Content-Type: text/plain; charset=utf-8'); echo seo_robots_txt(); exit; }
+    if ($path==='/sitemap.xml') { header('Content-Type: application/xml; charset=utf-8'); echo seo_sitemap_xml(); exit; }
+    if ($path==='/llms.txt') { header('Content-Type: text/plain; charset=utf-8'); echo seo_llms_txt(); exit; }
     if ($r=cms_redirect_for_path($path)) { http_response_code((int)$r['code']); header('Location: '.url((string)$r['to'])); exit; }
 }
 
@@ -48,6 +52,7 @@ if ($path === '/ready') {
 }
 
 /* ---------------- Explicit feeds / agent-safe APIs ---------------- */
+if ($path==='/feeds/knowledge.json' && $method==='GET'){enforce_api_rate_limit('feed-knowledge',120,60);header('Content-Type: application/ld+json; charset=utf-8');echo json_encode(seo_knowledge_graph(),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR);exit;}
 if ($path==='/feeds/google-merchant.xml' && $method==='GET'){enforce_api_rate_limit('feed-merchant',180,60);header('Content-Type: application/xml; charset=utf-8');echo merchant_xml();exit;}
 if ($path==='/feeds/ai-products.json' && $method==='GET'){enforce_api_rate_limit('feed-ai',180,60);header('Content-Type: application/json; charset=utf-8');echo json_encode(['version'=>$GLOBALS['app']['version'],'generated_at'=>gmdate('c'),'products'=>array_map('ai_product_dto',products_public())],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);exit;}
 if ($path==='/feeds/agent-products.json' && $method==='GET'){enforce_api_rate_limit('feed-agent',180,60);header('Content-Type: application/json; charset=utf-8');echo json_encode(['products'=>array_map('agent_product_dto',products_public())],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);exit;}
@@ -131,6 +136,8 @@ if ($path === '/admin' || str_starts_with($path,'/admin/')) {
     if ($path === '/admin/procurement') { render_admin('procurement',['title'=>'Procurement & Inventory','suppliers'=>procurement_suppliers(),'materials'=>procurement_materials(),'stock'=>procurement_stock_summary(),'pos'=>procurement_purchase_orders()]); exit; }
     if ($path === '/admin/quality') { $jobGuid=trim((string)($_GET['job']??''));render_admin('quality',['title'=>'Quality & Evidence','jobs'=>makeos_open_jobs(),'jobGuid'=>$jobGuid,'defects'=>$jobGuid?quality_defects_for_job($jobGuid):[],'evidence'=>$jobGuid?quality_evidence_for_job($jobGuid):[],'lots'=>procurement_lots()]); exit; }
     if ($path === '/admin/fulfilment') { render_admin('fulfilment',['title'=>'Fulfilment & Installation','shipments'=>fulfilment_shipments(),'orders'=>admin_orders()]); exit; }
+    if ($path === '/admin/seo') { render_admin('seo',['title'=>'SEO & AI Discoverability','report'=>seo_diagnostics()]); exit; }
+    if ($path === '/admin/seo/diagnostics.json') { header('Content-Type: application/json; charset=utf-8');echo json_encode(seo_diagnostics(),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_THROW_ON_ERROR);exit; }
     if ($path === '/admin/cms') { render_admin('cms',['title'=>'CMS & SEO','items'=>cms_items(),'blocks'=>cms_store()['blocks'],'redirects'=>cms_store()['redirects']]); exit; }
     if ($path === '/admin/themes') { render_admin('themes',['title'=>'Theme Studio','rows'=>theme_admin_rows(),'registry'=>theme_registry()]); exit; }
     if ($path === '/admin/trade') { render_admin('trade',['title'=>'TradeOS','accounts'=>trade_accounts(),'projects'=>trade_projects()]); exit; }

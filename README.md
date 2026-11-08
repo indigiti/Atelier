@@ -46,3 +46,7 @@ php -S 127.0.0.1:8080 -t public router.php
 ```
 
 This remains **staging-only**. PostgreSQL authority is intentionally deferred to v0.9.9, payments remain sandbox until production gateway validation, and final media/specification/legal approval is still required.
+
+## SEO and AI Discoverability
+
+Technical SEO, Merchant feeds, AI-readable knowledge and the admin SEO Control Center are documented in [SEO_GEO_READINESS.md](SEO_GEO_READINESS.md). Staging remains noindex and production indexing/merchant acceptance are independent launch gates.

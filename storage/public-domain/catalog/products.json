@@ -1,1905 +1,1905 @@
 [
-  {
-    "slug": "artisan-branch-wall-sculpture",
-    "name": "Artisan Branch Wall Sculpture",
-    "sku": "AW-WD-001",
-    "category": "wall-shelves",
-    "category_label": "Wall Décor",
-    "price": 2490,
-    "featured": true,
-    "image": "branch-sculpture.webp",
-    "gallery": [
-      "branch-sculpture.webp"
-    ],
-    "material": "Seasoned hardwood + natural branch",
-    "finish": "Smoked walnut / whitewashed branch",
-    "dimensions": "Approx. 80 × 24 × 8 cm",
-    "lead_time": "7–10 working days",
-    "short": "Hand-finished statement wall sculpture that turns natural branch form into quiet architectural art.",
-    "description": "A vertical wood panel anchors a hand-selected branch composition, creating a sculptural piece for entryways, living rooms and meditation corners. Each branch varies naturally, so every piece has a slightly different silhouette.",
-    "tags": [
-      "wall decor",
-      "statement",
-      "sculpture",
-      "natural"
-    ],
-    "care": "Dust with a soft dry cloth. Avoid prolonged moisture and direct heat.",
-    "warranty": "12-month craftsmanship warranty.",
-    "materials": [
-      "Smoked walnut",
-      "Natural oak",
-      "Deep teak"
-    ],
-    "finishes": [
-      "Matte oil",
-      "Satin clear",
-      "Charcoal stain"
-    ],
-    "guid": "01a099fe-505a-7d43-8ba2-d110e9240571",
-    "status": "active",
-    "collection": "Living Walls",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "nordic-ladder-wall-shelf",
-    "name": "Nordic Ladder Wall Shelf",
-    "sku": "AW-SH-002",
-    "category": "wall-shelves",
-    "category_label": "Wall Shelves",
-    "price": 4990,
-    "featured": true,
-    "image": "nordic-ladder.webp",
-    "gallery": [
-      "nordic-ladder.webp"
-    ],
-    "material": "Solid pine / ash profile",
-    "finish": "Natural matte",
-    "dimensions": "Approx. 92 × 52 × 16 cm",
-    "lead_time": "8–12 working days",
-    "short": "Vertical display shelf for plants, books and keepsakes with a light Scandinavian rhythm.",
-    "description": "A staggered composition of solid-wood shelves framed by vertical rails. Designed for compact walls where plants, books and small objects should feel composed rather than crowded.",
-    "tags": [
-      "shelf",
-      "plants",
-      "scandinavian",
-      "storage"
-    ],
-    "care": "Wipe with a dry or slightly damp microfiber cloth.",
-    "warranty": "18-month structural warranty.",
-    "materials": [
-      "Natural pine",
-      "Ash",
-      "Teak"
-    ],
-    "finishes": [
-      "Natural matte",
-      "Honey oak",
-      "Warm walnut"
-    ],
-    "guid": "01a099fe-505b-7f1b-a502-e8b32741be0c",
-    "status": "active",
-    "collection": "Living Walls",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "chevron-walnut-shelf",
-    "name": "Chevron Walnut Shelf",
-    "sku": "AW-SH-003",
-    "category": "wall-shelves",
-    "category_label": "Wall Shelves",
-    "price": 5490,
-    "featured": true,
-    "image": "chevron-shelf.webp",
-    "gallery": [
-      "chevron-shelf.webp"
-    ],
-    "material": "Solid hardwood",
-    "finish": "Rich walnut",
-    "dimensions": "Approx. 115 × 62 × 18 cm",
-    "lead_time": "10–14 working days",
-    "short": "Sculptural zig-zag shelf in a deep walnut tone for books, ceramics and small objects.",
-    "description": "A bold diagonal spine creates five usable display ledges while reading visually as a single graphic gesture. Ideal for a narrow feature wall, reading corner or corridor.",
-    "tags": [
-      "shelf",
-      "walnut",
-      "geometric",
-      "display"
-    ],
-    "care": "Dust regularly; use wood-safe cleaner only when required.",
-    "warranty": "18-month structural warranty.",
-    "materials": [
-      "Walnut tone hardwood",
-      "Teak",
-      "Ash"
-    ],
-    "finishes": [
-      "Dark walnut",
-      "Natural teak",
-      "Charcoal"
-    ],
-    "guid": "01a099fe-505c-7840-b05e-111d3f4f6ca4",
-    "status": "active",
-    "collection": "Living Walls",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "dual-line-floating-shelf",
-    "name": "Dual Line Floating Shelf",
-    "sku": "AW-SH-004",
-    "category": "wall-shelves",
-    "category_label": "Wall Shelves",
-    "price": 1990,
-    "featured": true,
-    "image": "dual-line-shelf.webp",
-    "gallery": [
-      "dual-line-shelf.webp"
-    ],
-    "material": "Solid hardwood",
-    "finish": "Espresso walnut",
-    "dimensions": "Approx. 70 × 36 × 12 cm",
-    "lead_time": "5–8 working days",
-    "short": "Compact asymmetric wall shelf for small planters, candles and meaningful objects.",
-    "description": "Two clean horizontal planes meet a central support to create a minimal shelf that works well in bedrooms, entryways and small apartments.",
-    "tags": [
-      "minimal",
-      "floating shelf",
-      "compact"
-    ],
-    "care": "Dry dusting recommended. Keep away from standing water.",
-    "warranty": "12-month craftsmanship warranty.",
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Ash"
-    ],
-    "finishes": [
-      "Espresso",
-      "Natural",
-      "Walnut"
-    ],
-    "guid": "01a099fe-505d-71db-accd-d8eeed2372f5",
-    "status": "active",
-    "collection": "Living Walls",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "origami-triangle-shelf-set",
-    "name": "Origami Triangle Shelf Set",
-    "sku": "AW-SH-005",
-    "category": "wall-shelves",
-    "category_label": "Wall Shelves",
-    "price": 3490,
-    "featured": true,
-    "image": "origami-triangle.webp",
-    "gallery": [
-      "origami-triangle.webp"
-    ],
-    "material": "Solid wood",
-    "finish": "Warm teak",
-    "dimensions": "Set of 4 · 28–42 cm width",
-    "lead_time": "7–10 working days",
-    "short": "Geometric floating shelf set that creates a modular wall composition.",
-    "description": "Four triangular shelves can be arranged as a constellation, linear rhythm or compact cluster. The angled underside gives a light floating effect.",
-    "tags": [
-      "triangle",
-      "floating shelf",
-      "modular"
-    ],
-    "care": "Wipe gently with a dry cloth.",
-    "warranty": "12-month craftsmanship warranty.",
-    "materials": [
-      "Teak",
-      "Walnut",
-      "Ash"
-    ],
-    "finishes": [
-      "Warm teak",
-      "Deep walnut",
-      "Natural ash"
-    ],
-    "guid": "01a099fe-505e-7770-a974-a87c742101b4",
-    "status": "active",
-    "collection": "Living Walls",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "bead-folk-key-holder",
-    "name": "Bead Folk Key Holder",
-    "sku": "AW-GF-006",
-    "category": "utility-gifting",
-    "category_label": "Utility & Gifting",
-    "price": 1290,
-    "featured": true,
-    "image": "bead-key-holder.webp",
-    "gallery": [
-      "bead-key-holder.webp"
-    ],
-    "material": "Solid pine + hand-painted wood beads",
-    "finish": "Natural / monochrome",
-    "dimensions": "Approx. 42 × 10 × 5 cm",
-    "lead_time": "4–7 working days",
-    "short": "Playful handcrafted key organizer with character beads and discreet hooks.",
-    "description": "A practical entryway organizer turned into a small piece of folk-inspired design. Each bead figure is hand-finished, making the row feel personal and expressive.",
-    "tags": [
-      "key holder",
-      "gift",
-      "entryway",
-      "playful"
-    ],
-    "care": "Dust only. Avoid pulling with excessive force.",
-    "warranty": "6-month craftsmanship warranty.",
-    "materials": [
-      "Pine",
-      "Beech"
-    ],
-    "finishes": [
-      "Natural",
-      "Black & natural",
-      "Custom palette"
-    ],
-    "guid": "01a099fe-505f-7680-9eaf-d763c4bd285a",
-    "status": "active",
-    "collection": "Gifting",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": false,
-      "notes": ""
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "cedar-bird-feeder",
-    "name": "Cedar Bird Feeder",
-    "sku": "AW-OD-007",
-    "category": "outdoor-accents",
-    "category_label": "Outdoor Accents",
-    "price": 2390,
-    "featured": true,
-    "image": "cedar-bird-feeder.webp",
-    "gallery": [
-      "cedar-bird-feeder.webp"
-    ],
-    "material": "Exterior-grade wood + powder-coated roof",
-    "finish": "Natural cedar / graphite",
-    "dimensions": "Approx. 28 × 28 × 24 cm",
-    "lead_time": "7–10 working days",
-    "short": "Geometric hanging feeder designed for balconies, gardens and shaded verandas.",
-    "description": "A compact architectural feeder with a protected central tray and open access from multiple sides. Best placed under partial cover for longer finish life.",
-    "tags": [
-      "bird feeder",
-      "garden",
-      "balcony",
-      "outdoor"
-    ],
-    "care": "Clean feed tray weekly; dry completely before refilling.",
-    "warranty": "6-month craftsmanship warranty for covered outdoor use.",
-    "materials": [
-      "Cedar",
-      "Teak"
-    ],
-    "finishes": [
-      "Natural cedar",
-      "Warm teak",
-      "Graphite roof"
-    ],
-    "guid": "01a099fe-5060-782d-ac80-f47a12e71c75",
-    "status": "active",
-    "collection": "Outdoor Living",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": false,
-      "notes": ""
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "zen-wave-incense-rest",
-    "name": "Zen Wave Incense Rest",
-    "sku": "AW-RI-008",
-    "category": "ritual-incense",
-    "category_label": "Ritual & Incense",
-    "price": 990,
-    "featured": true,
-    "image": "zen-wave.webp",
-    "gallery": [
-      "zen-wave.webp",
-      "zen-curve.webp",
-      "incense-smoke.webp"
-    ],
-    "material": "Ash wood",
-    "finish": "Natural hand-rubbed oil",
-    "dimensions": "Approx. 31 × 5 × 4 cm",
-    "lead_time": "3–5 working days",
-    "short": "A sculptural incense holder shaped around one soft rising curve.",
-    "description": "Designed as a quiet object even when not in use. The rising end positions the incense at a graceful angle while the shallow surface keeps the silhouette clean.",
-    "tags": [
-      "incense",
-      "wellness",
-      "ritual",
-      "minimal"
-    ],
-    "care": "Remove cooled ash after use. Never leave burning incense unattended.",
-    "warranty": "6-month craftsmanship warranty.",
-    "materials": [
-      "Ash",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Natural oil",
-      "Warm teak",
-      "Smoked walnut"
-    ],
-    "guid": "01a099fe-5061-7761-84c4-095a8afd8480",
-    "status": "active",
-    "collection": "Quiet Rituals",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": false,
-      "notes": ""
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "kyoto-block-incense-holder",
-    "name": "Kyoto Block Incense Holder",
-    "sku": "AW-RI-009",
-    "category": "ritual-incense",
-    "category_label": "Ritual & Incense",
-    "price": 890,
-    "featured": true,
-    "image": "kyoto-block.webp",
-    "gallery": [
-      "kyoto-block.webp",
-      "incense-smoke.webp"
-    ],
-    "material": "Solid walnut",
-    "finish": "Natural oil",
-    "dimensions": "Approx. 24 × 4.5 × 3 cm",
-    "lead_time": "3–5 working days",
-    "short": "Solid-wood incense tray with a clean linear ash channel and brass pin detail.",
-    "description": "A compact desktop ritual object with just enough material to feel substantial. The recessed channel catches falling ash and the brass detail adds a restrained accent.",
-    "tags": [
-      "incense",
-      "walnut",
-      "gift",
-      "ritual"
-    ],
-    "care": "Empty ash only when fully cool. Wipe with dry cloth.",
-    "warranty": "6-month craftsmanship warranty.",
-    "materials": [
-      "Walnut",
-      "Teak",
-      "Ash"
-    ],
-    "finishes": [
-      "Natural oil",
-      "Dark walnut",
-      "Honey teak"
-    ],
-    "guid": "01a099fe-5062-76b1-b6d4-1ec2870b08a5",
-    "status": "active",
-    "collection": "Quiet Rituals",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": false,
-      "notes": ""
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "om-ritual-incense-plank",
-    "name": "Om Ritual Incense Plank",
-    "sku": "AW-RI-010",
-    "category": "ritual-incense",
-    "category_label": "Ritual & Incense",
-    "price": 1190,
-    "featured": true,
-    "image": "om-ritual.webp",
-    "gallery": [
-      "om-ritual.webp"
-    ],
-    "material": "Solid hardwood",
-    "finish": "Hand-burnished red / natural tones",
-    "dimensions": "Approx. 34 × 6 × 1.8 cm",
-    "lead_time": "4–7 working days",
-    "short": "Hand-burnished ritual plank with symbolic artwork and hanging loop.",
-    "description": "A warm, tactile incense board suited to pooja corners, meditation spaces and thoughtful gifting. Each motif is individually finished and may show small handmade variations.",
-    "tags": [
-      "incense",
-      "pooja",
-      "gift",
-      "ritual"
-    ],
-    "care": "Keep dry and away from direct flame. Use only with stable incense placement.",
-    "warranty": "6-month craftsmanship warranty.",
-    "materials": [
-      "Hardwood",
-      "Teak"
-    ],
-    "finishes": [
-      "Burnished red",
-      "Natural",
-      "Deep brown"
-    ],
-    "guid": "01a099fe-5063-79aa-9d09-02deb5c2105d",
-    "status": "active",
-    "collection": "Quiet Rituals",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": false,
-      "notes": ""
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "arch-bud-vase-trio",
-    "name": "Arch Bud Vase Trio",
-    "sku": "AW-PL-011",
-    "category": "plant-displays",
-    "category_label": "Plant Displays",
-    "price": 1790,
-    "featured": true,
-    "image": "arch-bud-vase.webp",
-    "gallery": [
-      "arch-bud-vase.webp"
-    ],
-    "material": "Walnut-finish wood + glass tubes",
-    "finish": "Walnut / natural rail",
-    "dimensions": "3 modules · approx. 20 × 10 cm each",
-    "lead_time": "5–8 working days",
-    "short": "Wall-mounted propagation trio for cuttings, single stems and tiny botanical studies.",
-    "description": "Three arched wood backplates hold removable glass tubes for water propagation or a single flower stem. Designed to bring living detail to narrow walls.",
-    "tags": [
-      "propagation",
-      "plants",
-      "wall decor",
-      "vase"
-    ],
-    "care": "Remove glass tubes for cleaning. Wipe wood dry immediately after spills.",
-    "warranty": "12-month holder warranty; glass excluded from breakage.",
-    "materials": [
-      "Walnut",
-      "Teak",
-      "Ash"
-    ],
-    "finishes": [
-      "Walnut",
-      "Natural",
-      "Charcoal"
-    ],
-    "guid": "01a099fe-5064-75c9-b7e2-36db9cad5bd9",
-    "status": "active",
-    "collection": "Plant & Propagation",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "duo-propagation-stand",
-    "name": "Duo Propagation Stand",
-    "sku": "AW-PL-012",
-    "category": "plant-displays",
-    "category_label": "Plant Displays",
-    "price": 1490,
-    "featured": true,
-    "image": "duo-propagation.webp",
-    "gallery": [
-      "duo-propagation.webp"
-    ],
-    "material": "Solid wood + borosilicate glass",
-    "finish": "Natural matte",
-    "dimensions": "Pair · approx. 24 × 10 × 8 cm each",
-    "lead_time": "5–8 working days",
-    "short": "Minimal glass-tube planter pair for desk, console or bedside greenery.",
-    "description": "A clean rectangular frame supports a removable test tube, balancing botanical softness with simple joinery. Sold as a coordinated pair.",
-    "tags": [
-      "propagation",
-      "plant stand",
-      "desk",
-      "gift"
-    ],
-    "care": "Hand-wash glass tube. Keep wood dry.",
-    "warranty": "12-month holder warranty; glass excluded from breakage.",
-    "materials": [
-      "Ash",
-      "Pine",
-      "Teak"
-    ],
-    "finishes": [
-      "Natural",
-      "Honey teak",
-      "Warm walnut"
-    ],
-    "guid": "01a099fe-5065-77cf-9e10-68735a0f6e1d",
-    "status": "active",
-    "collection": "Plant & Propagation",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "hexanest-wall-cubes",
-    "name": "HexaNest Wall Cubes",
-    "sku": "AW-SH-013",
-    "category": "wall-shelves",
-    "category_label": "Wall Shelves",
-    "price": 4490,
-    "featured": true,
-    "image": "hexanest-cubes.webp",
-    "gallery": [
-      "hexanest-cubes.webp",
-      "hex-wall-composition.webp"
-    ],
-    "material": "Wood veneer / solid edge frame",
-    "finish": "Mixed walnut + charcoal panels",
-    "dimensions": "Set of 4 · approx. 32 cm each",
-    "lead_time": "10–14 working days",
-    "short": "Modular hexagonal display cubes for plants, ceramics and collected objects.",
-    "description": "Use the set as an ordered grid or a looser honeycomb composition. Contrasting faces create depth while open fronts keep the display visually light.",
-    "tags": [
-      "hexagon",
-      "shelf",
-      "modular",
-      "display"
-    ],
-    "care": "Dry dusting recommended.",
-    "warranty": "18-month structural warranty.",
-    "materials": [
-      "Walnut",
-      "Oak",
-      "Teak"
-    ],
-    "finishes": [
-      "Walnut + charcoal",
-      "Natural + olive",
-      "Teak + sand"
-    ],
-    "guid": "01a099fe-5066-75eb-bc20-26e3b8291f7b",
-    "status": "active",
-    "collection": "Living Walls",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": true,
-      "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "bath-caddy-roll-shelf",
-    "name": "Bath Caddy Roll Shelf",
-    "sku": "AW-UT-014",
-    "category": "utility-gifting",
-    "category_label": "Utility & Gifting",
-    "price": 2290,
-    "featured": true,
-    "image": "bath-caddy.webp",
-    "gallery": [
-      "bath-caddy.webp"
-    ],
-    "material": "Sealed hardwood + metal roll pin",
-    "finish": "Deep walnut moisture-resistant coat",
-    "dimensions": "Approx. 42 × 18 × 14 cm",
-    "lead_time": "7–10 working days",
-    "short": "Compact bathroom shelf with phone ledge, bottle cubby and toilet-roll holder.",
-    "description": "A small utility object designed to reduce visual clutter. The upper ledge holds a phone or candle while the side cubby stores a diffuser or compact toiletry.",
-    "tags": [
-      "bathroom",
-      "utility",
-      "shelf",
-      "storage"
-    ],
-    "care": "Designed for dry-zone bathroom use. Wipe splashes promptly.",
-    "warranty": "12-month craftsmanship warranty.",
-    "materials": [
-      "Teak",
-      "Hardwood"
-    ],
-    "finishes": [
-      "Deep walnut",
-      "Natural teak",
-      "Smoked oak"
-    ],
-    "guid": "01a099fe-5067-73a2-9e21-239c74b6eb0b",
-    "status": "active",
-    "collection": "Gifting",
-    "compare_at_price": 0,
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "customisation": {
-      "enabled": false,
-      "notes": ""
-    },
-    "seo": {
-      "title": "",
-      "description": ""
-    },
-    "created_at": "2026-09-13T08:45:00Z",
-    "updated_at": "2026-09-13T08:45:00Z"
-  },
-  {
-    "slug": "shubh-labh-heritage-floor-mandir",
-    "name": "Shubh Labh Heritage Floor Mandir",
-    "sku": "AW-MD-001",
-    "price": 28900,
-    "image": "shubh-labh-heritage-floor-mandir.webp",
-    "dimensions": "Approx. 150 × 75 × 45 cm",
-    "short": "Tall floor mandir with carved sacred cutwork, hanging bells and concealed lower storage.",
-    "tags": [
-      "floor mandir",
-      "storage",
-      "carved",
-      "shubh labh"
-    ],
-    "materials": [
-      "Seasoned hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Deep walnut",
-      "Warm teak",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": true,
-    "gallery": [
-      "shubh-labh-heritage-floor-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Shubh Labh Heritage Floor Mandir | Atelier Wood Sacred Spaces",
-      "description": "Tall floor mandir with carved sacred cutwork, hanging bells and concealed lower storage."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-75c6-a3fc-60e34f2f06f8",
-    "material": "Seasoned hardwood",
-    "finish": "Deep walnut",
-    "lead_time": "18–24 working days",
-    "description": "A full-height devotional cabinet designed as a focal point for a dedicated prayer corner. Carved cutwork, warm wood tones, hanging bells and a practical two-door base balance ceremony with everyday storage."
-  },
-  {
-    "slug": "pearl-niche-pooja-console",
-    "name": "Pearl Niche Pooja Console",
-    "sku": "AW-MD-002",
-    "price": 16900,
-    "image": "pearl-niche-pooja-console.webp",
-    "dimensions": "Approx. 145 × 62 × 38 cm",
-    "short": "Slim ivory pooja console with open niche, shelves and closed base storage.",
-    "tags": [
-      "floor mandir",
-      "white mandir",
-      "storage",
-      "compact"
-    ],
-    "materials": [
-      "Engineered wood",
-      "Ash",
-      "Teak"
-    ],
-    "finishes": [
-      "Warm ivory",
-      "Natural ash",
-      "Honey teak"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "pearl-niche-pooja-console.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Pearl Niche Pooja Console | Atelier Wood Sacred Spaces",
-      "description": "Slim ivory pooja console with open niche, shelves and closed base storage."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7c84-a2f0-acc513010727",
-    "material": "Engineered wood + hardwood trim",
-    "finish": "Warm ivory",
-    "lead_time": "14–18 working days",
-    "description": "A light-toned mandir console for modern apartments, combining a clean open shrine niche, display ledges and practical cabinet storage in a compact footprint."
-  },
-  {
-    "slug": "vrindavan-jali-floor-mandir",
-    "name": "Vrindavan Jali Floor Mandir",
-    "sku": "AW-MD-003",
-    "price": 32900,
-    "image": "vrindavan-jali-floor-mandir.webp",
-    "dimensions": "Approx. 160 × 92 × 48 cm",
-    "short": "Premium floor mandir with geometric jali doors, drawers and warm integrated lighting.",
-    "tags": [
-      "floor mandir",
-      "jali",
-      "premium",
-      "lighting"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Rich walnut",
-      "Dark teak",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": true,
-    "gallery": [
-      "vrindavan-jali-floor-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Vrindavan Jali Floor Mandir | Atelier Wood Sacred Spaces",
-      "description": "Premium floor mandir with geometric jali doors, drawers and warm integrated lighting."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-73d6-9ef1-db24a398f692",
-    "material": "Solid hardwood",
-    "finish": "Rich walnut",
-    "lead_time": "21–28 working days",
-    "description": "An architectural floor mandir built around lattice doors and a softly illuminated sanctum. Twin drawers and lower storage keep ritual accessories organised without disturbing the visual calm."
-  },
-  {
-    "slug": "sattva-open-niche-console",
-    "name": "Sattva Open Niche Console Mandir",
-    "sku": "AW-MD-004",
-    "price": 14900,
-    "image": "sattva-open-niche-console.webp",
-    "dimensions": "Approx. 170 × 68 × 36 cm",
-    "short": "Tall open pooja niche with devotional shelves, lamp ledge and double-door lower cabinet.",
-    "tags": [
-      "floor mandir",
-      "minimal",
-      "white",
-      "shelves"
-    ],
-    "materials": [
-      "Engineered wood",
-      "Ash",
-      "Pine"
-    ],
-    "finishes": [
-      "Soft white",
-      "Warm ivory",
-      "Natural ash"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "sattva-open-niche-console.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Sattva Open Niche Console Mandir | Atelier Wood Sacred Spaces",
-      "description": "Tall open pooja niche with devotional shelves, lamp ledge and double-door lower cabinet."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7414-b12d-07270340363c",
-    "material": "Engineered wood",
-    "finish": "Soft white",
-    "lead_time": "12–16 working days",
-    "description": "A minimal shrine for light, contemporary interiors. Multiple small ledges frame icons and photographs while a lower cabinet keeps pooja books and accessories close at hand."
-  },
-  {
-    "slug": "aarti-jharokha-wall-mandir",
-    "name": "Aarti Jharokha Wall Mandir",
-    "sku": "AW-MD-005",
-    "price": 11900,
-    "image": "aarti-jharokha-wall-mandir.webp",
-    "dimensions": "Approx. 70 × 72 × 30 cm",
-    "short": "Wall-mounted jharokha mandir with open carved shutters and a dedicated drawer shelf.",
-    "tags": [
-      "wall mandir",
-      "jharokha",
-      "drawer",
-      "space saving"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Dark walnut",
-      "Honey teak",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "aarti-jharokha-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Aarti Jharokha Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "Wall-mounted jharokha mandir with open carved shutters and a dedicated drawer shelf."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7423-9497-5c3cc8fb9164",
-    "material": "Seasoned hardwood",
-    "finish": "Dark walnut",
-    "lead_time": "12–16 working days",
-    "description": "A compact wall shrine with carved open shutters that visually frame the sanctum. The lower drawer stores incense, wicks and small ritual objects without using floor space."
-  },
-  {
-    "slug": "ganesha-compact-wall-mandir",
-    "name": "Ganesha Compact Wall Mandir",
-    "sku": "AW-MD-006",
-    "price": 8490,
-    "image": "ganesha-compact-wall-mandir.webp",
-    "dimensions": "Approx. 55 × 58 × 25 cm",
-    "short": "Compact wall shrine with twin lattice shutters and slim accessory drawers.",
-    "tags": [
-      "wall mandir",
-      "compact",
-      "lattice",
-      "ganesha"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Pine"
-    ],
-    "finishes": [
-      "Warm teak",
-      "Walnut",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "ganesha-compact-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Ganesha Compact Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "Compact wall shrine with twin lattice shutters and slim accessory drawers."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7411-ab4d-8a79840393b3",
-    "material": "Hardwood",
-    "finish": "Warm teak",
-    "lead_time": "10–14 working days",
-    "description": "Designed for smaller homes, this wall mandir keeps a traditional silhouette while reducing depth. Lattice shutters provide ventilation and a framed devotional presence."
-  },
-  {
-    "slug": "heritage-open-arch-wall-mandir",
-    "name": "Heritage Open Arch Wall Mandir",
-    "sku": "AW-MD-007",
-    "price": 9990,
-    "image": "heritage-open-arch-wall-mandir.webp",
-    "dimensions": "Approx. 82 × 72 × 29 cm",
-    "short": "Open carved arch mandir with turned columns, incense drawer and traditional finials.",
-    "tags": [
-      "wall mandir",
-      "traditional",
-      "open shrine",
-      "carved"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Deep walnut",
-      "Warm teak",
-      "Natural oil"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "heritage-open-arch-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Heritage Open Arch Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "Open carved arch mandir with turned columns, incense drawer and traditional finials."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7ca8-b41e-3b3eedc0c504",
-    "material": "Solid hardwood",
-    "finish": "Deep walnut",
-    "lead_time": "12–16 working days",
-    "description": "A traditional wall shrine without shutters, keeping the deity visually accessible. Carved cornice detailing and turned columns create a classic temple profile."
-  },
-  {
-    "slug": "curtain-darshan-wall-mandir",
-    "name": "Curtain Darshan Wall Mandir",
-    "sku": "AW-MD-008",
-    "price": 10900,
-    "image": "curtain-darshan-wall-mandir.webp",
-    "dimensions": "Approx. 78 × 70 × 30 cm",
-    "short": "Traditional wall mandir with fabric darshan curtains, carved frame and compact drawer.",
-    "tags": [
-      "wall mandir",
-      "curtain",
-      "traditional",
-      "drawer"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Walnut",
-      "Honey teak",
-      "Deep brown"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "curtain-darshan-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Curtain Darshan Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "Traditional wall mandir with fabric darshan curtains, carved frame and compact drawer."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-787c-8ea5-bb999f59b759",
-    "material": "Seasoned hardwood + textile",
-    "finish": "Walnut",
-    "lead_time": "14–18 working days",
-    "description": "A shrine inspired by temple curtain rituals, with a crafted wooden frame and removable fabric curtains. The bottom drawer provides discreet accessory storage."
-  },
-  {
-    "slug": "devlok-storage-floor-mandir",
-    "name": "Devlok Storage Floor Mandir",
-    "sku": "AW-MD-009",
-    "price": 26900,
-    "image": "devlok-storage-floor-mandir.webp",
-    "dimensions": "Approx. 178 × 78 × 44 cm",
-    "short": "Tall storage mandir with elevated shrine, pull-out ledge, drawer and two-door cabinet.",
-    "tags": [
-      "floor mandir",
-      "storage",
-      "large",
-      "traditional"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Espresso walnut",
-      "Deep teak",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "devlok-storage-floor-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Devlok Storage Floor Mandir | Atelier Wood Sacred Spaces",
-      "description": "Tall storage mandir with elevated shrine, pull-out ledge, drawer and two-door cabinet."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-71a5-be8b-65c14faf6f78",
-    "material": "Solid hardwood",
-    "finish": "Espresso walnut",
-    "lead_time": "18–24 working days",
-    "description": "A floor-standing pooja unit designed for families needing generous ritual storage. The upper shrine remains visually separate while books, vessels and seasonal accessories stay organised below."
-  },
-  {
-    "slug": "mayura-glow-pooja-console",
-    "name": "Mayura Glow Pooja Console",
-    "sku": "AW-MD-010",
-    "price": 24900,
-    "image": "mayura-glow-pooja-console.webp",
-    "dimensions": "Approx. 165 × 84 × 40 cm",
-    "short": "Illuminated ivory pooja console with peacock-inspired back panel and display niches.",
-    "tags": [
-      "floor mandir",
-      "led",
-      "white",
-      "modern"
-    ],
-    "materials": [
-      "Engineered wood",
-      "Ash",
-      "Hardwood"
-    ],
-    "finishes": [
-      "Ivory + warm gold",
-      "Warm white",
-      "Natural ash"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": true,
-    "gallery": [
-      "mayura-glow-pooja-console.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Mayura Glow Pooja Console | Atelier Wood Sacred Spaces",
-      "description": "Illuminated ivory pooja console with peacock-inspired back panel and display niches."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-726b-acdb-a1e0d66c0c23",
-    "material": "Engineered wood + hardwood",
-    "finish": "Ivory + warm gold",
-    "lead_time": "18–22 working days",
-    "description": "A contemporary devotional console with ambient integrated lighting, a sculptural back panel and small side niches for diyas and sacred objects. A lower drawer keeps everyday essentials close."
-  },
-  {
-    "slug": "rajwada-carved-table-mandir",
-    "name": "Rajwada Carved Table Mandir",
-    "sku": "AW-MD-011",
-    "price": 13900,
-    "image": "rajwada-carved-table-mandir.webp",
-    "dimensions": "Approx. 82 × 74 × 34 cm",
-    "short": "Hand-carved tabletop temple with ornamental arch, finials and a full-width drawer.",
-    "tags": [
-      "tabletop mandir",
-      "carved",
-      "traditional",
-      "heritage"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Heritage teak",
-      "Warm walnut",
-      "Natural oil"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "rajwada-carved-table-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Rajwada Carved Table Mandir | Atelier Wood Sacred Spaces",
-      "description": "Hand-carved tabletop temple with ornamental arch, finials and a full-width drawer."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7aef-b677-7ece114964e3",
-    "material": "Solid hardwood",
-    "finish": "Heritage teak",
-    "lead_time": "14–18 working days",
-    "description": "A richly detailed tabletop shrine suited to consoles and dedicated platforms. Floral carving and ornamental finials give it a classical handcrafted presence."
-  },
-  {
-    "slug": "krishna-desktop-jharokha-mandir",
-    "name": "Krishna Desktop Jharokha Mandir",
-    "sku": "AW-MD-012",
-    "price": 6490,
-    "image": "krishna-desktop-jharokha-mandir.webp",
-    "dimensions": "Approx. 58 × 43 × 25 cm",
-    "short": "Compact desktop jharokha shrine with sacred motifs and raised front pooja ledge.",
-    "tags": [
-      "tabletop mandir",
-      "krishna",
-      "compact",
-      "apartment"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Pine"
-    ],
-    "finishes": [
-      "Walnut",
-      "Warm teak",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "krishna-desktop-jharokha-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Krishna Desktop Jharokha Mandir | Atelier Wood Sacred Spaces",
-      "description": "Compact desktop jharokha shrine with sacred motifs and raised front pooja ledge."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7dbf-a043-fb8198af7334",
-    "material": "Hardwood",
-    "finish": "Walnut",
-    "lead_time": "8–12 working days",
-    "description": "A small-format tabletop temple for desks, consoles and studio apartments. The jharokha-inspired frame creates a defined sacred zone without requiring permanent wall fixing."
-  },
-  {
-    "slug": "shri-yantra-lotus-floor-mandir",
-    "name": "Shri Yantra Lotus Floor Mandir",
-    "sku": "AW-MD-013",
-    "price": 22900,
-    "image": "shri-yantra-lotus-floor-mandir.webp",
-    "dimensions": "Approx. 168 × 78 × 38 cm",
-    "short": "White floor mandir with backlit Shri Yantra motif, pendant details and cabinet storage.",
-    "tags": [
-      "floor mandir",
-      "white",
-      "shri yantra",
-      "lighting"
-    ],
-    "materials": [
-      "Engineered wood",
-      "Ash",
-      "Hardwood"
-    ],
-    "finishes": [
-      "Ivory",
-      "Warm white",
-      "Natural ash"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": true,
-    "gallery": [
-      "shri-yantra-lotus-floor-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Shri Yantra Lotus Floor Mandir | Atelier Wood Sacred Spaces",
-      "description": "White floor mandir with backlit Shri Yantra motif, pendant details and cabinet storage."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-734c-8285-d876496ad524",
-    "material": "Engineered wood + hardwood trim",
-    "finish": "Ivory",
-    "lead_time": "16–22 working days",
-    "description": "A luminous modern pooja unit with a symbolic back panel and focused warm light. Its compact cabinet base is sized for everyday ritual storage while maintaining a light visual presence."
-  },
-  {
-    "slug": "pichwai-golden-wall-mandir",
-    "name": "Pichwai Golden Wall Mandir",
-    "sku": "AW-MD-014",
-    "price": 9990,
-    "image": "pichwai-golden-wall-mandir.webp",
-    "dimensions": "Approx. 60 × 65 × 28 cm",
-    "short": "Wall-mounted temple with lattice shutters and hand-painted floral drawer detailing.",
-    "tags": [
-      "wall mandir",
-      "painted",
-      "gold",
-      "lattice"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Pine"
-    ],
-    "finishes": [
-      "Hand-painted gold",
-      "Antique gold",
-      "Warm teak"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "pichwai-golden-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Pichwai Golden Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "Wall-mounted temple with lattice shutters and hand-painted floral drawer detailing."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7bbe-a14d-a36dc860f82f",
-    "material": "Hardwood",
-    "finish": "Hand-painted gold",
-    "lead_time": "14–20 working days",
-    "description": "A compact wall shrine that pairs a warm golden finish with hand-painted botanical motifs. The shuttered sanctum and twin drawers make it both decorative and useful."
-  },
-  {
-    "slug": "radha-niche-mandir-shelf",
-    "name": "Radha Niche Mandir Shelf",
-    "sku": "AW-MD-015",
-    "price": 7990,
-    "image": "radha-niche-mandir-shelf.webp",
-    "dimensions": "Approx. 110 × 52 × 28 cm",
-    "short": "Light oak wall niche with devotional display ledges and a lower book shelf.",
-    "tags": [
-      "wall mandir",
-      "oak",
-      "shelf",
-      "compact"
-    ],
-    "materials": [
-      "Engineered oak",
-      "Ash",
-      "Pine"
-    ],
-    "finishes": [
-      "Natural oak",
-      "Natural ash",
-      "Honey oak"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "radha-niche-mandir-shelf.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Radha Niche Mandir Shelf | Atelier Wood Sacred Spaces",
-      "description": "Light oak wall niche with devotional display ledges and a lower book shelf."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-705d-9379-291ecdf0c22a",
-    "material": "Engineered oak",
-    "finish": "Natural oak",
-    "lead_time": "10–14 working days",
-    "description": "A vertical wall-mounted pooja shelf for compact homes. Small stepped ledges hold framed icons while the lower open shelf stores prayer books and daily essentials."
-  },
-  {
-    "slug": "om-shubh-tabletop-mandir",
-    "name": "Om Shubh Tabletop Mandir",
-    "sku": "AW-MD-016",
-    "price": 5490,
-    "image": "om-shubh-tabletop-mandir.webp",
-    "dimensions": "Approx. 55 × 42 × 24 cm",
-    "short": "Minimal tabletop mandir with Om motif, bell cutouts and raised front shelf.",
-    "tags": [
-      "tabletop mandir",
-      "om",
-      "compact",
-      "minimal"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Pine"
-    ],
-    "finishes": [
-      "Warm walnut",
-      "Honey teak",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "om-shubh-tabletop-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Om Shubh Tabletop Mandir | Atelier Wood Sacred Spaces",
-      "description": "Minimal tabletop mandir with Om motif, bell cutouts and raised front shelf."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-78ae-b8a9-7dfee5bc2053",
-    "material": "Hardwood",
-    "finish": "Warm walnut",
-    "lead_time": "8–12 working days",
-    "description": "A small, approachable shrine for everyday use. Sacred cutwork and a slim base ledge provide enough ceremonial detail while keeping the footprint apartment-friendly."
-  },
-  {
-    "slug": "chakra-compact-wall-shrine",
-    "name": "Chakra Compact Wall Shrine",
-    "sku": "AW-MD-017",
-    "price": 8990,
-    "image": "chakra-compact-wall-shrine.webp",
-    "dimensions": "Approx. 62 × 54 × 25 cm",
-    "short": "Open wall shrine with geometric chakra back panel and dual accessory shelf.",
-    "tags": [
-      "wall mandir",
-      "chakra",
-      "modern",
-      "compact"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Dark walnut",
-      "Warm teak",
-      "Natural matte"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "chakra-compact-wall-shrine.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Chakra Compact Wall Shrine | Atelier Wood Sacred Spaces",
-      "description": "Open wall shrine with geometric chakra back panel and dual accessory shelf."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7d7e-bf98-c38088ca8bfb",
-    "material": "Hardwood",
-    "finish": "Dark walnut",
-    "lead_time": "10–14 working days",
-    "description": "A clean wall-mounted shrine built around a radial cutwork back panel. The open sanctum keeps the composition airy while the two-level base supports lamps and pooja accessories."
-  },
-  {
-    "slug": "lotus-arch-wall-mandir",
-    "name": "Lotus Arch Wall Mandir",
-    "sku": "AW-MD-018",
-    "price": 12490,
-    "image": "lotus-arch-wall-mandir.webp",
-    "dimensions": "Approx. 108 × 70 × 34 cm",
-    "short": "White lotus-cutwork wall mandir with warm illumination and two-door lower cabinet.",
-    "tags": [
-      "wall mandir",
-      "white",
-      "lotus",
-      "storage",
-      "led"
-    ],
-    "materials": [
-      "Engineered wood",
-      "Ash",
-      "Hardwood"
-    ],
-    "finishes": [
-      "Warm white",
-      "Ivory",
-      "Natural ash"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": true,
-    "gallery": [
-      "lotus-arch-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Lotus Arch Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "White lotus-cutwork wall mandir with warm illumination and two-door lower cabinet."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-709a-9d0d-8066bf3d4e50",
-    "material": "Engineered wood + hardwood trim",
-    "finish": "Warm white",
-    "lead_time": "14–18 working days",
-    "description": "A bright wall shrine combining decorative cutwork with useful closed storage. Warm lighting highlights the central devotional zone while the cabinet keeps the overall look uncluttered."
-  },
-  {
-    "slug": "devdarsh-lattice-wall-mandir",
-    "name": "Devdarsh Lattice Wall Mandir",
-    "sku": "AW-MD-019",
-    "price": 10490,
-    "image": "devdarsh-lattice-wall-mandir.webp",
-    "dimensions": "Approx. 68 × 64 × 30 cm",
-    "short": "Shuttered wall mandir with full-height lattice doors and a deep ritual ledge.",
-    "tags": [
-      "wall mandir",
-      "lattice",
-      "doors",
-      "traditional"
-    ],
-    "materials": [
-      "Hardwood",
-      "Teak",
-      "Walnut"
-    ],
-    "finishes": [
-      "Teak walnut",
-      "Deep walnut",
-      "Natural oil"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "devdarsh-lattice-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Devdarsh Lattice Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "Shuttered wall mandir with full-height lattice doors and a deep ritual ledge."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7214-b4ba-eecb1c8c332a",
-    "material": "Hardwood",
-    "finish": "Teak walnut",
-    "lead_time": "12–16 working days",
-    "description": "A compact enclosed wall temple for homes that prefer a closable sanctum. Full-height lattice shutters provide ventilation and ceremonial privacy while preserving a handcrafted presence."
-  },
-  {
-    "slug": "painted-ganesha-wall-mandir",
-    "name": "Painted Ganesha Wall Mandir",
-    "sku": "AW-MD-020",
-    "price": 7490,
-    "image": "painted-ganesha-wall-mandir.webp",
-    "dimensions": "Approx. 60 × 58 × 26 cm",
-    "short": "Cream wall mandir with hand-painted border motifs, open sanctum and accessory drawer.",
-    "tags": [
-      "wall mandir",
-      "painted",
-      "ganesha",
-      "cream"
-    ],
-    "materials": [
-      "Hardwood",
-      "Pine",
-      "Ash"
-    ],
-    "finishes": [
-      "Hand-painted cream",
-      "Warm ivory",
-      "Natural ash"
-    ],
-    "category": "sacred-spaces",
-    "category_label": "Sacred Spaces",
-    "featured": false,
-    "gallery": [
-      "painted-ganesha-wall-mandir.webp"
-    ],
-    "collection": "Sacred Spaces",
-    "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
-    "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
-    "customisation": {
-      "enabled": true,
-      "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
-    },
-    "inventory": {
-      "track": false,
-      "stock": 0,
-      "made_to_order": true
-    },
-    "status": "active",
-    "compare_at_price": 0,
-    "seo": {
-      "title": "Painted Ganesha Wall Mandir | Atelier Wood Sacred Spaces",
-      "description": "Cream wall mandir with hand-painted border motifs, open sanctum and accessory drawer."
-    },
-    "created_at": "2026-09-13T13:10:00Z",
-    "updated_at": "2026-09-13T13:10:00Z",
-    "guid": "01a09adf-a69c-7ced-88d4-41e8d3bfc572",
-    "material": "Hardwood",
-    "finish": "Hand-painted cream",
-    "lead_time": "12–18 working days",
-    "description": "A cheerful painted shrine for light interiors, combining an open pooja niche with traditional hand-applied border motifs and a practical lower drawer."
-  }
+    {
+        "slug": "artisan-branch-wall-sculpture",
+        "name": "Artisan Branch Wall Sculpture",
+        "sku": "AW-WD-001",
+        "category": "wall-shelves",
+        "category_label": "Wall Décor",
+        "price": 2490,
+        "featured": true,
+        "image": "branch-sculpture.webp",
+        "gallery": [
+            "branch-sculpture.webp"
+        ],
+        "material": "Seasoned hardwood + natural branch",
+        "finish": "Smoked walnut / whitewashed branch",
+        "dimensions": "Approx. 80 × 24 × 8 cm",
+        "lead_time": "7–10 working days",
+        "short": "Hand-finished statement wall sculpture that turns natural branch form into quiet architectural art.",
+        "description": "A vertical wood panel anchors a hand-selected branch composition, creating a sculptural piece for entryways, living rooms and meditation corners. Each branch varies naturally, so every piece has a slightly different silhouette.",
+        "tags": [
+            "wall decor",
+            "statement",
+            "sculpture",
+            "natural"
+        ],
+        "care": "Dust with a soft dry cloth. Avoid prolonged moisture and direct heat.",
+        "warranty": "12-month craftsmanship warranty.",
+        "materials": [
+            "Smoked walnut",
+            "Natural oak",
+            "Deep teak"
+        ],
+        "finishes": [
+            "Matte oil",
+            "Satin clear",
+            "Charcoal stain"
+        ],
+        "guid": "01a099fe-505a-7d43-8ba2-d110e9240571",
+        "status": "active",
+        "collection": "Living Walls",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "Artisan Branch Wall Sculpture | Atelier Wood",
+            "description": "Hand-finished statement wall sculpture that turns natural branch form into quiet architectural art."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "nordic-ladder-wall-shelf",
+        "name": "Nordic Ladder Wall Shelf",
+        "sku": "AW-SH-002",
+        "category": "wall-shelves",
+        "category_label": "Wall Shelves",
+        "price": 4990,
+        "featured": true,
+        "image": "nordic-ladder.webp",
+        "gallery": [
+            "nordic-ladder.webp"
+        ],
+        "material": "Solid pine / ash profile",
+        "finish": "Natural matte",
+        "dimensions": "Approx. 92 × 52 × 16 cm",
+        "lead_time": "8–12 working days",
+        "short": "Vertical display shelf for plants, books and keepsakes with a light Scandinavian rhythm.",
+        "description": "A staggered composition of solid-wood shelves framed by vertical rails. Designed for compact walls where plants, books and small objects should feel composed rather than crowded.",
+        "tags": [
+            "shelf",
+            "plants",
+            "scandinavian",
+            "storage"
+        ],
+        "care": "Wipe with a dry or slightly damp microfiber cloth.",
+        "warranty": "18-month structural warranty.",
+        "materials": [
+            "Natural pine",
+            "Ash",
+            "Teak"
+        ],
+        "finishes": [
+            "Natural matte",
+            "Honey oak",
+            "Warm walnut"
+        ],
+        "guid": "01a099fe-505b-7f1b-a502-e8b32741be0c",
+        "status": "active",
+        "collection": "Living Walls",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "Nordic Ladder Wall Shelf | Atelier Wood",
+            "description": "Vertical display shelf for plants, books and keepsakes with a light Scandinavian rhythm."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "chevron-walnut-shelf",
+        "name": "Chevron Walnut Shelf",
+        "sku": "AW-SH-003",
+        "category": "wall-shelves",
+        "category_label": "Wall Shelves",
+        "price": 5490,
+        "featured": true,
+        "image": "chevron-shelf.webp",
+        "gallery": [
+            "chevron-shelf.webp"
+        ],
+        "material": "Solid hardwood",
+        "finish": "Rich walnut",
+        "dimensions": "Approx. 115 × 62 × 18 cm",
+        "lead_time": "10–14 working days",
+        "short": "Sculptural zig-zag shelf in a deep walnut tone for books, ceramics and small objects.",
+        "description": "A bold diagonal spine creates five usable display ledges while reading visually as a single graphic gesture. Ideal for a narrow feature wall, reading corner or corridor.",
+        "tags": [
+            "shelf",
+            "walnut",
+            "geometric",
+            "display"
+        ],
+        "care": "Dust regularly; use wood-safe cleaner only when required.",
+        "warranty": "18-month structural warranty.",
+        "materials": [
+            "Walnut tone hardwood",
+            "Teak",
+            "Ash"
+        ],
+        "finishes": [
+            "Dark walnut",
+            "Natural teak",
+            "Charcoal"
+        ],
+        "guid": "01a099fe-505c-7840-b05e-111d3f4f6ca4",
+        "status": "active",
+        "collection": "Living Walls",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "Chevron Walnut Shelf | Atelier Wood",
+            "description": "Sculptural zig-zag shelf in a deep walnut tone for books, ceramics and small objects."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "dual-line-floating-shelf",
+        "name": "Dual Line Floating Shelf",
+        "sku": "AW-SH-004",
+        "category": "wall-shelves",
+        "category_label": "Wall Shelves",
+        "price": 1990,
+        "featured": true,
+        "image": "dual-line-shelf.webp",
+        "gallery": [
+            "dual-line-shelf.webp"
+        ],
+        "material": "Solid hardwood",
+        "finish": "Espresso walnut",
+        "dimensions": "Approx. 70 × 36 × 12 cm",
+        "lead_time": "5–8 working days",
+        "short": "Compact asymmetric wall shelf for small planters, candles and meaningful objects.",
+        "description": "Two clean horizontal planes meet a central support to create a minimal shelf that works well in bedrooms, entryways and small apartments.",
+        "tags": [
+            "minimal",
+            "floating shelf",
+            "compact"
+        ],
+        "care": "Dry dusting recommended. Keep away from standing water.",
+        "warranty": "12-month craftsmanship warranty.",
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Ash"
+        ],
+        "finishes": [
+            "Espresso",
+            "Natural",
+            "Walnut"
+        ],
+        "guid": "01a099fe-505d-71db-accd-d8eeed2372f5",
+        "status": "active",
+        "collection": "Living Walls",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "Dual Line Floating Shelf | Atelier Wood",
+            "description": "Compact asymmetric wall shelf for small planters, candles and meaningful objects."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "origami-triangle-shelf-set",
+        "name": "Origami Triangle Shelf Set",
+        "sku": "AW-SH-005",
+        "category": "wall-shelves",
+        "category_label": "Wall Shelves",
+        "price": 3490,
+        "featured": true,
+        "image": "origami-triangle.webp",
+        "gallery": [
+            "origami-triangle.webp"
+        ],
+        "material": "Solid wood",
+        "finish": "Warm teak",
+        "dimensions": "Set of 4 · 28–42 cm width",
+        "lead_time": "7–10 working days",
+        "short": "Geometric floating shelf set that creates a modular wall composition.",
+        "description": "Four triangular shelves can be arranged as a constellation, linear rhythm or compact cluster. The angled underside gives a light floating effect.",
+        "tags": [
+            "triangle",
+            "floating shelf",
+            "modular"
+        ],
+        "care": "Wipe gently with a dry cloth.",
+        "warranty": "12-month craftsmanship warranty.",
+        "materials": [
+            "Teak",
+            "Walnut",
+            "Ash"
+        ],
+        "finishes": [
+            "Warm teak",
+            "Deep walnut",
+            "Natural ash"
+        ],
+        "guid": "01a099fe-505e-7770-a974-a87c742101b4",
+        "status": "active",
+        "collection": "Living Walls",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "Origami Triangle Shelf Set | Atelier Wood",
+            "description": "Geometric floating shelf set that creates a modular wall composition."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "bead-folk-key-holder",
+        "name": "Bead Folk Key Holder",
+        "sku": "AW-GF-006",
+        "category": "utility-gifting",
+        "category_label": "Utility & Gifting",
+        "price": 1290,
+        "featured": true,
+        "image": "bead-key-holder.webp",
+        "gallery": [
+            "bead-key-holder.webp"
+        ],
+        "material": "Solid pine + hand-painted wood beads",
+        "finish": "Natural / monochrome",
+        "dimensions": "Approx. 42 × 10 × 5 cm",
+        "lead_time": "4–7 working days",
+        "short": "Playful handcrafted key organizer with character beads and discreet hooks.",
+        "description": "A practical entryway organizer turned into a small piece of folk-inspired design. Each bead figure is hand-finished, making the row feel personal and expressive.",
+        "tags": [
+            "key holder",
+            "gift",
+            "entryway",
+            "playful"
+        ],
+        "care": "Dust only. Avoid pulling with excessive force.",
+        "warranty": "6-month craftsmanship warranty.",
+        "materials": [
+            "Pine",
+            "Beech"
+        ],
+        "finishes": [
+            "Natural",
+            "Black & natural",
+            "Custom palette"
+        ],
+        "guid": "01a099fe-505f-7680-9eaf-d763c4bd285a",
+        "status": "active",
+        "collection": "Gifting",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": false,
+            "notes": ""
+        },
+        "seo": {
+            "title": "Bead Folk Key Holder | Atelier Wood",
+            "description": "Playful handcrafted key organizer with character beads and discreet hooks."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "cedar-bird-feeder",
+        "name": "Cedar Bird Feeder",
+        "sku": "AW-OD-007",
+        "category": "outdoor-accents",
+        "category_label": "Outdoor Accents",
+        "price": 2390,
+        "featured": true,
+        "image": "cedar-bird-feeder.webp",
+        "gallery": [
+            "cedar-bird-feeder.webp"
+        ],
+        "material": "Exterior-grade wood + powder-coated roof",
+        "finish": "Natural cedar / graphite",
+        "dimensions": "Approx. 28 × 28 × 24 cm",
+        "lead_time": "7–10 working days",
+        "short": "Geometric hanging feeder designed for balconies, gardens and shaded verandas.",
+        "description": "A compact architectural feeder with a protected central tray and open access from multiple sides. Best placed under partial cover for longer finish life.",
+        "tags": [
+            "bird feeder",
+            "garden",
+            "balcony",
+            "outdoor"
+        ],
+        "care": "Clean feed tray weekly; dry completely before refilling.",
+        "warranty": "6-month craftsmanship warranty for covered outdoor use.",
+        "materials": [
+            "Cedar",
+            "Teak"
+        ],
+        "finishes": [
+            "Natural cedar",
+            "Warm teak",
+            "Graphite roof"
+        ],
+        "guid": "01a099fe-5060-782d-ac80-f47a12e71c75",
+        "status": "active",
+        "collection": "Outdoor Living",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": false,
+            "notes": ""
+        },
+        "seo": {
+            "title": "Cedar Bird Feeder | Atelier Wood",
+            "description": "Geometric hanging feeder designed for balconies, gardens and shaded verandas."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "zen-wave-incense-rest",
+        "name": "Zen Wave Incense Rest",
+        "sku": "AW-RI-008",
+        "category": "ritual-incense",
+        "category_label": "Ritual & Incense",
+        "price": 990,
+        "featured": true,
+        "image": "zen-wave.webp",
+        "gallery": [
+            "zen-wave.webp",
+            "zen-curve.webp",
+            "incense-smoke.webp"
+        ],
+        "material": "Ash wood",
+        "finish": "Natural hand-rubbed oil",
+        "dimensions": "Approx. 31 × 5 × 4 cm",
+        "lead_time": "3–5 working days",
+        "short": "A sculptural incense holder shaped around one soft rising curve.",
+        "description": "Designed as a quiet object even when not in use. The rising end positions the incense at a graceful angle while the shallow surface keeps the silhouette clean.",
+        "tags": [
+            "incense",
+            "wellness",
+            "ritual",
+            "minimal"
+        ],
+        "care": "Remove cooled ash after use. Never leave burning incense unattended.",
+        "warranty": "6-month craftsmanship warranty.",
+        "materials": [
+            "Ash",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Natural oil",
+            "Warm teak",
+            "Smoked walnut"
+        ],
+        "guid": "01a099fe-5061-7761-84c4-095a8afd8480",
+        "status": "active",
+        "collection": "Quiet Rituals",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": false,
+            "notes": ""
+        },
+        "seo": {
+            "title": "Zen Wave Incense Rest | Atelier Wood",
+            "description": "A sculptural incense holder shaped around one soft rising curve."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "kyoto-block-incense-holder",
+        "name": "Kyoto Block Incense Holder",
+        "sku": "AW-RI-009",
+        "category": "ritual-incense",
+        "category_label": "Ritual & Incense",
+        "price": 890,
+        "featured": true,
+        "image": "kyoto-block.webp",
+        "gallery": [
+            "kyoto-block.webp",
+            "incense-smoke.webp"
+        ],
+        "material": "Solid walnut",
+        "finish": "Natural oil",
+        "dimensions": "Approx. 24 × 4.5 × 3 cm",
+        "lead_time": "3–5 working days",
+        "short": "Solid-wood incense tray with a clean linear ash channel and brass pin detail.",
+        "description": "A compact desktop ritual object with just enough material to feel substantial. The recessed channel catches falling ash and the brass detail adds a restrained accent.",
+        "tags": [
+            "incense",
+            "walnut",
+            "gift",
+            "ritual"
+        ],
+        "care": "Empty ash only when fully cool. Wipe with dry cloth.",
+        "warranty": "6-month craftsmanship warranty.",
+        "materials": [
+            "Walnut",
+            "Teak",
+            "Ash"
+        ],
+        "finishes": [
+            "Natural oil",
+            "Dark walnut",
+            "Honey teak"
+        ],
+        "guid": "01a099fe-5062-76b1-b6d4-1ec2870b08a5",
+        "status": "active",
+        "collection": "Quiet Rituals",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": false,
+            "notes": ""
+        },
+        "seo": {
+            "title": "Kyoto Block Incense Holder | Atelier Wood",
+            "description": "Solid-wood incense tray with a clean linear ash channel and brass pin detail."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "om-ritual-incense-plank",
+        "name": "Om Ritual Incense Plank",
+        "sku": "AW-RI-010",
+        "category": "ritual-incense",
+        "category_label": "Ritual & Incense",
+        "price": 1190,
+        "featured": true,
+        "image": "om-ritual.webp",
+        "gallery": [
+            "om-ritual.webp"
+        ],
+        "material": "Solid hardwood",
+        "finish": "Hand-burnished red / natural tones",
+        "dimensions": "Approx. 34 × 6 × 1.8 cm",
+        "lead_time": "4–7 working days",
+        "short": "Hand-burnished ritual plank with symbolic artwork and hanging loop.",
+        "description": "A warm, tactile incense board suited to pooja corners, meditation spaces and thoughtful gifting. Each motif is individually finished and may show small handmade variations.",
+        "tags": [
+            "incense",
+            "pooja",
+            "gift",
+            "ritual"
+        ],
+        "care": "Keep dry and away from direct flame. Use only with stable incense placement.",
+        "warranty": "6-month craftsmanship warranty.",
+        "materials": [
+            "Hardwood",
+            "Teak"
+        ],
+        "finishes": [
+            "Burnished red",
+            "Natural",
+            "Deep brown"
+        ],
+        "guid": "01a099fe-5063-79aa-9d09-02deb5c2105d",
+        "status": "active",
+        "collection": "Quiet Rituals",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": false,
+            "notes": ""
+        },
+        "seo": {
+            "title": "Om Ritual Incense Plank | Atelier Wood",
+            "description": "Hand-burnished ritual plank with symbolic artwork and hanging loop."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "arch-bud-vase-trio",
+        "name": "Arch Bud Vase Trio",
+        "sku": "AW-PL-011",
+        "category": "plant-displays",
+        "category_label": "Plant Displays",
+        "price": 1790,
+        "featured": true,
+        "image": "arch-bud-vase.webp",
+        "gallery": [
+            "arch-bud-vase.webp"
+        ],
+        "material": "Walnut-finish wood + glass tubes",
+        "finish": "Walnut / natural rail",
+        "dimensions": "3 modules · approx. 20 × 10 cm each",
+        "lead_time": "5–8 working days",
+        "short": "Wall-mounted propagation trio for cuttings, single stems and tiny botanical studies.",
+        "description": "Three arched wood backplates hold removable glass tubes for water propagation or a single flower stem. Designed to bring living detail to narrow walls.",
+        "tags": [
+            "propagation",
+            "plants",
+            "wall decor",
+            "vase"
+        ],
+        "care": "Remove glass tubes for cleaning. Wipe wood dry immediately after spills.",
+        "warranty": "12-month holder warranty; glass excluded from breakage.",
+        "materials": [
+            "Walnut",
+            "Teak",
+            "Ash"
+        ],
+        "finishes": [
+            "Walnut",
+            "Natural",
+            "Charcoal"
+        ],
+        "guid": "01a099fe-5064-75c9-b7e2-36db9cad5bd9",
+        "status": "active",
+        "collection": "Plant & Propagation",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "Arch Bud Vase Trio | Atelier Wood",
+            "description": "Wall-mounted propagation trio for cuttings, single stems and tiny botanical studies."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "duo-propagation-stand",
+        "name": "Duo Propagation Stand",
+        "sku": "AW-PL-012",
+        "category": "plant-displays",
+        "category_label": "Plant Displays",
+        "price": 1490,
+        "featured": true,
+        "image": "duo-propagation.webp",
+        "gallery": [
+            "duo-propagation.webp"
+        ],
+        "material": "Solid wood + borosilicate glass",
+        "finish": "Natural matte",
+        "dimensions": "Pair · approx. 24 × 10 × 8 cm each",
+        "lead_time": "5–8 working days",
+        "short": "Minimal glass-tube planter pair for desk, console or bedside greenery.",
+        "description": "A clean rectangular frame supports a removable test tube, balancing botanical softness with simple joinery. Sold as a coordinated pair.",
+        "tags": [
+            "propagation",
+            "plant stand",
+            "desk",
+            "gift"
+        ],
+        "care": "Hand-wash glass tube. Keep wood dry.",
+        "warranty": "12-month holder warranty; glass excluded from breakage.",
+        "materials": [
+            "Ash",
+            "Pine",
+            "Teak"
+        ],
+        "finishes": [
+            "Natural",
+            "Honey teak",
+            "Warm walnut"
+        ],
+        "guid": "01a099fe-5065-77cf-9e10-68735a0f6e1d",
+        "status": "active",
+        "collection": "Plant & Propagation",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "Duo Propagation Stand | Atelier Wood",
+            "description": "Minimal glass-tube planter pair for desk, console or bedside greenery."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "hexanest-wall-cubes",
+        "name": "HexaNest Wall Cubes",
+        "sku": "AW-SH-013",
+        "category": "wall-shelves",
+        "category_label": "Wall Shelves",
+        "price": 4490,
+        "featured": true,
+        "image": "hexanest-cubes.webp",
+        "gallery": [
+            "hexanest-cubes.webp",
+            "hex-wall-composition.webp"
+        ],
+        "material": "Wood veneer / solid edge frame",
+        "finish": "Mixed walnut + charcoal panels",
+        "dimensions": "Set of 4 · approx. 32 cm each",
+        "lead_time": "10–14 working days",
+        "short": "Modular hexagonal display cubes for plants, ceramics and collected objects.",
+        "description": "Use the set as an ordered grid or a looser honeycomb composition. Contrasting faces create depth while open fronts keep the display visually light.",
+        "tags": [
+            "hexagon",
+            "shelf",
+            "modular",
+            "display"
+        ],
+        "care": "Dry dusting recommended.",
+        "warranty": "18-month structural warranty.",
+        "materials": [
+            "Walnut",
+            "Oak",
+            "Teak"
+        ],
+        "finishes": [
+            "Walnut + charcoal",
+            "Natural + olive",
+            "Teak + sand"
+        ],
+        "guid": "01a099fe-5066-75eb-bc20-26e3b8291f7b",
+        "status": "active",
+        "collection": "Living Walls",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": true,
+            "notes": "Finish options can be selected. Bespoke sizing is reviewed by the studio before confirmation."
+        },
+        "seo": {
+            "title": "HexaNest Wall Cubes | Atelier Wood",
+            "description": "Modular hexagonal display cubes for plants, ceramics and collected objects."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "bath-caddy-roll-shelf",
+        "name": "Bath Caddy Roll Shelf",
+        "sku": "AW-UT-014",
+        "category": "utility-gifting",
+        "category_label": "Utility & Gifting",
+        "price": 2290,
+        "featured": true,
+        "image": "bath-caddy.webp",
+        "gallery": [
+            "bath-caddy.webp"
+        ],
+        "material": "Sealed hardwood + metal roll pin",
+        "finish": "Deep walnut moisture-resistant coat",
+        "dimensions": "Approx. 42 × 18 × 14 cm",
+        "lead_time": "7–10 working days",
+        "short": "Compact bathroom shelf with phone ledge, bottle cubby and toilet-roll holder.",
+        "description": "A small utility object designed to reduce visual clutter. The upper ledge holds a phone or candle while the side cubby stores a diffuser or compact toiletry.",
+        "tags": [
+            "bathroom",
+            "utility",
+            "shelf",
+            "storage"
+        ],
+        "care": "Designed for dry-zone bathroom use. Wipe splashes promptly.",
+        "warranty": "12-month craftsmanship warranty.",
+        "materials": [
+            "Teak",
+            "Hardwood"
+        ],
+        "finishes": [
+            "Deep walnut",
+            "Natural teak",
+            "Smoked oak"
+        ],
+        "guid": "01a099fe-5067-73a2-9e21-239c74b6eb0b",
+        "status": "active",
+        "collection": "Gifting",
+        "compare_at_price": 0,
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "customisation": {
+            "enabled": false,
+            "notes": ""
+        },
+        "seo": {
+            "title": "Bath Caddy Roll Shelf | Atelier Wood",
+            "description": "Compact bathroom shelf with phone ledge, bottle cubby and toilet-roll holder."
+        },
+        "created_at": "2026-09-13T08:45:00Z",
+        "updated_at": "2026-09-13T08:45:00Z"
+    },
+    {
+        "slug": "shubh-labh-heritage-floor-mandir",
+        "name": "Shubh Labh Heritage Floor Mandir",
+        "sku": "AW-MD-001",
+        "price": 28900,
+        "image": "shubh-labh-heritage-floor-mandir.webp",
+        "dimensions": "Approx. 150 × 75 × 45 cm",
+        "short": "Tall floor mandir with carved sacred cutwork, hanging bells and concealed lower storage.",
+        "tags": [
+            "floor mandir",
+            "storage",
+            "carved",
+            "shubh labh"
+        ],
+        "materials": [
+            "Seasoned hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Deep walnut",
+            "Warm teak",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": true,
+        "gallery": [
+            "shubh-labh-heritage-floor-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Shubh Labh Heritage Floor Mandir | Atelier Wood Sacred Spaces",
+            "description": "Tall floor mandir with carved sacred cutwork, hanging bells and concealed lower storage."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-75c6-a3fc-60e34f2f06f8",
+        "material": "Seasoned hardwood",
+        "finish": "Deep walnut",
+        "lead_time": "18–24 working days",
+        "description": "A full-height devotional cabinet designed as a focal point for a dedicated prayer corner. Carved cutwork, warm wood tones, hanging bells and a practical two-door base balance ceremony with everyday storage."
+    },
+    {
+        "slug": "pearl-niche-pooja-console",
+        "name": "Pearl Niche Pooja Console",
+        "sku": "AW-MD-002",
+        "price": 16900,
+        "image": "pearl-niche-pooja-console.webp",
+        "dimensions": "Approx. 145 × 62 × 38 cm",
+        "short": "Slim ivory pooja console with open niche, shelves and closed base storage.",
+        "tags": [
+            "floor mandir",
+            "white mandir",
+            "storage",
+            "compact"
+        ],
+        "materials": [
+            "Engineered wood",
+            "Ash",
+            "Teak"
+        ],
+        "finishes": [
+            "Warm ivory",
+            "Natural ash",
+            "Honey teak"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "pearl-niche-pooja-console.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Pearl Niche Pooja Console | Atelier Wood Sacred Spaces",
+            "description": "Slim ivory pooja console with open niche, shelves and closed base storage."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7c84-a2f0-acc513010727",
+        "material": "Engineered wood + hardwood trim",
+        "finish": "Warm ivory",
+        "lead_time": "14–18 working days",
+        "description": "A light-toned mandir console for modern apartments, combining a clean open shrine niche, display ledges and practical cabinet storage in a compact footprint."
+    },
+    {
+        "slug": "vrindavan-jali-floor-mandir",
+        "name": "Vrindavan Jali Floor Mandir",
+        "sku": "AW-MD-003",
+        "price": 32900,
+        "image": "vrindavan-jali-floor-mandir.webp",
+        "dimensions": "Approx. 160 × 92 × 48 cm",
+        "short": "Premium floor mandir with geometric jali doors, drawers and warm integrated lighting.",
+        "tags": [
+            "floor mandir",
+            "jali",
+            "premium",
+            "lighting"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Rich walnut",
+            "Dark teak",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": true,
+        "gallery": [
+            "vrindavan-jali-floor-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Vrindavan Jali Floor Mandir | Atelier Wood Sacred Spaces",
+            "description": "Premium floor mandir with geometric jali doors, drawers and warm integrated lighting."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-73d6-9ef1-db24a398f692",
+        "material": "Solid hardwood",
+        "finish": "Rich walnut",
+        "lead_time": "21–28 working days",
+        "description": "An architectural floor mandir built around lattice doors and a softly illuminated sanctum. Twin drawers and lower storage keep ritual accessories organised without disturbing the visual calm."
+    },
+    {
+        "slug": "sattva-open-niche-console",
+        "name": "Sattva Open Niche Console Mandir",
+        "sku": "AW-MD-004",
+        "price": 14900,
+        "image": "sattva-open-niche-console.webp",
+        "dimensions": "Approx. 170 × 68 × 36 cm",
+        "short": "Tall open pooja niche with devotional shelves, lamp ledge and double-door lower cabinet.",
+        "tags": [
+            "floor mandir",
+            "minimal",
+            "white",
+            "shelves"
+        ],
+        "materials": [
+            "Engineered wood",
+            "Ash",
+            "Pine"
+        ],
+        "finishes": [
+            "Soft white",
+            "Warm ivory",
+            "Natural ash"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "sattva-open-niche-console.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Sattva Open Niche Console Mandir | Atelier Wood Sacred Spaces",
+            "description": "Tall open pooja niche with devotional shelves, lamp ledge and double-door lower cabinet."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7414-b12d-07270340363c",
+        "material": "Engineered wood",
+        "finish": "Soft white",
+        "lead_time": "12–16 working days",
+        "description": "A minimal shrine for light, contemporary interiors. Multiple small ledges frame icons and photographs while a lower cabinet keeps pooja books and accessories close at hand."
+    },
+    {
+        "slug": "aarti-jharokha-wall-mandir",
+        "name": "Aarti Jharokha Wall Mandir",
+        "sku": "AW-MD-005",
+        "price": 11900,
+        "image": "aarti-jharokha-wall-mandir.webp",
+        "dimensions": "Approx. 70 × 72 × 30 cm",
+        "short": "Wall-mounted jharokha mandir with open carved shutters and a dedicated drawer shelf.",
+        "tags": [
+            "wall mandir",
+            "jharokha",
+            "drawer",
+            "space saving"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Dark walnut",
+            "Honey teak",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "aarti-jharokha-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Aarti Jharokha Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "Wall-mounted jharokha mandir with open carved shutters and a dedicated drawer shelf."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7423-9497-5c3cc8fb9164",
+        "material": "Seasoned hardwood",
+        "finish": "Dark walnut",
+        "lead_time": "12–16 working days",
+        "description": "A compact wall shrine with carved open shutters that visually frame the sanctum. The lower drawer stores incense, wicks and small ritual objects without using floor space."
+    },
+    {
+        "slug": "ganesha-compact-wall-mandir",
+        "name": "Ganesha Compact Wall Mandir",
+        "sku": "AW-MD-006",
+        "price": 8490,
+        "image": "ganesha-compact-wall-mandir.webp",
+        "dimensions": "Approx. 55 × 58 × 25 cm",
+        "short": "Compact wall shrine with twin lattice shutters and slim accessory drawers.",
+        "tags": [
+            "wall mandir",
+            "compact",
+            "lattice",
+            "ganesha"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Pine"
+        ],
+        "finishes": [
+            "Warm teak",
+            "Walnut",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "ganesha-compact-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Ganesha Compact Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "Compact wall shrine with twin lattice shutters and slim accessory drawers."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7411-ab4d-8a79840393b3",
+        "material": "Hardwood",
+        "finish": "Warm teak",
+        "lead_time": "10–14 working days",
+        "description": "Designed for smaller homes, this wall mandir keeps a traditional silhouette while reducing depth. Lattice shutters provide ventilation and a framed devotional presence."
+    },
+    {
+        "slug": "heritage-open-arch-wall-mandir",
+        "name": "Heritage Open Arch Wall Mandir",
+        "sku": "AW-MD-007",
+        "price": 9990,
+        "image": "heritage-open-arch-wall-mandir.webp",
+        "dimensions": "Approx. 82 × 72 × 29 cm",
+        "short": "Open carved arch mandir with turned columns, incense drawer and traditional finials.",
+        "tags": [
+            "wall mandir",
+            "traditional",
+            "open shrine",
+            "carved"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Deep walnut",
+            "Warm teak",
+            "Natural oil"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "heritage-open-arch-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Heritage Open Arch Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "Open carved arch mandir with turned columns, incense drawer and traditional finials."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7ca8-b41e-3b3eedc0c504",
+        "material": "Solid hardwood",
+        "finish": "Deep walnut",
+        "lead_time": "12–16 working days",
+        "description": "A traditional wall shrine without shutters, keeping the deity visually accessible. Carved cornice detailing and turned columns create a classic temple profile."
+    },
+    {
+        "slug": "curtain-darshan-wall-mandir",
+        "name": "Curtain Darshan Wall Mandir",
+        "sku": "AW-MD-008",
+        "price": 10900,
+        "image": "curtain-darshan-wall-mandir.webp",
+        "dimensions": "Approx. 78 × 70 × 30 cm",
+        "short": "Traditional wall mandir with fabric darshan curtains, carved frame and compact drawer.",
+        "tags": [
+            "wall mandir",
+            "curtain",
+            "traditional",
+            "drawer"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Walnut",
+            "Honey teak",
+            "Deep brown"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "curtain-darshan-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Curtain Darshan Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "Traditional wall mandir with fabric darshan curtains, carved frame and compact drawer."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-787c-8ea5-bb999f59b759",
+        "material": "Seasoned hardwood + textile",
+        "finish": "Walnut",
+        "lead_time": "14–18 working days",
+        "description": "A shrine inspired by temple curtain rituals, with a crafted wooden frame and removable fabric curtains. The bottom drawer provides discreet accessory storage."
+    },
+    {
+        "slug": "devlok-storage-floor-mandir",
+        "name": "Devlok Storage Floor Mandir",
+        "sku": "AW-MD-009",
+        "price": 26900,
+        "image": "devlok-storage-floor-mandir.webp",
+        "dimensions": "Approx. 178 × 78 × 44 cm",
+        "short": "Tall storage mandir with elevated shrine, pull-out ledge, drawer and two-door cabinet.",
+        "tags": [
+            "floor mandir",
+            "storage",
+            "large",
+            "traditional"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Espresso walnut",
+            "Deep teak",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "devlok-storage-floor-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Devlok Storage Floor Mandir | Atelier Wood Sacred Spaces",
+            "description": "Tall storage mandir with elevated shrine, pull-out ledge, drawer and two-door cabinet."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-71a5-be8b-65c14faf6f78",
+        "material": "Solid hardwood",
+        "finish": "Espresso walnut",
+        "lead_time": "18–24 working days",
+        "description": "A floor-standing pooja unit designed for families needing generous ritual storage. The upper shrine remains visually separate while books, vessels and seasonal accessories stay organised below."
+    },
+    {
+        "slug": "mayura-glow-pooja-console",
+        "name": "Mayura Glow Pooja Console",
+        "sku": "AW-MD-010",
+        "price": 24900,
+        "image": "mayura-glow-pooja-console.webp",
+        "dimensions": "Approx. 165 × 84 × 40 cm",
+        "short": "Illuminated ivory pooja console with peacock-inspired back panel and display niches.",
+        "tags": [
+            "floor mandir",
+            "led",
+            "white",
+            "modern"
+        ],
+        "materials": [
+            "Engineered wood",
+            "Ash",
+            "Hardwood"
+        ],
+        "finishes": [
+            "Ivory + warm gold",
+            "Warm white",
+            "Natural ash"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": true,
+        "gallery": [
+            "mayura-glow-pooja-console.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Mayura Glow Pooja Console | Atelier Wood Sacred Spaces",
+            "description": "Illuminated ivory pooja console with peacock-inspired back panel and display niches."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-726b-acdb-a1e0d66c0c23",
+        "material": "Engineered wood + hardwood",
+        "finish": "Ivory + warm gold",
+        "lead_time": "18–22 working days",
+        "description": "A contemporary devotional console with ambient integrated lighting, a sculptural back panel and small side niches for diyas and sacred objects. A lower drawer keeps everyday essentials close."
+    },
+    {
+        "slug": "rajwada-carved-table-mandir",
+        "name": "Rajwada Carved Table Mandir",
+        "sku": "AW-MD-011",
+        "price": 13900,
+        "image": "rajwada-carved-table-mandir.webp",
+        "dimensions": "Approx. 82 × 74 × 34 cm",
+        "short": "Hand-carved tabletop temple with ornamental arch, finials and a full-width drawer.",
+        "tags": [
+            "tabletop mandir",
+            "carved",
+            "traditional",
+            "heritage"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Heritage teak",
+            "Warm walnut",
+            "Natural oil"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "rajwada-carved-table-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Rajwada Carved Table Mandir | Atelier Wood Sacred Spaces",
+            "description": "Hand-carved tabletop temple with ornamental arch, finials and a full-width drawer."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7aef-b677-7ece114964e3",
+        "material": "Solid hardwood",
+        "finish": "Heritage teak",
+        "lead_time": "14–18 working days",
+        "description": "A richly detailed tabletop shrine suited to consoles and dedicated platforms. Floral carving and ornamental finials give it a classical handcrafted presence."
+    },
+    {
+        "slug": "krishna-desktop-jharokha-mandir",
+        "name": "Krishna Desktop Jharokha Mandir",
+        "sku": "AW-MD-012",
+        "price": 6490,
+        "image": "krishna-desktop-jharokha-mandir.webp",
+        "dimensions": "Approx. 58 × 43 × 25 cm",
+        "short": "Compact desktop jharokha shrine with sacred motifs and raised front pooja ledge.",
+        "tags": [
+            "tabletop mandir",
+            "krishna",
+            "compact",
+            "apartment"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Pine"
+        ],
+        "finishes": [
+            "Walnut",
+            "Warm teak",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "krishna-desktop-jharokha-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Krishna Desktop Jharokha Mandir | Atelier Wood Sacred Spaces",
+            "description": "Compact desktop jharokha shrine with sacred motifs and raised front pooja ledge."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7dbf-a043-fb8198af7334",
+        "material": "Hardwood",
+        "finish": "Walnut",
+        "lead_time": "8–12 working days",
+        "description": "A small-format tabletop temple for desks, consoles and studio apartments. The jharokha-inspired frame creates a defined sacred zone without requiring permanent wall fixing."
+    },
+    {
+        "slug": "shri-yantra-lotus-floor-mandir",
+        "name": "Shri Yantra Lotus Floor Mandir",
+        "sku": "AW-MD-013",
+        "price": 22900,
+        "image": "shri-yantra-lotus-floor-mandir.webp",
+        "dimensions": "Approx. 168 × 78 × 38 cm",
+        "short": "White floor mandir with backlit Shri Yantra motif, pendant details and cabinet storage.",
+        "tags": [
+            "floor mandir",
+            "white",
+            "shri yantra",
+            "lighting"
+        ],
+        "materials": [
+            "Engineered wood",
+            "Ash",
+            "Hardwood"
+        ],
+        "finishes": [
+            "Ivory",
+            "Warm white",
+            "Natural ash"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": true,
+        "gallery": [
+            "shri-yantra-lotus-floor-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Shri Yantra Lotus Floor Mandir | Atelier Wood Sacred Spaces",
+            "description": "White floor mandir with backlit Shri Yantra motif, pendant details and cabinet storage."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-734c-8285-d876496ad524",
+        "material": "Engineered wood + hardwood trim",
+        "finish": "Ivory",
+        "lead_time": "16–22 working days",
+        "description": "A luminous modern pooja unit with a symbolic back panel and focused warm light. Its compact cabinet base is sized for everyday ritual storage while maintaining a light visual presence."
+    },
+    {
+        "slug": "pichwai-golden-wall-mandir",
+        "name": "Pichwai Golden Wall Mandir",
+        "sku": "AW-MD-014",
+        "price": 9990,
+        "image": "pichwai-golden-wall-mandir.webp",
+        "dimensions": "Approx. 60 × 65 × 28 cm",
+        "short": "Wall-mounted temple with lattice shutters and hand-painted floral drawer detailing.",
+        "tags": [
+            "wall mandir",
+            "painted",
+            "gold",
+            "lattice"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Pine"
+        ],
+        "finishes": [
+            "Hand-painted gold",
+            "Antique gold",
+            "Warm teak"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "pichwai-golden-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Pichwai Golden Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "Wall-mounted temple with lattice shutters and hand-painted floral drawer detailing."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7bbe-a14d-a36dc860f82f",
+        "material": "Hardwood",
+        "finish": "Hand-painted gold",
+        "lead_time": "14–20 working days",
+        "description": "A compact wall shrine that pairs a warm golden finish with hand-painted botanical motifs. The shuttered sanctum and twin drawers make it both decorative and useful."
+    },
+    {
+        "slug": "radha-niche-mandir-shelf",
+        "name": "Radha Niche Mandir Shelf",
+        "sku": "AW-MD-015",
+        "price": 7990,
+        "image": "radha-niche-mandir-shelf.webp",
+        "dimensions": "Approx. 110 × 52 × 28 cm",
+        "short": "Light oak wall niche with devotional display ledges and a lower book shelf.",
+        "tags": [
+            "wall mandir",
+            "oak",
+            "shelf",
+            "compact"
+        ],
+        "materials": [
+            "Engineered oak",
+            "Ash",
+            "Pine"
+        ],
+        "finishes": [
+            "Natural oak",
+            "Natural ash",
+            "Honey oak"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "radha-niche-mandir-shelf.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Radha Niche Mandir Shelf | Atelier Wood Sacred Spaces",
+            "description": "Light oak wall niche with devotional display ledges and a lower book shelf."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-705d-9379-291ecdf0c22a",
+        "material": "Engineered oak",
+        "finish": "Natural oak",
+        "lead_time": "10–14 working days",
+        "description": "A vertical wall-mounted pooja shelf for compact homes. Small stepped ledges hold framed icons while the lower open shelf stores prayer books and daily essentials."
+    },
+    {
+        "slug": "om-shubh-tabletop-mandir",
+        "name": "Om Shubh Tabletop Mandir",
+        "sku": "AW-MD-016",
+        "price": 5490,
+        "image": "om-shubh-tabletop-mandir.webp",
+        "dimensions": "Approx. 55 × 42 × 24 cm",
+        "short": "Minimal tabletop mandir with Om motif, bell cutouts and raised front shelf.",
+        "tags": [
+            "tabletop mandir",
+            "om",
+            "compact",
+            "minimal"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Pine"
+        ],
+        "finishes": [
+            "Warm walnut",
+            "Honey teak",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "om-shubh-tabletop-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Om Shubh Tabletop Mandir | Atelier Wood Sacred Spaces",
+            "description": "Minimal tabletop mandir with Om motif, bell cutouts and raised front shelf."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-78ae-b8a9-7dfee5bc2053",
+        "material": "Hardwood",
+        "finish": "Warm walnut",
+        "lead_time": "8–12 working days",
+        "description": "A small, approachable shrine for everyday use. Sacred cutwork and a slim base ledge provide enough ceremonial detail while keeping the footprint apartment-friendly."
+    },
+    {
+        "slug": "chakra-compact-wall-shrine",
+        "name": "Chakra Compact Wall Shrine",
+        "sku": "AW-MD-017",
+        "price": 8990,
+        "image": "chakra-compact-wall-shrine.webp",
+        "dimensions": "Approx. 62 × 54 × 25 cm",
+        "short": "Open wall shrine with geometric chakra back panel and dual accessory shelf.",
+        "tags": [
+            "wall mandir",
+            "chakra",
+            "modern",
+            "compact"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Dark walnut",
+            "Warm teak",
+            "Natural matte"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "chakra-compact-wall-shrine.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Chakra Compact Wall Shrine | Atelier Wood Sacred Spaces",
+            "description": "Open wall shrine with geometric chakra back panel and dual accessory shelf."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7d7e-bf98-c38088ca8bfb",
+        "material": "Hardwood",
+        "finish": "Dark walnut",
+        "lead_time": "10–14 working days",
+        "description": "A clean wall-mounted shrine built around a radial cutwork back panel. The open sanctum keeps the composition airy while the two-level base supports lamps and pooja accessories."
+    },
+    {
+        "slug": "lotus-arch-wall-mandir",
+        "name": "Lotus Arch Wall Mandir",
+        "sku": "AW-MD-018",
+        "price": 12490,
+        "image": "lotus-arch-wall-mandir.webp",
+        "dimensions": "Approx. 108 × 70 × 34 cm",
+        "short": "White lotus-cutwork wall mandir with warm illumination and two-door lower cabinet.",
+        "tags": [
+            "wall mandir",
+            "white",
+            "lotus",
+            "storage",
+            "led"
+        ],
+        "materials": [
+            "Engineered wood",
+            "Ash",
+            "Hardwood"
+        ],
+        "finishes": [
+            "Warm white",
+            "Ivory",
+            "Natural ash"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": true,
+        "gallery": [
+            "lotus-arch-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Lotus Arch Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "White lotus-cutwork wall mandir with warm illumination and two-door lower cabinet."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-709a-9d0d-8066bf3d4e50",
+        "material": "Engineered wood + hardwood trim",
+        "finish": "Warm white",
+        "lead_time": "14–18 working days",
+        "description": "A bright wall shrine combining decorative cutwork with useful closed storage. Warm lighting highlights the central devotional zone while the cabinet keeps the overall look uncluttered."
+    },
+    {
+        "slug": "devdarsh-lattice-wall-mandir",
+        "name": "Devdarsh Lattice Wall Mandir",
+        "sku": "AW-MD-019",
+        "price": 10490,
+        "image": "devdarsh-lattice-wall-mandir.webp",
+        "dimensions": "Approx. 68 × 64 × 30 cm",
+        "short": "Shuttered wall mandir with full-height lattice doors and a deep ritual ledge.",
+        "tags": [
+            "wall mandir",
+            "lattice",
+            "doors",
+            "traditional"
+        ],
+        "materials": [
+            "Hardwood",
+            "Teak",
+            "Walnut"
+        ],
+        "finishes": [
+            "Teak walnut",
+            "Deep walnut",
+            "Natural oil"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "devdarsh-lattice-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Devdarsh Lattice Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "Shuttered wall mandir with full-height lattice doors and a deep ritual ledge."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7214-b4ba-eecb1c8c332a",
+        "material": "Hardwood",
+        "finish": "Teak walnut",
+        "lead_time": "12–16 working days",
+        "description": "A compact enclosed wall temple for homes that prefer a closable sanctum. Full-height lattice shutters provide ventilation and ceremonial privacy while preserving a handcrafted presence."
+    },
+    {
+        "slug": "painted-ganesha-wall-mandir",
+        "name": "Painted Ganesha Wall Mandir",
+        "sku": "AW-MD-020",
+        "price": 7490,
+        "image": "painted-ganesha-wall-mandir.webp",
+        "dimensions": "Approx. 60 × 58 × 26 cm",
+        "short": "Cream wall mandir with hand-painted border motifs, open sanctum and accessory drawer.",
+        "tags": [
+            "wall mandir",
+            "painted",
+            "ganesha",
+            "cream"
+        ],
+        "materials": [
+            "Hardwood",
+            "Pine",
+            "Ash"
+        ],
+        "finishes": [
+            "Hand-painted cream",
+            "Warm ivory",
+            "Natural ash"
+        ],
+        "category": "sacred-spaces",
+        "category_label": "Sacred Spaces",
+        "featured": false,
+        "gallery": [
+            "painted-ganesha-wall-mandir.webp"
+        ],
+        "collection": "Sacred Spaces",
+        "care": "Dust with a soft dry cloth. Keep away from standing water and direct heat. Use only cool, low-wattage LED lighting where fitted.",
+        "warranty": "12-month craftsmanship warranty. Electrical components, where supplied, carry the component warranty stated at dispatch.",
+        "customisation": {
+            "enabled": true,
+            "notes": "Wood tone, finish and selected dimensions can be configured in staging. Wall fixing and site suitability require installer verification."
+        },
+        "inventory": {
+            "track": false,
+            "stock": 0,
+            "made_to_order": true
+        },
+        "status": "active",
+        "compare_at_price": 0,
+        "seo": {
+            "title": "Painted Ganesha Wall Mandir | Atelier Wood Sacred Spaces",
+            "description": "Cream wall mandir with hand-painted border motifs, open sanctum and accessory drawer."
+        },
+        "created_at": "2026-09-13T13:10:00Z",
+        "updated_at": "2026-09-13T13:10:00Z",
+        "guid": "01a09adf-a69c-7ced-88d4-41e8d3bfc572",
+        "material": "Hardwood",
+        "finish": "Hand-painted cream",
+        "lead_time": "12–18 working days",
+        "description": "A cheerful painted shrine for light interiors, combining an open pooja niche with traditional hand-applied border motifs and a practical lower drawer."
+    }
 ]

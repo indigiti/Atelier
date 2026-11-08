@@ -403,6 +403,7 @@ function release_checks(): array {
     if (function_exists('passport_release_checks')) $checks = array_merge($checks, passport_release_checks());
     if (function_exists('trade_release_checks')) $checks = array_merge($checks, trade_release_checks());
     if (function_exists('integrations_release_checks')) $checks = array_merge($checks, integrations_release_checks());
+    if (function_exists('seo_release_checks')) $checks = array_merge($checks, seo_release_checks());
     if (function_exists('security_release_checks')) $checks = array_merge($checks, security_release_checks());
     if (function_exists('commerceux_release_checks')) $checks = array_merge($checks, commerceux_release_checks());
     return $checks;
