@@ -28,4 +28,15 @@
   <?php if(customer_logged_in()):?><div class="room-planner-cta"><div><p class="kicker">Turn the profile into a plan</p><h3>Lay the pieces into your actual room.</h3><p>Create room dimensions, attach this style profile and test product positions against the room boundary and budget.</p></div><a class="btn primary" href="<?=e(url('/account/rooms/new'))?>">Create room plan</a></div><?php endif;?>
 </div></section>
 <?php endif;?>
-<section class="section shell consult-card"><div><p class="kicker">Bespoke Studio</p><h2>Need something the catalogue<br><em>cannot solve?</em></h2></div><div><p>Move from the Style Finder into our controlled bespoke workflow for custom dimensions, revisions, approval, deposit and Design Freeze.</p><a class="btn outline" href="<?=e(url('/shop'))?>">Choose a starting product</a></div></section>
+<section class="section shell consult-card" id="consult"><div><p class="kicker">Bespoke Studio</p><h2>Need something the catalogue<br><em>cannot solve?</em></h2><p>Share your project brief with our studio. We store your request securely and follow up with you.</p></div><div>
+<form class="consultation-form" method="post" action="<?=e(url('/quote'))?>">
+<?=csrf_field()?>
+<div class="form-grid"><label>Full name <input name="name" autocomplete="name" minlength="2" maxlength="120" required></label><label>Phone <input name="phone" autocomplete="tel" inputmode="tel" minlength="10" maxlength="18" required></label></div>
+<label>Email (optional) <input name="email" type="email" autocomplete="email"></label>
+<label>What would you like us to create? <textarea name="project" rows="4" minlength="10" maxlength="3000" required></textarea></label>
+<div class="sr-only" aria-hidden="true"><label>Leave this field blank <input name="website" tabindex="-1" autocomplete="off"></label></div>
+<button class="btn dark" type="submit">Send consultation enquiry</button>
+<p class="form-hint">We use your contact details only to respond to your enquiry.</p>
+</form>
+<a class="btn outline" href="<?=e(url('/shop'))?>">Choose a starting product</a>
+</div></section>

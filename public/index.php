@@ -122,6 +122,8 @@ if ($path === '/admin/logout' && $method === 'POST') { verify_csrf(); admin_logo
 if ($path === '/admin' || str_starts_with($path,'/admin/')) {
     require_admin();
     if ($path === '/admin') { render_admin('dashboard',['title'=>'Dashboard','metrics'=>admin_metrics()]); exit; }
+    if ($path === '/admin/enquiries') { render_admin('enquiries',['title'=>'Consultation enquiries','enquiries'=>array_reverse(enquiries_all())]); exit; }
+    if (preg_match('#^/admin/enquiries/([0-9a-f-]+)/status$#',$path,$m) && $method==='POST') { verify_csrf(); try{enquiry_set_status($m[1],(string)($_POST['status']??''));flash('success','Enquiry updated.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/enquiries'); }
     if ($path === '/admin/orders') { $status=trim((string)($_GET['status']??'')); render_admin('orders',['title'=>'Orders','orders'=>admin_orders($status?:null)]); exit; }
     if ($path === '/admin/requests') { render_admin('requests',['title'=>'Refunds & cancellations','requests'=>array_reverse(commerce_requests())]); exit; }
     if ($path === '/admin/quotes') { $status=trim((string)($_GET['status']??'')); render_admin('quotes',['title'=>'Bespoke Studio','quotes'=>bespoke_admin_quotes($status),'status'=>$status]); exit; }
@@ -304,7 +306,7 @@ if ($method === 'POST') {
     if ($path === '/cart/update') {commerce_cart_update((array)($_POST['qty']??[]));flash('success','Cart updated.');redirect('/cart');}
     if ($path === '/cart/remove') {commerce_cart_remove((string)($_POST['key']??''));flash('success','Item removed from cart.');redirect('/cart');}
     if ($path === '/wishlist/toggle') {$slug=trim((string)($_POST['slug']??''));if(!product_by_slug($slug))redirect('/wishlist');$wishlist=$_SESSION['wishlist']??[];if(in_array($slug,$wishlist,true)){$wishlist=array_values(array_filter($wishlist,fn($s)=>$s!==$slug));flash('success','Removed from wishlist.');}else{$wishlist[]=$slug;flash('success','Saved to wishlist.');}$_SESSION['wishlist']=array_values(array_unique($wishlist));$back=(string)($_POST['back']??'/wishlist');if(!str_starts_with($back,'/'))$back='/wishlist';redirect($back);}
-    if ($path === '/quote') {$name=trim((string)($_POST['name']??''));$phone=trim((string)($_POST['phone']??''));$project=trim((string)($_POST['project']??''));if($name===''||$phone===''||$project==='')flash('error','Please complete name, phone and project requirement.');else flash('success','Thank you. Your staging enquiry was validated successfully. No personal data was stored in this build.');redirect('/style-finder#consult');}
+    if ($path === '/quote') {try{[$ok,$result]=enquiry_submit($_POST);flash($ok?'success':'error',$ok?'Your enquiry has been received.':(string)$result);}catch(Throwable $e){error_log('Atelier enquiry persistence failure: '.get_class($e));flash('error','Enquiry could not be saved. Please try again.');}redirect('/style-finder#consult');}
 }
 
 /* ---------------- Public storefront ---------------- */
