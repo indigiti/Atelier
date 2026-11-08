@@ -15,7 +15,7 @@ export ATELIER_TEST_ISOLATED=1
 export ATELIER_TEST_ROOT="$test_root"
 cd "$test_root"
 find . -name "*.php" -print0 | xargs -0 -n1 php -l >/dev/null
-for t in foundation_hardening smoke commerce_core configurator bespoke makeos procurement quality fulfilment cms designos sacred_spaces themes mediaos intelligence passport tradeos integrations security commerce_ux release_regression; do
+for t in foundation_hardening smoke commerce_core configurator bespoke makeos procurement quality fulfilment cms designos sacred_spaces themes mediaos intelligence passport tradeos integrations security enquiries commerce_ux release_regression; do
   echo "== $t =="
   php "tests/$t.php"
 done
