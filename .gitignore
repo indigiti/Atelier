@@ -1,0 +1,5 @@
+# Local/generated deployment bundles
+/build/
+# Local PHP caches and temporary files
+*.tmp
+.DS_Store

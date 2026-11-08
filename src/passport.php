@@ -4,7 +4,8 @@ declare(strict_types=1);
 function passport_root(): string { return data_root().'/private-domain/passports'; }
 function passport_file(): string { return passport_root().'/passports.json'; }
 function service_file(): string { return passport_root().'/service-cases.json'; }
-function passport_qr_dir(): string { return dirname(__DIR__).'/public/assets/passports'; }
+function passport_qr_dir(): string { return atelier_upload_root().'/passports'; }
+function passport_qr_url(string $name): string { return url('/media/passports/'.rawurlencode(basename($name))); }
 function passport_ensure_dirs(): void { foreach([passport_root(),passport_qr_dir()] as $d)if(!is_dir($d))@mkdir($d,$d===passport_qr_dir()?0755:0750,true); }
 function passports_all(): array { passport_ensure_dirs();try{return confidential_json_read(passport_file(),'atelierwood:passports:v1',[]);}catch(Throwable){return[];} }
 function service_cases_all(): array { passport_ensure_dirs();try{return confidential_json_read(service_file(),'atelierwood:service-cases:v1',[]);}catch(Throwable){return[];} }

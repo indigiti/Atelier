@@ -22,3 +22,11 @@
 - [ ] Never use live application storage for regression tests. Always invoke `bash scripts/full_regression.sh`, which creates a disposable test workspace.
 - [ ] Exercise payment event retries and recovery after a simulated crash between webhook state and order state.
 - [ ] Run PostgreSQL cutover / payment-provider validation as separate production-release projects. The current bootstrap intentionally rejects production mode.
+
+## DigiOps release packaging
+- [ ] GitHub Actions tests and package simulation pass on the exact main commit.
+- [ ] GitHub Actions run includes artifact `digiops-release` with public/private split.
+- [ ] Existing Atelier runtime state is inventoried and backed up before the first split-layout deployment.
+- [ ] DigiOps application registry targets the intended staging app ID (do not create a conflicting record).
+- [ ] Cloudways private_html/<app>/storage persists across release switch/rollback.
+- [ ] Post-deploy /health, /admin/seo and product pages work, with noindex on staging.

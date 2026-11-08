@@ -50,3 +50,7 @@ This remains **staging-only**. PostgreSQL authority is intentionally deferred to
 ## SEO and AI Discoverability
 
 Technical SEO, Merchant feeds, AI-readable knowledge and the admin SEO Control Center are documented in [SEO_GEO_READINESS.md](SEO_GEO_READINESS.md). Staging remains noindex and production indexing/merchant acceptance are independent launch gates.
+
+## Deploying with DigiOps
+
+The verified main branch produces a split public/private artifact named `digiops-release`. See [DIGIOPS_STAGING.md](DIGIOPS_STAGING.md) for persistent storage, Cloudways path mapping, deployment and post-activation SEO checks. The CI artifact is **not** proof of a remote deployment.

@@ -67,6 +67,8 @@ seo_check(($report['summary']['products']??0)===count($products),'SEO report cou
 seo_check(($report['summary']['duplicate_titles']??999)===0,'Duplicate product title detected.');
 seo_check(($report['site_indexable']??true)===false,'SEO dashboard claims staging indexing.');
 seo_check(isset($report['external']['search_console']),'External verification status not disclosed.');
+seo_check(atelier_public_root()===dirname(__DIR__).'/public','Local public asset root changed unexpectedly.');
+seo_check(atelier_media_file_exists((string)$first['image']),'Packaged stock image not accessible.');
 foreach(seo_release_checks() as $check)seo_check(!empty($check['ok']), 'SEO release check failed: '.$check['name']);
 if($errors){fwrite(STDERR,implode("\n",array_unique($errors))."\n");exit(1);}
 echo "PASS: stage noindex, production URL policy, rich Product Offer, breadcrumbs, safe knowledge graph, metadata, XML and SEO dashboard diagnostics.\n";

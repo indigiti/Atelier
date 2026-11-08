@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-function data_root(): string { return dirname(__DIR__) . '/storage'; }
+function data_root(): string { $configured=trim((string)getenv('ATELIER_STORAGE_ROOT')); return $configured!==''?rtrim($configured,'/'):dirname(__DIR__).'/storage'; }
+function atelier_public_root(): string { $configured=trim((string)getenv('ATELIER_PUBLIC_ROOT')); return $configured!==''?rtrim($configured,'/'):dirname(__DIR__).'/public'; }
+function atelier_upload_root(): string { return data_root().'/public-domain/uploads'; }
+function atelier_media_file_exists(string $name): bool { $name=basename($name);return (bool)preg_match('/^[a-zA-Z0-9._-]+\.(?:webp|png|jpe?g)$/i',$name) && (is_file(atelier_public_root().'/assets/images/products/'.$name)||is_file(atelier_upload_root().'/products/'.$name)); }
 function admin_user_file(): string { return data_root() . '/private-domain/admin/users.json'; }
 function setup_key_file(): string { return data_root() . '/private-domain/admin/setup.key'; }
 function catalog_file(): string { return data_root() . '/public-domain/catalog/products.json'; }
@@ -293,11 +296,13 @@ function delete_product(string $guid, ?string $expectedChecksum=null): bool {
 }
 
 function media_files(): array {
-    $dir = dirname(__DIR__) . '/public/assets/images/products';
     $files=[];
-    foreach (glob($dir.'/*.{webp,jpg,jpeg,png}',GLOB_BRACE) ?: [] as $p) {
-        $files[]=['name'=>basename($p),'bytes'=>filesize($p)?:0,'mtime'=>filemtime($p)?:0];
+    foreach ([atelier_public_root().'/assets/images/products', atelier_upload_root().'/products'] as $dir) {
+        foreach (glob($dir.'/*.{webp,jpg,jpeg,png}',GLOB_BRACE) ?: [] as $p) {
+            $files[basename($p)]=['name'=>basename($p),'bytes'=>filesize($p)?:0,'mtime'=>filemtime($p)?:0];
+        }
     }
+    $files=array_values($files);
     usort($files,fn($a,$b)=>$b['mtime']<=>$a['mtime']); return $files;
 }
 
@@ -310,7 +315,9 @@ function media_upload(array $file): array {
     $stem=strtolower(pathinfo((string)($file['name']??'image'),PATHINFO_FILENAME));
     $stem=trim((string)preg_replace('/[^a-z0-9]+/','-',$stem),'-') ?: 'image';
     $name=$stem.'-'.substr(bin2hex(random_bytes(5)),0,10).'.webp';
-    $dest=dirname(__DIR__).'/public/assets/images/products/'.$name;
+    $uploadDir=atelier_upload_root().'/products';
+    if(!is_dir($uploadDir)&&!@mkdir($uploadDir,0750,true)&&!is_dir($uploadDir))return [false,'Protected upload directory unavailable.'];
+    $dest=$uploadDir.'/'.$name;
     $raw=@file_get_contents($tmp); $img=$raw!==false && function_exists('imagecreatefromstring') ? @imagecreatefromstring($raw) : false;
     if ($img && function_exists('imagewebp')) {
         $w=imagesx($img); $h=imagesy($img); $pixels=$w*$h;
@@ -362,7 +369,7 @@ function release_checks(): array {
     $dupes=fn($a)=>count($a)!==count(array_unique($a));
     $privateProtected=!str_starts_with(realpath(data_root().'/private-domain')?:'', realpath(dirname(__DIR__).'/public')?:'__public__');
     $revisionWritable=is_dir(revisions_dir()) && is_writable(revisions_dir());
-    $mediaMissing=0; foreach($items as $p){ if(!empty($p['image']) && !is_file(dirname(__DIR__).'/public/assets/images/products/'.$p['image'])) $mediaMissing++; }
+    $mediaMissing=0; foreach($items as $p){ if(!empty($p['image']) && !atelier_media_file_exists((string)$p['image'])) $mediaMissing++; }
     $taxSlugs=array_column(taxonomies()['categories']??[],'slug'); $orphanCategories=0; foreach($items as $p) if(!in_array((string)($p['category']??''),$taxSlugs,true)) $orphanCategories++;
     $txIncomplete = foundation_incomplete_transactions();
     $cryptoAvailable = confidential_crypto_available();

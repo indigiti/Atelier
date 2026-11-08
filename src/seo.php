@@ -228,7 +228,7 @@ function seo_product_issues(array $p): array {
     if ((int)($p['price']??0)<=0) $issues[]='Price missing or invalid';
     $hero=mediaos_role($p,'hero');
     if (!$hero || empty($hero['file'])) $issues[]='Hero image missing';
-    elseif (!is_file(dirname(__DIR__).'/public/assets/images/products/'.basename((string)$hero['file']))) $issues[]='Hero image file missing';
+    elseif (!atelier_media_file_exists((string)$hero['file'])) $issues[]='Hero image file missing';
     if (empty($hero['alt'])) $issues[]='Image alt text missing';
     if (($hero['status']??'staging')!=='approved') $issues[]='Hero image is not approved for production';
     if (($hero['rights']??'unverified')==='unverified') $issues[]='Image rights not verified';
