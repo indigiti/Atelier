@@ -1,0 +1,22 @@
+Area,Gate,Result,Notes
+Code,PHP syntax,PASS,All PHP files linted
+Catalog,14 product rule coverage,PASS,Every active product has GUID-bound rule
+Configurator,Deterministic pricing,PASS,Repeated normalized quote produces same signature/price
+Configurator,Material/finish allowlist,PASS,Unknown choice rejected
+Configurator,Dimension min/max/step,PASS,Server validation enforced
+Security,Client price tampering,PASS,Client price fields ignored
+Security,CSRF live quote/save/cart,PASS,Browser mutations protected
+Security,Saved config encryption,PASS,No plaintext label/email in confidential store
+Authorization,Cross-customer configuration access,PASS,Owner-scoped retrieval only
+Commerce,Configured Cart v2,PASS,Canonical configured unit price used
+Commerce,Order config snapshot,PASS,Selection/signature/pricing version retained
+Commerce,v0.3 regression,PASS,Commerce core suite passes
+HTTP,Live quote endpoint,PASS,Valid quote returned
+HTTP,Invalid quote selection,PASS,HTTP 422
+HTTP,Health version/rules,PASS,v0.4.0 and 14 rules
+HTTP,Save/reopen/add-to-cart flow,PASS,End-to-end customer flow verified
+UX,Responsive configurator structure,PASS,Mobile option grids and CTA layout defined
+UX,Saved config responsive cards,PASS,Two-column to one-column behavior defined
+Production,Commercial pricing sign-off,OPEN,Required before production
+Production,Workshop feasibility rules,OPEN,Required before production
+Production,PostgreSQL cutover,OPEN,Future production milestone

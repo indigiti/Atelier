@@ -1,0 +1,27 @@
+Version,Area,Gate,Result,Evidence
+0.8.0,Foundation,Inherited full regression,PASS,AUDIT_TEST_LOG.txt
+0.8.0,PHP,All PHP syntax,PASS,AUDIT_PHP_LINT.txt
+0.8.0,Style Finder,Input normalization,PASS,tests/designos.php
+0.8.0,Style Finder,Deterministic scoring,PASS,tests/designos.php + /ready
+0.8.0,Style Finder,Catalogue recommendation coverage,PASS,tests/designos.php + /ready
+0.8.0,Style Finder,Anonymous use,PASS,HTTP smoke
+0.8.0,Style Finder,Encrypted saved profiles,PASS,tests/designos.php
+0.8.0,Style Finder,Customer object authorization,PASS,tests/designos.php
+0.8.0,Room Planner,Encrypted room persistence,PASS,tests/designos.php
+0.8.0,Room Planner,Room CRUD,PASS,tests/designos.php + HTTP smoke
+0.8.0,Room Planner,Dimension bounds,PASS,tests/designos.php
+0.8.0,Room Planner,Product placement,PASS,tests/designos.php + HTTP smoke
+0.8.0,Room Planner,Move/rotate/remove,PASS,tests/designos.php
+0.8.0,Room Planner,Out-of-bound rejection,PASS,tests/designos.php
+0.8.0,Room Planner,Overlap diagnostics,PASS,tests/designos.php
+0.8.0,Room Planner,Budget diagnostics,PASS,tests/designos.php
+0.8.0,Room Planner,Canonical product references,PASS,/ready
+0.8.0,Room Planner,Cross-customer isolation,PASS,tests/designos.php
+0.8.0,Security,CSRF on mutations,PASS,Route/code audit
+0.8.0,Security,Private storage boundary,PASS,Inherited release checks
+0.8.0,UX,Desktop responsive layout,PASS,Code-level visual audit
+0.8.0,UX,Tablet responsive layout,PASS,Code-level visual audit
+0.8.0,UX,Mobile responsive layout,PASS,Code-level visual audit
+0.8.0,UX,No drag-only dependency,PASS,Form-based placement controls
+0.8.0,Readiness,DesignOS critical checks in /ready,PASS,HTTP /ready
+0.8.0,Release,Nginx release path,PASS,tests/release_regression.php

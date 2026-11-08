@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "surfaces": {
+    "default": {"preset": "atelier-natural", "overrides": {}},
+    "sacred-spaces": {"preset": "sacred-luxury", "overrides": {}}
+  },
+  "updated_at": null
+}

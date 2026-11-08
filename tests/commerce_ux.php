@@ -1,0 +1,25 @@
+<?php
+declare(strict_types=1);
+$root=dirname(__DIR__);
+putenv('APP_ENV=staging');
+if(!getenv('ATELIER_DATA_KEY'))putenv('ATELIER_DATA_KEY='.base64_encode(str_repeat('U',32)));
+if(!getenv('ATELIER_SANDBOX_WEBHOOK_SECRET'))putenv('ATELIER_SANDBOX_WEBHOOK_SECRET=commerce-ux-secret');
+if(!getenv('ATELIER_AGENT_SIGNING_KEY'))putenv('ATELIER_AGENT_SIGNING_KEY=commerce-ux-agent-key');
+$_SERVER['HTTP_HOST']='staging.example.test';$_SERVER['SCRIPT_NAME']='/index.php';$_SERVER['REMOTE_ADDR']='127.0.0.1';
+require $root.'/src/bootstrap.php';
+$errors=[];$all=products_public();
+$opts=commerceux_filter_options($all);
+if(empty($opts['materials'])||empty($opts['finishes'])||empty($opts['rooms']))$errors[]='Filter option registry is incomplete.';
+$sacred=commerceux_filter_catalog($all,['room'=>'sacred']);
+if(!$sacred)$errors[]='Sacred room filter returned no products.';
+foreach($sacred as $p)if(($p['category']??'')!=='sacred-spaces')$errors[]='Sacred room filter leaked non-sacred product.';
+$asc=commerceux_filter_catalog($all,['sort'=>'price_asc']);
+for($i=1;$i<count($asc);$i++)if((int)$asc[$i-1]['price']>(int)$asc[$i]['price'])$errors[]='Price ascending sort is invalid.';
+$search=commerceux_filter_catalog($all,['q'=>'walnut']);
+if(!$search)$errors[]='Search across material/product text returned no walnut matches.';
+$css=(string)file_get_contents($root.'/public/assets/css/app.css');$layout=(string)file_get_contents($root.'/templates/layout.php');$shop=(string)file_get_contents($root.'/templates/shop.php');$product=(string)file_get_contents($root.'/templates/product.php');
+foreach(['@media(max-width:1279px)','@media(max-width:1023px)','@media(max-width:767px)','@media(max-width:430px)','mobile-purchase-bar','commerce-sheet'] as $needle)if(!str_contains($css,$needle))$errors[]='Responsive CSS marker missing: '.$needle;
+foreach(['header-search-primary','tablet-search-row','data-mega-toggle','data-menu-toggle'] as $needle)if(!str_contains($layout,$needle))$errors[]='Header UX marker missing: '.$needle;
+foreach(['data-filter-toggle','data-sort-toggle','commerce-category-rail','market-filter-form'] as $needle)if(!str_contains($shop,$needle))$errors[]='PLP UX marker missing: '.$needle;
+foreach(['Does it fit my room?','data-pincode-widget','mobile-purchase-bar','id="configure"'] as $needle)if(!str_contains($product,$needle))$errors[]='PDP UX marker missing: '.$needle;
+if($errors){fwrite(STDERR,implode("\n",array_unique($errors))."\n");exit(1);}echo "PASS: marketplace search/filter/sort, responsive header/PLP/PDP markers and room-commerce integration verified.\n";

@@ -1,0 +1,28 @@
+Area,Gate,Result,Notes
+Foundation,PHP syntax,PASS,All project PHP files lint clean
+Foundation,Transaction hardening,PASS,Existing foundation regression passed
+Commerce,Commerce Core regression,PASS,Customer/order/payment/refund suite passed
+Configurator,Server-authoritative pricing,PASS,Existing v0.4.0 regression passed
+Bespoke,Encrypted quote store,PASS,Raw quote file does not expose test PII/brief
+Bespoke,Customer object authorization,PASS,Cross-customer quote access rejected
+Bespoke,Revision immutability,PASS,Revision is append-only and fingerprinted
+Bespoke,Publish gate,PASS,Customer cannot decide unpublished draft
+Bespoke,Approval fingerprint binding,PASS,Decision records exact revision fingerprint
+Bespoke,Proposal expiry gate,PASS,Expired published proposal cannot be approved
+Pricing,Quote total calculation,PASS,Piece + design fee + delivery calculated server-side
+Pricing,Deposit calculation,PASS,Approved total × deposit percentage calculated server-side
+Payment,Deposit signature verification,PASS,HMAC required
+Payment,Deposit idempotency,PASS,Duplicate event does not double settle
+Payment,Invalid signature rejection,PASS,Rejected
+Workflow,Post-deposit revision lock,PASS,New revision rejected after verified deposit
+Workflow,Design Freeze deposit gate,PASS,Freeze requires verified deposit
+Workflow,Design Freeze immutability,PASS,Existing freeze returned idempotently
+Workflow,Freeze fingerprint,PASS,Frozen snapshot hash validates
+UI,Customer Bespoke Projects,PASS,List/detail/approval/deposit/freeze states implemented
+UI,Admin Bespoke Studio,PASS,List/revision/publish/freeze implemented
+Responsive,Desktop/tablet/mobile rules,PASS,New bespoke layouts include 1000px and 640px responsive handling
+Release,/ready critical gates,PASS,HTTP 200 after full lifecycle in final HTTP regression
+Deployment,Nginx release path,PASS,Updated to v0.4.5 public root
+Production,PostgreSQL authoritative source,DEFERRED,Required for production cutover
+Production,Live payment gateway,DEFERRED,Sandbox only in v0.4.5
+Production,Secure drawing upload,DEFERRED,Drawing reference only in v0.4.5

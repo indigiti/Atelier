@@ -1,0 +1,345 @@
+<?php
+declare(strict_types=1);
+
+require dirname(__DIR__) . '/src/bootstrap.php';
+
+$GLOBALS['csp_nonce'] = base64_encode(random_bytes(18));
+if (!headers_sent()) {
+    header('X-Content-Type-Options: nosniff');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('Cross-Origin-Opener-Policy: same-origin');
+    header('Cross-Origin-Resource-Policy: same-site');
+    header('Permissions-Policy: camera=(), microphone=(), geolocation=()');
+    header("Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'nonce-".$GLOBALS['csp_nonce']."'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'");
+    if (request_is_https()) header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+}
+
+$uriPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$base = base_path();
+if ($base && str_starts_with($uriPath, $base)) $uriPath = substr($uriPath, strlen($base)) ?: '/';
+$path = '/' . trim($uriPath, '/');
+if ($path === '//') $path = '/';
+$method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+if (str_starts_with($path,'/account') || str_starts_with($path,'/admin') || str_starts_with($path,'/trade')) { header('Cache-Control: no-store, private'); header('Pragma: no-cache'); }
+
+if ($method==='GET' && !str_starts_with($path,'/admin/')) {
+    if ($path==='/robots.txt') { header('Content-Type: text/plain; charset=utf-8'); echo "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /account/\nSitemap: ".absolute_url('/sitemap.xml')."\n"; exit; }
+    if ($path==='/sitemap.xml') { header('Content-Type: application/xml; charset=utf-8'); echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"; foreach(cms_sitemap_urls() as $u){echo '<url><loc>'.e(absolute_url($u['loc'])).'</loc><lastmod>'.e($u['lastmod']).'</lastmod></url>';} echo '</urlset>'; exit; }
+    if ($r=cms_redirect_for_path($path)) { http_response_code((int)$r['code']); header('Location: '.url((string)$r['to'])); exit; }
+}
+
+if ($path === '/health') {
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'ok'=>true,'app'=>$GLOBALS['app']['name'],'version'=>$GLOBALS['app']['version'],'environment'=>$GLOBALS['app']['environment'],
+        'products'=>count(products_public()),'admin_initialized'=>admin_initialized(),'commerce_encryption_ready'=>confidential_key()!==null,
+        'sandbox_webhook_ready'=>sandbox_webhook_secret()!=='','configurator_rules'=>count(configurator_rules()),'bespoke_open'=>bespoke_open_count(),'makeos_open'=>makeos_open_count(),'materials'=>function_exists('procurement_materials')?count(procurement_materials()):0,'room_plans'=>function_exists('designos_room_plans')?count(designos_room_plans()):0,'visual_analyses'=>function_exists('intelligence_analyses')?count(intelligence_analyses()):0,'passports'=>function_exists('passports_all')?count(passports_all()):0,'trade_projects'=>function_exists('trade_projects')?count(trade_projects()):0,
+    ], JSON_UNESCAPED_SLASHES);
+    exit;
+}
+
+if ($path === '/ready') {
+    $checks = release_checks();
+    $critical = array_filter($checks, fn($c)=>in_array($c['name'],['Transaction journal recovery','Authenticated encryption capability','Confidential data key','Commerce encryption key','Commerce private boundary','Shipping rules','Sandbox webhook secret','Order number uniqueness','Order schema','Configurator rule coverage','Configurator rule schema','Deterministic live pricing','Saved configuration encryption','Bespoke quote encryption','Bespoke quote schema','Bespoke quote number uniqueness','Design revision integrity','Design freeze integrity','Deposit workflow gate','MakeOS job encryption','MakeOS job schema','MakeOS job number uniqueness','MakeOS source uniqueness','MakeOS source integrity','MakeOS BOM integrity','Procurement encryption','Material code uniqueness','Inventory non-negative invariant','Reservation allocation integrity','PO receiving integrity','Quality store encryption','Defect number uniqueness','Production evidence file integrity','QA blocking-defect policy','Fulfilment encryption','Shipment number uniqueness','Installation number uniqueness','Fulfilment order linkage','Fulfilment state synchronization','CMS schema','CMS route uniqueness','CMS published SEO completeness','CMS redirect loop protection','CMS sitemap coverage','DesignOS encryption','DesignOS schema','DesignOS identity uniqueness','DesignOS owner integrity','Room planner product references','Room planner boundary integrity','Style Finder deterministic scoring','Style Finder recommendation coverage','Visual intelligence encryption','Visual intelligence schema','Visual intelligence file integrity','Visual intelligence owner integrity','Visual intelligence provider','Product Passport encryption','Product Passport code uniqueness','Product Passport reference integrity','Product Passport QR integrity','Service case schema','TradeOS encryption','TradeOS owner integrity','TradeOS project number uniqueness','TradeOS product references','TradeOS discount boundary','External serializer allowlist','Merchant feed generation','AI product feed coverage','Agent signing key','Security private storage boundary','API rate-limit persistence','Staging production fail-closed','Theme registry integrity','Sacred Luxury assignment','Commerce UX filter integrity','Commerce UX sort integrity'],true));
+    $ok = count(array_filter($critical,fn($c)=>empty($c['ok'])))===0;
+    http_response_code($ok?200:503); header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['ok'=>$ok,'version'=>$GLOBALS['app']['version'],'checks'=>array_values($critical)],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE); exit;
+}
+
+/* ---------------- Explicit feeds / agent-safe APIs ---------------- */
+if ($path==='/feeds/google-merchant.xml' && $method==='GET'){enforce_api_rate_limit('feed-merchant',180,60);header('Content-Type: application/xml; charset=utf-8');echo merchant_xml();exit;}
+if ($path==='/feeds/ai-products.json' && $method==='GET'){enforce_api_rate_limit('feed-ai',180,60);header('Content-Type: application/json; charset=utf-8');echo json_encode(['version'=>$GLOBALS['app']['version'],'generated_at'=>gmdate('c'),'products'=>array_map('ai_product_dto',products_public())],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);exit;}
+if ($path==='/feeds/agent-products.json' && $method==='GET'){enforce_api_rate_limit('feed-agent',180,60);header('Content-Type: application/json; charset=utf-8');echo json_encode(['products'=>array_map('agent_product_dto',products_public())],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);exit;}
+if ($path==='/api/v1/catalog' && $method==='GET'){enforce_api_rate_limit('api-catalog',120,60);header('Content-Type: application/json; charset=utf-8');echo json_encode(['items'=>integration_public_catalog((string)($_GET['q']??''))],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);exit;}
+if (preg_match('#^/api/v1/products/([a-z0-9-]+)$#',$path,$m)&&$method==='GET'){enforce_api_rate_limit('api-product',120,60);header('Content-Type: application/json; charset=utf-8');$p=product_by_slug($m[1]);if(!$p){http_response_code(404);echo json_encode(['error'=>'not_found']);exit;}echo json_encode(public_product_dto($p),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);exit;}
+if ($path==='/api/agent/catalog/search' && $method==='GET'){enforce_api_rate_limit('agent-catalog',90,60);header('Content-Type: application/json; charset=utf-8');$items=[];foreach(products_public() as $p){$q=text_lower(trim((string)($_GET['q']??'')));if($q!==''&&!str_contains(text_lower($p['name'].' '.$p['short'].' '.$p['category_label']),$q))continue;$items[]=agent_product_dto($p);}echo json_encode(['items'=>$items],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);exit;}
+if ($path==='/api/agent/me/orders' && $method==='GET'){enforce_api_rate_limit('agent-orders',60,60);header('Content-Type: application/json; charset=utf-8');try{$claims=agent_validate_token(bearer_token(),'orders:read');$orders=array_map('agent_order_dto',customer_orders((string)$claims['sub']));echo json_encode(['orders'=>$orders],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);}catch(Throwable $e){http_response_code(401);echo json_encode(['error'=>'unauthorized']);}exit;}
+/* ---------------- Webhook surface: signed, no browser CSRF ---------------- */
+if ($path === '/webhooks/sandbox' && $method === 'POST') {
+    header('Content-Type: application/json; charset=utf-8');
+    try {
+        $raw=(string)file_get_contents('php://input');
+        $event=json_decode($raw,true,512,JSON_THROW_ON_ERROR);
+        $sig=(string)($_SERVER['HTTP_X_ATELIER_SIGNATURE']??'');
+        $result=process_payment_event($event,$raw,$sig);
+        echo json_encode($result,JSON_UNESCAPED_SLASHES); http_response_code(200);
+    } catch(Throwable $e) {
+        http_response_code(400); echo json_encode(['ok'=>false,'error'=>$e->getMessage()],JSON_UNESCAPED_SLASHES);
+    }
+    exit;
+}
+
+if ($path === '/webhooks/bespoke-sandbox' && $method === 'POST') {
+    header('Content-Type: application/json; charset=utf-8');
+    try {
+        $raw=(string)file_get_contents('php://input');
+        $event=json_decode($raw,true,512,JSON_THROW_ON_ERROR);
+        $sig=(string)($_SERVER['HTTP_X_ATELIER_SIGNATURE']??'');
+        $result=bespoke_process_deposit_event($event,$raw,$sig);
+        echo json_encode($result,JSON_UNESCAPED_SLASHES); http_response_code(200);
+    } catch(Throwable $e) {
+        http_response_code(400); echo json_encode(['ok'=>false,'error'=>$e->getMessage()],JSON_UNESCAPED_SLASHES);
+    }
+    exit;
+}
+
+if ($path === '/api/shipping' && $method === 'GET') {
+    header('Content-Type: application/json; charset=utf-8');
+    $quote=shipping_quote((string)($_GET['pincode']??''),commerce_cart_subtotal(),commerce_cart_lines());
+    echo json_encode($quote,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE); exit;
+}
+
+if ($path === '/api/configurator/quote' && $method === 'POST') {
+    verify_csrf(); header('Content-Type: application/json; charset=utf-8');
+    $slug=trim((string)($_POST['slug']??''));$quote=configurator_quote_by_slug($slug,configurator_input_from_post($_POST));
+    http_response_code(!empty($quote['ok'])?200:422);
+    echo json_encode($quote,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE); exit;
+}
+
+/* ---------------- Admin OS ---------------- */
+if ($path === '/admin/setup') {
+    if (admin_initialized()) redirect('/admin/login');
+    if ($method === 'POST') {
+        verify_csrf();
+        [$ok,$msg]=create_first_admin((string)($_POST['setup_key']??''),(string)($_POST['name']??''),(string)($_POST['email']??''),(string)($_POST['password']??''));
+        flash($ok?'success':'error',$msg); redirect($ok?'/admin/login':'/admin/setup');
+    }
+    staging_setup_key(); render_admin('setup',['title'=>'Initialize Admin']); exit;
+}
+if ($path === '/admin/login') {
+    if (admin_logged_in()) redirect('/admin');
+    if ($method === 'POST') {
+        verify_csrf(); $email=(string)($_POST['email']??''); $status=admin_login_rate_status($email);
+        if(!$status['allowed']){flash('error','Too many failed sign-in attempts. Try again after the cooldown window.');redirect('/admin/login');}
+        if(admin_login($email,(string)($_POST['password']??'')))redirect('/admin');
+        $status=admin_login_rate_status($email);flash('error',$status['allowed']?'Invalid email or password.':'Too many failed sign-in attempts. Try again after the cooldown window.');redirect('/admin/login');
+    }
+    render_admin('login',['title'=>'Admin sign in']); exit;
+}
+if ($path === '/admin/logout' && $method === 'POST') { verify_csrf(); admin_logout(); redirect('/admin/login'); }
+
+if ($path === '/admin' || str_starts_with($path,'/admin/')) {
+    require_admin();
+    if ($path === '/admin') { render_admin('dashboard',['title'=>'Dashboard','metrics'=>admin_metrics()]); exit; }
+    if ($path === '/admin/orders') { $status=trim((string)($_GET['status']??'')); render_admin('orders',['title'=>'Orders','orders'=>admin_orders($status?:null)]); exit; }
+    if ($path === '/admin/requests') { render_admin('requests',['title'=>'Refunds & cancellations','requests'=>array_reverse(commerce_requests())]); exit; }
+    if ($path === '/admin/quotes') { $status=trim((string)($_GET['status']??'')); render_admin('quotes',['title'=>'Bespoke Studio','quotes'=>bespoke_admin_quotes($status),'status'=>$status]); exit; }
+    if ($path === '/admin/makeos') { $status=trim((string)($_GET['status']??'')); render_admin('makeos',['title'=>'MakeOS Workshop','jobs'=>makeos_open_jobs($status?:null),'status'=>$status]); exit; }
+    if ($path === '/admin/procurement') { render_admin('procurement',['title'=>'Procurement & Inventory','suppliers'=>procurement_suppliers(),'materials'=>procurement_materials(),'stock'=>procurement_stock_summary(),'pos'=>procurement_purchase_orders()]); exit; }
+    if ($path === '/admin/quality') { $jobGuid=trim((string)($_GET['job']??''));render_admin('quality',['title'=>'Quality & Evidence','jobs'=>makeos_open_jobs(),'jobGuid'=>$jobGuid,'defects'=>$jobGuid?quality_defects_for_job($jobGuid):[],'evidence'=>$jobGuid?quality_evidence_for_job($jobGuid):[],'lots'=>procurement_lots()]); exit; }
+    if ($path === '/admin/fulfilment') { render_admin('fulfilment',['title'=>'Fulfilment & Installation','shipments'=>fulfilment_shipments(),'orders'=>admin_orders()]); exit; }
+    if ($path === '/admin/cms') { render_admin('cms',['title'=>'CMS & SEO','items'=>cms_items(),'blocks'=>cms_store()['blocks'],'redirects'=>cms_store()['redirects']]); exit; }
+    if ($path === '/admin/themes') { render_admin('themes',['title'=>'Theme Studio','rows'=>theme_admin_rows(),'registry'=>theme_registry()]); exit; }
+    if ($path === '/admin/trade') { render_admin('trade',['title'=>'TradeOS','accounts'=>trade_accounts(),'projects'=>trade_projects()]); exit; }
+    if ($path === '/admin/trade/decision' && $method==='POST') { verify_csrf(); try { trade_admin_decide((string)($_POST['guid']??''),(string)($_POST['status']??''),(int)($_POST['discount']??0),(string)($_POST['notes']??'')); flash('success','Trade account updated.'); } catch(Throwable $e) { flash('error',$e->getMessage()); } redirect('/admin/trade'); }
+    if ($path === '/admin/passports') { render_admin('passports',['title'=>'Product Passports','passports'=>passports_all(),'cases'=>service_cases_all(),'delivered'=>array_values(array_filter(admin_orders(),fn($o)=>($o['status']??'')==='DELIVERED'))]); exit; }
+    if ($path === '/admin/passports/issue' && $method==='POST') { verify_csrf(); try { $rows=passport_issue_for_order((string)($_POST['order_guid']??'')); flash('success',count($rows).' passport(s) issued.'); } catch(Throwable $e) { flash('error',$e->getMessage()); } redirect('/admin/passports'); }
+    if ($path === '/admin/mediaos') { mediaos_ensure_catalog(); render_admin('mediaos',['title'=>'MediaOS','products'=>products_all(),'files'=>media_files()]); exit; }
+    if ($path === '/admin/mediaos/save' && $method==='POST') { verify_csrf(); try { mediaos_save_product((string)($_POST['product_guid']??''),$_POST); flash('success','Media roles saved.'); } catch(Throwable $e) { flash('error',$e->getMessage()); } redirect('/admin/mediaos'); }
+    if ($path === '/admin/themes/save' && $method==='POST') { verify_csrf(); try { theme_save_surface((string)($_POST['surface']??''),(string)($_POST['preset']??''),(array)($_POST['overrides']??[])); flash('success','Theme configuration saved.'); } catch(Throwable $e) { flash('error',$e->getMessage()); } redirect('/admin/themes'); }
+    if ($path === '/admin/cms/new') { $item=['type'=>'JOURNAL','status'=>'DRAFT','seo'=>['title'=>'','description'=>'','noindex'=>false]];if($method==='POST'){verify_csrf();try{$item=cms_save_item($_POST);flash('success','Content draft created.');redirect('/admin/cms/'.$item['guid']);}catch(Throwable $e){flash('error',$e->getMessage());$item=array_merge($item,$_POST);}}render_admin('cms-form',['title'=>'New content','item'=>$item]);exit; }
+    if (preg_match('#^/admin/cms/([0-9a-f-]+)$#',$path,$m)) { $item=cms_item_by_guid($m[1]);if(!$item){http_response_code(404);exit('Content not found.');}if($method==='POST'){verify_csrf();try{$item=cms_save_item($_POST,$m[1]);flash('success','Content saved.');redirect('/admin/cms/'.$m[1]);}catch(Throwable $e){flash('error',$e->getMessage());}}render_admin('cms-form',['title'=>$item['title'],'item'=>$item]);exit; }
+    if (preg_match('#^/admin/cms/([0-9a-f-]+)/publish$#',$path,$m) && $method==='POST') { verify_csrf();try{cms_publish($m[1],!empty($_POST['publish']));flash('success',!empty($_POST['publish'])?'Content published.':'Content returned to draft.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/cms/'.$m[1]); }
+    if ($path === '/admin/cms/block' && $method==='POST') { verify_csrf();try{cms_save_block((string)($_POST['key']??''),(string)($_POST['title']??''),(string)($_POST['body']??''));flash('success','Reusable block saved.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/cms'); }
+    if ($path === '/admin/cms/redirect' && $method==='POST') { verify_csrf();try{cms_add_redirect((string)($_POST['from']??''),(string)($_POST['to']??''),(int)($_POST['code']??301));flash('success','Redirect added.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/cms'); }
+    if (preg_match('#^/admin/order/([0-9a-f-]+)/shipment/create$#',$path,$m) && $method==='POST') { verify_csrf();try{$sh=fulfilment_create_shipment($m[1]);flash('success','Shipment '.$sh['number'].' created.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/order/'.$m[1]); }
+    if (preg_match('#^/admin/fulfilment/shipment/([0-9a-f-]+)/package/([0-9a-f-]+)$#',$path,$m) && $method==='POST') { verify_csrf();try{fulfilment_update_package($m[1],$m[2],$_POST);flash('success','Package measurements and packing verification saved.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/fulfilment'); }
+    if (preg_match('#^/admin/fulfilment/shipment/([0-9a-f-]+)/book$#',$path,$m) && $method==='POST') { verify_csrf();try{fulfilment_book($m[1],$_POST);flash('success','Carrier booking recorded.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/fulfilment'); }
+    if (preg_match('#^/admin/fulfilment/shipment/([0-9a-f-]+)/dispatch$#',$path,$m) && $method==='POST') { verify_csrf();try{fulfilment_dispatch($m[1],(string)($_POST['note']??''));flash('success','Shipment dispatched and order moved to SHIPPED.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/fulfilment'); }
+    if (preg_match('#^/admin/fulfilment/shipment/([0-9a-f-]+)/transit$#',$path,$m) && $method==='POST') { verify_csrf();try{fulfilment_update_transit($m[1],(string)($_POST['status']??''),(string)($_POST['note']??''));flash('success','Shipment tracking updated.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/fulfilment'); }
+    if (preg_match('#^/admin/order/([0-9a-f-]+)/installation$#',$path,$m) && $method==='POST') { verify_csrf();try{fulfilment_schedule_installation($m[1],$_POST);flash('success','Installation scheduled.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/order/'.$m[1]); }
+    if (preg_match('#^/admin/fulfilment/installation/([0-9a-f-]+)/action$#',$path,$m) && $method==='POST') { verify_csrf();try{fulfilment_installation_action($m[1],(string)($_POST['action']??''),(string)($_POST['note']??''));flash('success','Installation updated.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/fulfilment'); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/defect$#',$path,$m) && $method==='POST') { verify_csrf();try{quality_create_defect($m[1],$_POST);flash('success','Quality defect recorded.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/quality/defect/([0-9a-f-]+)/action$#',$path,$m) && $method==='POST') { verify_csrf();try{$d=quality_update_defect($m[1],(string)($_POST['action']??''),(string)($_POST['note']??''));flash('success','Defect updated.');redirect('/admin/quality?job='.$d['job_guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/admin/quality');} }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/evidence$#',$path,$m) && $method==='POST') { verify_csrf();try{quality_add_evidence($m[1],$_FILES['image']??[],(string)($_POST['stage']??''),(string)($_POST['caption']??''));flash('success','Production evidence uploaded.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/quality/evidence/([0-9a-f-]+)$#',$path,$m)) { $e=quality_evidence_by_guid($m[1]);if(!$e){http_response_code(404);exit('Evidence not found.');}$file=quality_media_dir().'/'.$e['file'];if(!is_file($file)){http_response_code(404);exit('Evidence file missing.');}header('Content-Type: '.$e['mime']);header('Content-Length: '.filesize($file));header('Cache-Control: private, no-store');readfile($file);exit; }
+    if (preg_match('#^/admin/quality/lot/([0-9a-f-]+)/inspect$#',$path,$m) && $method==='POST') { verify_csrf();try{quality_lot_inspect($m[1],(string)($_POST['decision']??''),(string)($_POST['note']??''));flash('success','Lot quality status updated.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/quality'); }
+    if ($path === '/admin/procurement/supplier' && $method==='POST') { verify_csrf();try{procurement_supplier_save($_POST);flash('success','Supplier saved.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/procurement'); }
+    if ($path === '/admin/procurement/material' && $method==='POST') { verify_csrf();try{procurement_material_save($_POST);flash('success','Material saved.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/procurement'); }
+    if ($path === '/admin/procurement/po' && $method==='POST') { verify_csrf();try{$lines=[];$mgs=(array)($_POST['material_guid']??[]);$qs=(array)($_POST['qty']??[]);$cs=(array)($_POST['unit_cost']??[]);foreach($mgs as $i=>$mg)$lines[]=['material_guid'=>$mg,'qty'=>$qs[$i]??0,'unit_cost'=>$cs[$i]??0];$po=procurement_po_create((string)($_POST['supplier_guid']??''),$lines,(string)($_POST['notes']??''));flash('success','Purchase order '.$po['number'].' created.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/procurement'); }
+    if (preg_match('#^/admin/procurement/po/([0-9a-f-]+)/issue$#',$path,$m) && $method==='POST') { verify_csrf();try{procurement_po_issue($m[1]);flash('success','Purchase order issued.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/procurement'); }
+    if (preg_match('#^/admin/procurement/po/([0-9a-f-]+)/receive$#',$path,$m) && $method==='POST') { verify_csrf();try{procurement_grn_receive($m[1],(array)($_POST['received']??[]),(string)($_POST['delivery_ref']??''));flash('success','GRN received and stock lots created.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/procurement'); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/inventory/reserve$#',$path,$m) && $method==='POST') { verify_csrf();try{procurement_reserve_for_job($m[1],(string)($_POST['material_guid']??''),(float)($_POST['qty']??0));flash('success','Raw material stock reserved against accepted lots.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/inventory/consume$#',$path,$m) && $method==='POST') { verify_csrf();try{$r=procurement_consume_job_reservations($m[1]);flash('success',$r['count'].' stock reservation(s) consumed.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/inventory/release/([0-9a-f-]+)$#',$path,$m) && $method==='POST') { verify_csrf();try{procurement_release_reservation($m[2]);flash('success','Stock reservation released.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)$#',$path,$m)) { $job=makeos_job_by_guid($m[1]);if(!$job){http_response_code(404);exit('Production job not found.');}render_admin('makeos-job',['title'=>$job['number'],'job'=>$job]);exit; }
+    if (preg_match('#^/admin/quote/([0-9a-f-]+)$#',$path,$m)) { $quote=bespoke_quote_by_guid($m[1]);if(!$quote){http_response_code(404);exit('Bespoke quote not found.');}render_admin('quote-detail',['title'=>$quote['number'],'quote'=>$quote]);exit; }
+    if (preg_match('#^/admin/quote/([0-9a-f-]+)/revision$#',$path,$m) && $method==='POST') { verify_csrf();try{bespoke_admin_create_revision($m[1],$_POST);flash('success','Design revision created. Review it, then publish for customer approval.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/quote/'.$m[1]); }
+    if (preg_match('#^/admin/quote/([0-9a-f-]+)/publish$#',$path,$m) && $method==='POST') { verify_csrf();try{bespoke_admin_publish_revision($m[1]);flash('success','Revision published for customer approval.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/quote/'.$m[1]); }
+    if (preg_match('#^/admin/quote/([0-9a-f-]+)/freeze$#',$path,$m) && $method==='POST') { verify_csrf();try{bespoke_admin_freeze($m[1],trim((string)($_POST['note']??'')));flash('success','Design Freeze completed. Immutable production snapshot created.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/quote/'.$m[1]); }
+    if (preg_match('#^/admin/quote/([0-9a-f-]+)/makeos$#',$path,$m) && $method==='POST') { verify_csrf();try{$job=makeos_create_from_frozen_quote($m[1]);flash('success','Production job created from verified Design Freeze.');redirect('/admin/makeos/job/'.$job['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/admin/quote/'.$m[1]);} }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/bom/add$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_add_bom_line($m[1],$_POST);flash('success','BOM line added.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/bom/delete/([0-9a-f-]+)$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_delete_bom_line($m[1],$m[2]);flash('success','BOM line removed.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/bom/lock$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_lock_bom($m[1]);flash('success','BOM locked with integrity fingerprint.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/assignment$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_update_assignment($m[1],$_POST);flash('success','Workshop assignment updated.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/reserve$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_reserve_materials($m[1],trim((string)($_POST['note']??'')));flash('success','BOM requirements reserved for this job.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/start$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_start_job($m[1]);flash('success','Workshop production started.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/stage/complete$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_complete_stage($m[1],(string)($_POST['stage']??''),trim((string)($_POST['note']??'')));flash('success','Production stage completed.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/qa$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_qa_inspect($m[1],(string)($_POST['decision']??''),(array)($_POST['checks']??[]),trim((string)($_POST['note']??'')),(string)($_POST['rework_stage']??'ASSEMBLY'));flash('success',strtoupper((string)($_POST['decision']??''))==='PASS'?'QA passed. Packing is now active.':'QA failed. Job moved to controlled rework.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/makeos/job/([0-9a-f-]+)/rework/resume$#',$path,$m) && $method==='POST') { verify_csrf();try{makeos_resume_rework($m[1]);flash('success','Rework resumed at the selected production stage.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/makeos/job/'.$m[1]); }
+    if (preg_match('#^/admin/order/([0-9a-f-]+)/makeos/(\d+)$#',$path,$m) && $method==='POST') { verify_csrf();try{$job=makeos_create_from_order_item($m[1],(int)$m[2]);flash('success','Production job created from immutable order item snapshot.');redirect('/admin/makeos/job/'.$job['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/admin/order/'.$m[1]);} }
+    if (preg_match('#^/admin/order/([0-9a-f-]+)$#',$path,$m)) { $order=admin_order($m[1]);if(!$order){http_response_code(404);exit('Order not found.');}render_admin('order-detail',['title'=>$order['number'],'order'=>$order,'requests'=>requests_for_order($order['guid'])]);exit; }
+    if (preg_match('#^/admin/order/([0-9a-f-]+)/transition$#',$path,$m) && $method==='POST') { verify_csrf();try{$order=admin_order($m[1]);if(!$order)throw new RuntimeException('Order not found.');$to=(string)($_POST['status']??'');order_transition($order['guid'],$to,'admin:'.(admin_identity()['guid']??'unknown'),trim((string)($_POST['note']??'')));flash('success','Order status updated.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/admin/order/'.$m[1]); }
+    if (preg_match('#^/admin/request/([0-9a-f-]+)/resolve$#',$path,$m) && $method==='POST') { verify_csrf();try{$r=admin_resolve_request($m[1],(string)($_POST['decision']??''),trim((string)($_POST['note']??'')));flash('success','Request '.strtolower($r['status']).'.');redirect('/admin/order/'.$r['order_guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/admin/requests');} }
+
+    if ($path === '/admin/products') { render_admin('products',['title'=>'Products','items'=>products_all()]); exit; }
+    if ($path === '/admin/configurator') { $rules=configurator_rules();$rows=[];foreach(products_all() as $p){$rows[]=['product'=>$p,'schema'=>$rules[$p['slug']]??[]];}render_admin('configurator',['title'=>'Configurator rules','rows'=>$rows]);exit; }
+    if ($path === '/admin/product/new') {
+        $product=['status'=>'active','price'=>0,'featured'=>false,'materials'=>[],'finishes'=>[],'inventory'=>['stock'=>0,'track'=>false,'made_to_order'=>true],'customisation'=>['enabled'=>false,'notes'=>''],'seo'=>['title'=>'','description'=>'']];$errors=[];
+        if($method==='POST'){verify_csrf();$product=product_form_payload($_POST,null);$errors=validate_product_record($product);if(!$errors){try{upsert_product($product,(string)($_POST['_catalog_version']??''));flash('success','Product created.');redirect('/admin/product/'.$product['guid']);}catch(RuntimeException $e){$errors[]=$e->getMessage();unset($product['guid']);}}else unset($product['guid']);}
+        render_admin('product-form',['title'=>'New product','product'=>$product,'errors'=>$errors]); exit;
+    }
+    if (preg_match('#^/admin/product/([0-9a-f-]+)$#',$path,$m)) {
+        $product=product_by_guid($m[1]);if(!$product){http_response_code(404);exit('Admin product not found.');}$errors=[];
+        if($method==='POST'){verify_csrf();$product=product_form_payload($_POST,$product);$errors=validate_product_record($product,$product['guid']);if(!$errors){try{upsert_product($product,(string)($_POST['_catalog_version']??''));flash('success','Product saved and storefront catalogue refreshed.');redirect('/admin/product/'.$product['guid']);}catch(RuntimeException $e){$errors[]=$e->getMessage();}}}
+        render_admin('product-form',['title'=>$product['name'],'product'=>$product,'errors'=>$errors]); exit;
+    }
+    if (preg_match('#^/admin/product/([0-9a-f-]+)/delete$#',$path,$m) && $method==='POST') {verify_csrf();try{$ok=delete_product($m[1],(string)($_POST['_catalog_version']??''));flash($ok?'success':'error',$ok?'Product deleted.':'Product not found.');}catch(RuntimeException $e){flash('error',$e->getMessage());}redirect('/admin/products');}
+    if ($path === '/admin/media') {if($method==='POST'){verify_csrf();[$ok,$msg]=media_upload($_FILES['image']??[]);flash($ok?'success':'error',$ok?'Uploaded and optimized as '.$msg:$msg);redirect('/admin/media');}render_admin('media',['title'=>'Media','files'=>media_files()]);exit;}
+    if ($path === '/admin/taxonomies') {
+        $tax=taxonomies();if($method==='POST'){verify_csrf();$cats=[];foreach(preg_split('/\r?\n/',(string)($_POST['categories']??'')) as $line){$line=trim($line);if($line==='')continue;[$slug,$name]=array_pad(explode('|',$line,2),2,'');$slug=trim($slug);$name=trim($name);if($slug&&$name)$cats[]=['slug'=>$slug,'name'=>$name];}$lines=fn($s)=>array_values(array_filter(array_map('trim',preg_split('/\r?\n/',(string)$s))));$tax=['categories'=>$cats,'materials'=>$lines($_POST['materials']??''),'finishes'=>$lines($_POST['finishes']??''),'collections'=>$lines($_POST['collections']??'')];try{save_taxonomies($tax,(string)($_POST['_taxonomy_version']??''));flash('success','Taxonomies saved.');}catch(RuntimeException $e){flash('error',$e->getMessage());}redirect('/admin/taxonomies');}render_admin('taxonomies',['title'=>'Taxonomies','tax'=>$tax]);exit;
+    }
+    if ($path === '/admin/release') { render_admin('release',['title'=>'Release checks','checks'=>release_checks()]); exit; }
+    http_response_code(404); exit('Admin route not found.');
+}
+
+/* ---------------- Editorial CMS / SEO ---------------- */
+if ($path === '/journal') { $items=cms_items('JOURNAL','PUBLISHED');render('cms-index',['title'=>'Journal','description'=>'Material intelligence, craftsmanship notes and considered living from Atelier Wood.','eyebrow'=>'Atelier Journal','heading'=>'Stories in material, craft and space','items'=>$items]);exit; }
+if ($path === '/guides') { $items=cms_items('GUIDE','PUBLISHED');render('cms-index',['title'=>'Guides','description'=>'Practical guides for choosing, placing and caring for handcrafted wooden objects.','eyebrow'=>'Atelier Guides','heading'=>'Practical knowledge for considered spaces','items'=>$items]);exit; }
+foreach(['JOURNAL'=>'journal','GUIDE'=>'guides','ROOM_STORY'=>'stories','FAQ'=>'faq','PAGE'=>'pages'] as $type=>$prefix){if(preg_match('#^/'.$prefix.'/([a-z0-9-]+)$#',$path,$m)){$item=cms_public_by_slug($type,$m[1]);if(!$item){http_response_code(404);render('404',['title'=>'Content not found']);exit;}$schema=['@context'=>'https://schema.org','@type'=>in_array($type,['JOURNAL','GUIDE','ROOM_STORY'],true)?'Article':'WebPage','headline'=>$item['title'],'description'=>$item['seo']['description']??$item['excerpt'],'datePublished'=>$item['published_at'],'dateModified'=>$item['updated_at'],'author'=>['@type'=>'Organization','name'=>'Atelier Wood']];render('cms-article',['title'=>$item['seo']['title']??$item['title'],'description'=>$item['seo']['description']??$item['excerpt'],'robots'=>!empty($item['seo']['noindex'])?'noindex,follow':'index,follow,max-image-preview:large','canonical'=>absolute_url(cms_content_route($item)),'og_type'=>'article','schema'=>$schema,'item'=>$item]);exit;}}
+
+/* ---------------- TradeOS ---------------- */
+if ($path === '/trade') { require_customer('/trade'); $account=trade_account_for_customer(); render('trade/dashboard',['title'=>'TradeOS','themeSurface'=>'trade','account'=>$account,'projects'=>trade_customer_projects()]); exit; }
+if ($path === '/trade/apply') { require_customer('/trade/apply'); if($method==='POST'){verify_csrf();try{trade_apply($_POST);flash('success','Trade application submitted for review.');redirect('/trade');}catch(Throwable $e){flash('error',$e->getMessage());}} render('trade/apply',['title'=>'Apply for TradeOS','themeSurface'=>'trade','account'=>trade_account_for_customer()]); exit; }
+if ($path === '/trade/projects/new') { require_customer('/trade'); if($method==='POST'){verify_csrf();try{$p=trade_create_project($_POST);flash('success','Trade project created.');redirect('/trade/projects/'.$p['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/trade');}} redirect('/trade'); }
+if (preg_match('#^/trade/projects/([0-9a-f-]+)/add$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{trade_add_line($m[1],(string)($_POST['slug']??''),(int)($_POST['qty']??1),(string)($_POST['notes']??''));flash('success','Product added to BOQ.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/trade/projects/'.$m[1]);}
+if (preg_match('#^/trade/projects/([0-9a-f-]+)/export$#',$path,$m)){require_customer($path);$p=trade_customer_project($m[1]);if(!$p){http_response_code(404);exit('Not found');}header('Content-Type: text/csv; charset=utf-8');header('Content-Disposition: attachment; filename="'.preg_replace('/[^a-z0-9-]+/i','-',strtolower($p['number'])).'-boq.csv"');echo trade_export_csv($p);exit;}
+if (preg_match('#^/trade/projects/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$p=trade_customer_project($m[1]);if(!$p){http_response_code(404);render('404',['title'=>'Project not found']);exit;}render('trade/project',['title'=>$p['name'].' · TradeOS','themeSurface'=>'trade','project'=>$p,'account'=>trade_account_for_customer(),'totals'=>trade_project_totals($p),'products'=>products_public()]);exit;}
+/* ---------------- Product Passport ---------------- */
+if (preg_match('#^/passport/([A-Z0-9-]+)$#i',$path,$m) && $method==='GET') { $p=passport_by_code(strtoupper($m[1])); if(!$p){http_response_code(404);render('404',['title'=>'Passport not found']);exit;} render('passport-public',['title'=>$p['name'].' · Product Passport','robots'=>'noindex,follow','passport'=>passport_public_projection($p)]); exit; }
+/* ---------------- Customer account ---------------- */
+if ($path === '/account/register') {
+    if(customer_logged_in())redirect('/account');
+    if($method==='POST'){verify_csrf();[$ok,$result]=customer_register($_POST);if($ok){customer_login((string)$_POST['email'],(string)$_POST['password']);flash('success','Your account is ready.');redirect('/account');}flash('error',is_string($result)?$result:'Unable to create account.');redirect('/account/register');}
+    render('account/register',['title'=>'Create account','description'=>'Create your private Atelier Wood client account.']);exit;
+}
+if ($path === '/account/login') {
+    if(customer_logged_in())redirect('/account');
+    if($method==='POST'){verify_csrf();$email=(string)($_POST['email']??'');$status=customer_login_rate_status($email);if(!$status['allowed']){flash('error','Too many sign-in attempts. Try again later.');redirect('/account/login');}if(customer_login($email,(string)($_POST['password']??''))){$next=(string)($_SESSION['after_customer_login']??'/account');unset($_SESSION['after_customer_login']);redirect(str_starts_with($next,'/')?$next:'/account');}flash('error','Invalid email or password.');redirect('/account/login');}
+    render('account/login',['title'=>'Sign in','description'=>'Sign in to your Atelier Wood account.']);exit;
+}
+if ($path === '/account/logout' && $method==='POST'){verify_csrf();customer_logout();flash('success','You are signed out.');redirect('/');}
+if ($path === '/account/forgot-password') {
+    $resetUrl=null;if($method==='POST'){verify_csrf();[$ok,$token]=customer_request_password_reset((string)($_POST['email']??''));if($ok&&$token&&($GLOBALS['app']['environment']??'staging')!=='production')$resetUrl=url('/account/reset-password?token='.rawurlencode($token));flash('success','If that account exists, a reset instruction has been created.');}
+    render('account/forgot',['title'=>'Reset password','resetUrl'=>$resetUrl]);exit;
+}
+if ($path === '/account/reset-password') {
+    $token=(string)($_GET['token']??$_POST['token']??'');if($method==='POST'){verify_csrf();[$ok,$msg]=customer_reset_password($token,(string)($_POST['password']??''));flash($ok?'success':'error',$msg);if($ok)redirect('/account/login');}
+    render('account/reset',['title'=>'Choose new password','token'=>$token]);exit;
+}
+if ($path === '/account/profile' && $method==='POST'){verify_csrf();[$ok,$msg]=customer_update_profile($_POST);flash($ok?'success':'error',$msg);redirect('/account');}
+if ($path === '/account') {require_customer('/account');$c=customer_by_guid((string)customer_identity()['guid']);render('account/dashboard',['title'=>'My Account','customer'=>$c,'orders'=>customer_orders((string)$c['guid']),'addresses'=>customer_addresses((string)$c['guid']),'configurations'=>customer_saved_configurations((string)$c['guid']),'quotes'=>bespoke_customer_quotes((string)$c['guid']),'roomPlans'=>customer_room_plans((string)$c['guid']),'styleProfiles'=>customer_style_profiles((string)$c['guid'])]);exit;}
+if ($path === '/account/addresses'){require_customer('/account/addresses');render('account/addresses',['title'=>'Addresses','addresses'=>customer_addresses()]);exit;}
+if ($path === '/account/address/new') {require_customer('/account/address/new');$address=[];if($method==='POST'){verify_csrf();[$ok,$out]=save_customer_address($_POST);if($ok){flash('success','Address saved.');redirect('/account/addresses');}flash('error',implode(' ',(array)$out));$address=$_POST;}render('account/address-form',['title'=>'Add address','address'=>$address]);exit;}
+if (preg_match('#^/account/address/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$address=customer_address($m[1]);if(!$address){http_response_code(404);render('404',['title'=>'Address not found']);exit;}if($method==='POST'){verify_csrf();[$ok,$out]=save_customer_address($_POST,$m[1]);if($ok){flash('success','Address updated.');redirect('/account/addresses');}flash('error',implode(' ',(array)$out));$address=array_merge($address,$_POST);}render('account/address-form',['title'=>'Edit address','address'=>$address]);exit;}
+if (preg_match('#^/account/address/([0-9a-f-]+)/delete$#',$path,$m)&&$method==='POST'){require_customer();verify_csrf();try{delete_customer_address($m[1]);flash('success','Address removed.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/addresses');}
+if ($path === '/account/rooms'){require_customer('/account/rooms');render('account/room-plans',['title'=>'Room Planner','rooms'=>customer_room_plans(),'styles'=>customer_style_profiles()]);exit;}
+if ($path === '/account/rooms/new'){require_customer('/account/rooms/new');$room=[];if($method==='POST'){verify_csrf();try{$created=designos_create_room($_POST);flash('success','Room plan created. Start placing pieces.');redirect('/account/rooms/'.$created['guid']);}catch(Throwable $e){flash('error',$e->getMessage());$room=$_POST;}}render('account/room-form',['title'=>'Create room plan','room'=>$room,'styles'=>customer_style_profiles()]);exit;}
+if (preg_match('#^/account/rooms/([0-9a-f-]+)/delete$#',$path,$m)&&$method==='POST'){require_customer('/account/rooms');verify_csrf();try{designos_delete_room($m[1]);flash('success','Room plan removed.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/rooms');}
+if (preg_match('#^/account/rooms/([0-9a-f-]+)/item/([0-9a-f-]+)/move$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{designos_move_product($m[1],$m[2],$_POST);flash('success','Placement updated.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/rooms/'.$m[1]);}
+if (preg_match('#^/account/rooms/([0-9a-f-]+)/item/([0-9a-f-]+)/delete$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{designos_remove_product($m[1],$m[2]);flash('success','Piece removed from room plan.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/rooms/'.$m[1]);}
+if (preg_match('#^/account/rooms/([0-9a-f-]+)/add$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{designos_add_product($m[1],(string)($_POST['slug']??''),$_POST);flash('success','Piece added to the room plan.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/rooms/'.$m[1]);}
+if (preg_match('#^/account/rooms/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$room=customer_room_plan($m[1]);if(!$room){http_response_code(404);render('404',['title'=>'Room plan not found']);exit;}if($method==='POST'){verify_csrf();try{$room=designos_update_room($m[1],$_POST);flash('success','Room details updated.');}catch(Throwable $e){flash('error',$e->getMessage());}}$diag=designos_room_diagnostics($room);render('account/room-plan',['title'=>$room['name'],'room'=>$room,'diagnostics'=>$diag,'recommendations'=>designos_room_recommendations($room),'styleProfile'=>$room['style_profile_guid']?customer_style_profile((string)$room['style_profile_guid']):null,'styles'=>customer_style_profiles()]);exit;}
+if ($path === '/account/style-profile/save' && $method==='POST'){require_customer('/style-finder');verify_csrf();$result=$_SESSION['designos_style_result']??null;if(!is_array($result)){flash('error','Complete the Style Finder before saving your profile.');redirect('/style-finder');}try{$saved=designos_save_style_profile($result,trim((string)($_POST['label']??'')));flash('success','Style profile saved. You can now attach it to a room plan.');redirect('/account/rooms');}catch(Throwable $e){flash('error',$e->getMessage());redirect('/style-finder');}}
+if (preg_match('#^/account/style-profile/([0-9a-f-]+)/delete$#',$path,$m)&&$method==='POST'){require_customer('/account/rooms');verify_csrf();try{designos_delete_style_profile($m[1]);flash('success','Style profile removed.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/rooms');}
+if ($path === '/account/spaces'){require_customer('/account/spaces');render('account/spaces',['title'=>'My Spaces','rooms'=>customer_room_plans(),'styles'=>customer_style_profiles()]);exit;}
+if (preg_match('#^/account/spaces/([0-9a-f-]+)/photo/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$photo=intelligence_photo($m[2]);if(!$photo||($photo['room_guid']??'')!==$m[1]){http_response_code(404);exit('Not found');}$file=intelligence_photo_dir().'/'.$photo['file'];if(!is_file($file)){http_response_code(404);exit('Not found');}header('Content-Type: image/webp');header('Cache-Control: private, max-age=3600');readfile($file);exit;}
+if (preg_match('#^/account/spaces/([0-9a-f-]+)/upload$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{$photo=intelligence_photo_store($m[1],$_FILES['room_photo']??[]);flash('success','Room photo uploaded securely.');redirect('/account/spaces/'.$m[1].'?photo='.$photo['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/account/spaces/'.$m[1]);}}
+if (preg_match('#^/account/spaces/([0-9a-f-]+)/analyze/([0-9a-f-]+)$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{intelligence_analyze($m[2]);flash('success','Visual intelligence analysis complete.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/spaces/'.$m[1].'?photo='.$m[2]);}
+if (preg_match('#^/account/spaces/([0-9a-f-]+)/photo/([0-9a-f-]+)/delete$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{intelligence_delete_photo($m[2]);flash('success','Room photo removed.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/spaces/'.$m[1]);}
+if (preg_match('#^/account/spaces/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$room=customer_room_plan($m[1]);if(!$room){http_response_code(404);render('404',['title'=>'Space not found']);exit;}$photos=intelligence_room_photos($m[1]);$selected=null;$pg=(string)($_GET['photo']??'');foreach($photos as $ph)if(($ph['guid']??'')===$pg)$selected=$ph;if(!$selected&&$photos)$selected=$photos[0];render('account/space',['title'=>$room['name'].' · My Spaces','room'=>$room,'photos'=>$photos,'selectedPhoto'=>$selected,'diagnostics'=>designos_room_diagnostics($room),'recommendations'=>designos_room_recommendations($room)]);exit;}
+if ($path === '/account/passports'){require_customer('/account/passports');render('account/passports',['title'=>'Product Passports','passports'=>customer_passports(),'cases'=>customer_service_cases()]);exit;}
+if (preg_match('#^/account/passports/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$p=passport_by_guid($m[1]);if(!$p||($p['customer_guid']??'')!==(customer_identity()['guid']??'')){http_response_code(404);render('404',['title'=>'Passport not found']);exit;}render('account/passport',['title'=>$p['name'].' · Passport','passport'=>$p,'cases'=>array_values(array_filter(customer_service_cases(),fn($c)=>($c['passport_guid']??'')===$p['guid']))]);exit;}
+if (preg_match('#^/account/passports/([0-9a-f-]+)/service$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{passport_service_request($m[1],$_POST);flash('success','Service request opened.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/passports/'.$m[1]);}
+if ($path === '/account/agent-token' && $method==='POST'){require_customer('/account');verify_csrf();try{$token=agent_issue_token(['orders:read','profile:read'],900);$_SESSION['agent_token_once']=$token;flash('success','A 15-minute agent token was issued. Copy it now; it is not stored in plaintext.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account');}
+if ($path === '/account/configurations'){require_customer('/account/configurations');render('account/configurations',['title'=>'Saved configurations','configurations'=>customer_saved_configurations()]);exit;}
+if ($path === '/account/quotes'){require_customer('/account/quotes');render('account/quotes',['title'=>'Bespoke projects','quotes'=>bespoke_customer_quotes()]);exit;}
+if (preg_match('#^/account/quotes/([0-9a-f-]+)/decision$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{bespoke_customer_decide($m[1],(string)($_POST['decision']??''),trim((string)($_POST['note']??'')));flash('success',strtoupper((string)($_POST['decision']??''))==='APPROVE'?'Design revision approved.':'Your change request has been sent to the studio.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/quotes/'.$m[1]);}
+if (preg_match('#^/account/quotes/([0-9a-f-]+)/deposit$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();try{$quote=bespoke_customer_quote($m[1]);if(!$quote)throw new RuntimeException('Quote not found.');$attempt=bespoke_deposit_attempt_for_quote($quote['guid'])?:bespoke_create_deposit_attempt($quote);redirect('/bespoke/deposit/'.$attempt['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/account/quotes/'.$m[1]);}}
+if (preg_match('#^/account/quotes/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$quote=bespoke_customer_quote($m[1]);if(!$quote){http_response_code(404);render('404',['title'=>'Bespoke project not found']);exit;}render('account/quote',['title'=>$quote['number'],'quote'=>$quote]);exit;}
+if (preg_match('#^/configuration/([0-9a-f-]+)/delete$#',$path,$m)&&$method==='POST'){require_customer('/account/configurations');verify_csrf();try{delete_customer_configuration($m[1]);flash('success','Saved configuration deleted.');}catch(Throwable $e){flash('error',$e->getMessage());}redirect('/account/configurations');}
+if (preg_match('#^/configuration/([0-9a-f-]+)/add$#',$path,$m)&&$method==='POST'){require_customer('/account/configurations');verify_csrf();$saved=customer_saved_configuration($m[1]);if(!$saved){flash('error','Configuration not found.');redirect('/account/configurations');}$ok=commerce_cart_add((string)$saved['slug'],1,'','',(array)$saved['selection']);flash($ok?'success':'error',$ok?'Configured piece added to your bag.':'This saved configuration is no longer valid.');redirect('/cart');}
+if ($path === '/account/orders'){require_customer('/account/orders');render('account/orders',['title'=>'Orders','orders'=>customer_orders((string)customer_identity()['guid'])]);exit;}
+if (preg_match('#^/account/orders/([0-9a-f-]+)/invoice$#',$path,$m)){require_customer($path);$order=customer_order($m[1]);if(!$order||empty($order['invoice'])){http_response_code(404);render('404',['title'=>'Invoice not found']);exit;}render('account/invoice',['title'=>'Invoice '.$order['invoice']['number'],'description'=>'Staging invoice for '.$order['number'],'order'=>$order]);exit;}
+if (preg_match('#^/account/orders/([0-9a-f-]+)/pay$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();$order=customer_order($m[1]);if(!$order||($order['status']??'')!=='PENDING_PAYMENT'){flash('error','This order is not awaiting payment.');redirect('/account/orders/'.$m[1]);}$attempt=payment_attempt_for_order($order['guid'])?:create_payment_attempt($order);redirect('/payment/sandbox/'.$attempt['guid']);}
+if (preg_match('#^/account/orders/([0-9a-f-]+)/request$#',$path,$m)&&$method==='POST'){require_customer($path);verify_csrf();[$ok,$out]=customer_request_order_action($m[1],(string)($_POST['type']??''),trim((string)($_POST['reason']??'')));flash($ok?'success':'error',$ok?'Your request has been recorded.':(string)$out);redirect('/account/orders/'.$m[1]);}
+if (preg_match('#^/account/orders/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$order=customer_order($m[1]);if(!$order){http_response_code(404);render('404',['title'=>'Order not found']);exit;}render('account/order',['title'=>'Order '.$order['number'],'order'=>$order,'requests'=>requests_for_order($order['guid'])]);exit;}
+
+/* ---------------- Bespoke Studio ---------------- */
+if ($path === '/bespoke/request') {
+    require_customer('/bespoke/request');$slug=trim((string)($_GET['slug']??$_POST['slug']??''));$configGuid=trim((string)($_GET['config']??$_POST['configuration_guid']??''));$saved=$configGuid!==''?customer_saved_configuration($configGuid):null;if($saved&&$slug==='')$slug=(string)$saved['slug'];$product=product_by_slug($slug);if(!$product){flash('error','Choose a product before opening a bespoke request.');redirect('/shop');}$sourcePrice=(int)$product['price'];if($saved){$cq=configurator_current_quote_for_saved($saved);if($cq)$sourcePrice=(int)$cq['unit_price'];}
+    if($method==='POST'){verify_csrf();[$ok,$out]=bespoke_create_request($_POST);if($ok){flash('success','Bespoke request created. The studio can now prepare Design Revision 1.');redirect('/account/quotes/'.$out['guid']);}flash('error',(string)$out);redirect('/bespoke/request?slug='.rawurlencode($slug).($configGuid?'&config='.rawurlencode($configGuid):''));}
+    render('bespoke/request',['title'=>'Bespoke request','product'=>$product,'saved'=>$saved,'sourcePrice'=>$sourcePrice]);exit;
+}
+if (preg_match('#^/bespoke/deposit/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$attempt=bespoke_deposit_attempt_by_guid($m[1]);if(!$attempt){http_response_code(404);render('404',['title'=>'Deposit not found']);exit;}$quote=bespoke_customer_quote((string)$attempt['quote_guid']);if(!$quote){http_response_code(403);exit('Deposit access denied.');}render('bespoke/deposit',['title'=>'Bespoke deposit','attempt'=>$attempt,'quote'=>$quote]);exit;}
+if ($path === '/bespoke/deposit/complete' && $method==='POST'){require_customer('/account/quotes');verify_csrf();try{$attempt=bespoke_deposit_attempt_by_guid((string)($_POST['attempt_guid']??''));if(!$attempt)throw new RuntimeException('Deposit attempt not found.');$quote=bespoke_customer_quote((string)$attempt['quote_guid']);if(!$quote)throw new RuntimeException('Deposit access denied.');$result=bespoke_sandbox_complete_deposit($attempt['guid'],(string)($_POST['status']??'FAILED'));$quote=bespoke_customer_quote((string)$result['quote_guid']);flash(strtoupper((string)($_POST['status']??''))==='SUCCESS'?'success':'error',strtoupper((string)($_POST['status']??''))==='SUCCESS'?'Deposit verified. Your project is ready for final Design Freeze.':'Sandbox deposit failed. You can retry.');redirect('/account/quotes/'.$quote['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/account/quotes');}}
+
+/* ---------------- Checkout / payment ---------------- */
+if ($path === '/checkout') {
+    require_customer('/checkout');$lines=commerce_cart_lines();if(!$lines){flash('error','Your bag is empty.');redirect('/cart');}
+    if($method==='POST'){verify_csrf();try{$order=create_order_from_checkout((string)($_POST['address_guid']??''),!empty($_POST['installation']),(string)($_POST['checkout_key']??''));$attempt=payment_attempt_for_order($order['guid'])?:create_payment_attempt($order);rotate_checkout_idempotency_token();redirect('/payment/sandbox/'.$attempt['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/checkout');}}
+    render('checkout/index',['title'=>'Checkout','description'=>'Secure staging checkout.','lines'=>$lines,'subtotal'=>commerce_cart_subtotal(),'addresses'=>customer_addresses()]);exit;
+}
+if (preg_match('#^/payment/sandbox/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$attempt=payment_attempt_by_guid($m[1]);if(!$attempt){http_response_code(404);render('404',['title'=>'Payment not found']);exit;}$order=customer_order((string)$attempt['order_guid']);if(!$order){http_response_code(403);exit('Payment access denied.');}render('checkout/payment',['title'=>'Sandbox payment','attempt'=>$attempt,'order'=>$order]);exit;}
+if ($path === '/payment/sandbox/complete' && $method==='POST'){require_customer('/checkout');verify_csrf();try{$attempt=payment_attempt_by_guid((string)($_POST['attempt_guid']??''));if(!$attempt)throw new RuntimeException('Payment attempt not found.');$order=customer_order((string)$attempt['order_guid']);if(!$order)throw new RuntimeException('Payment access denied.');$result=sandbox_complete_attempt($attempt['guid'],(string)($_POST['status']??'FAILED'));$order=customer_order((string)$result['order_guid']);if(strtoupper((string)($_POST['status']??''))==='SUCCESS'){redirect('/order-confirmed/'.$order['guid']);}flash('error','Sandbox payment failed. You can retry from your order.');redirect('/account/orders/'.$order['guid']);}catch(Throwable $e){flash('error',$e->getMessage());redirect('/account/orders');}}
+if (preg_match('#^/order-confirmed/([0-9a-f-]+)$#',$path,$m)){require_customer($path);$order=customer_order($m[1]);if(!$order||($order['payment_status']??'')!=='PAID'){http_response_code(404);render('404',['title'=>'Order confirmation not found']);exit;}render('checkout/confirmation',['title'=>'Order confirmed','order'=>$order]);exit;}
+
+if ($path === '/configurations/save' && $method==='POST') {require_customer('/account/configurations');verify_csrf();$slug=trim((string)($_POST['slug']??''));$guid=trim((string)($_POST['configuration_guid']??''))?:null;[$ok,$out]=save_customer_configuration($slug,configurator_input_from_post($_POST),trim((string)($_POST['label']??'')),$guid);flash($ok?'success':'error',$ok?'Configuration saved.':(string)$out);redirect($ok?'/account/configurations':'/product/'.$slug);}
+
+/* ---------------- Public POST actions ---------------- */
+if ($method === 'POST') {
+    verify_csrf();
+    if ($path === '/cart/add') {$slug=trim((string)($_POST['slug']??''));$p=product_by_slug($slug);if(!$p){flash('error','Product not found.');redirect('/shop');}$qty=max(1,min(10,(int)($_POST['qty']??1)));$configuration=configurator_input_from_post($_POST);$ok=commerce_cart_add($slug,$qty,(string)($_POST['material']??''),(string)($_POST['finish']??''),$configuration);flash($ok?'success':'error',$ok?$p['name'].' added to your cart.':'Please review the configuration options.');redirect($ok?'/cart':'/product/'.$slug);}
+    if ($path === '/cart/update') {commerce_cart_update((array)($_POST['qty']??[]));flash('success','Cart updated.');redirect('/cart');}
+    if ($path === '/cart/remove') {commerce_cart_remove((string)($_POST['key']??''));flash('success','Item removed from cart.');redirect('/cart');}
+    if ($path === '/wishlist/toggle') {$slug=trim((string)($_POST['slug']??''));if(!product_by_slug($slug))redirect('/wishlist');$wishlist=$_SESSION['wishlist']??[];if(in_array($slug,$wishlist,true)){$wishlist=array_values(array_filter($wishlist,fn($s)=>$s!==$slug));flash('success','Removed from wishlist.');}else{$wishlist[]=$slug;flash('success','Saved to wishlist.');}$_SESSION['wishlist']=array_values(array_unique($wishlist));$back=(string)($_POST['back']??'/wishlist');if(!str_starts_with($back,'/'))$back='/wishlist';redirect($back);}
+    if ($path === '/quote') {$name=trim((string)($_POST['name']??''));$phone=trim((string)($_POST['phone']??''));$project=trim((string)($_POST['project']??''));if($name===''||$phone===''||$project==='')flash('error','Please complete name, phone and project requirement.');else flash('success','Thank you. Your staging enquiry was validated successfully. No personal data was stored in this build.');redirect('/style-finder#consult');}
+}
+
+/* ---------------- Public storefront ---------------- */
+if ($path === '/') {$featured=array_values(array_filter(products_public(),fn($p)=>!empty($p['featured'])));render('home',['title'=>'Handcrafted Wood for Beautiful Living','description'=>'Luxury handcrafted wooden shelves, ritual objects, plant displays, utility pieces and gifting.','featured'=>array_slice($featured,0,8)]);exit;}
+
+if ($path === '/collections/sacred-spaces') {
+    $type=trim((string)($_GET['type']??''));
+    $items=array_values(array_filter(products_public(),fn($p)=>(string)($p['category']??'')==='sacred-spaces'));
+    if($type!=='') $items=array_values(array_filter($items,fn($p)=>in_array($type,(array)($p['tags']??[]),true)));
+    render('sacred-spaces',['title'=>'Sacred Spaces — Handcrafted Home Mandirs','description'=>'Explore handcrafted floor mandirs, wall-mounted temples, tabletop shrines and illuminated pooja units for modern homes.','items'=>$items,'type'=>$type,'themeSurface'=>'sacred-spaces','schema'=>['@context'=>'https://schema.org','@type'=>'CollectionPage','name'=>'Sacred Spaces','description'=>'Handcrafted home mandirs and pooja units by Atelier Wood','url'=>absolute_url('/collections/sacred-spaces')]]);exit;
+}
+
+if ($path === '/shop') {
+    $filters=[
+        'q'=>trim((string)($_GET['q']??'')),
+        'category'=>trim((string)($_GET['category']??'')),
+        'room'=>trim((string)($_GET['room']??'')),
+        'material'=>trim((string)($_GET['material']??'')),
+        'finish'=>trim((string)($_GET['finish']??'')),
+        'price_max'=>(int)($_GET['price_max']??0),
+        'customisable'=>!empty($_GET['customisable'])?'1':'',
+        'sort'=>trim((string)($_GET['sort']??'recommended')),
+    ];
+    $allItems=products_public();
+    $items=commerceux_filter_catalog($allItems,$filters);
+    render('shop',[
+        'title'=>'Shop Handcrafted Collection','description'=>'Browse handcrafted wooden furniture, decor, sacred spaces and configurable objects.',
+        'items'=>$items,'q'=>$filters['q'],'category'=>$filters['category'],'filters'=>$filters,'filterOptions'=>commerceux_filter_options($allItems)
+    ]);exit;
+}
+if (preg_match('#^/product/([a-z0-9-]+)$#',$path,$m)) {$product=product_by_slug($m[1]);if(!$product){http_response_code(404);render('404',['title'=>'Not found']);exit;}$loadedConfig=null;$configGuid=trim((string)($_GET['config']??''));if($configGuid!==''&&customer_logged_in()){$candidate=customer_saved_configuration($configGuid);if($candidate&&($candidate['slug']??'')===$product['slug'])$loadedConfig=$candidate;}$related=array_values(array_filter(products_public(),fn($p)=>$p['slug']!==$product['slug']&&$p['category']===$product['category']));$seoTitle=$product['seo']['title']??'';$seoDesc=$product['seo']['description']??'';render('product',['title'=>$seoTitle?:$product['name'],'description'=>$seoDesc?:$product['short'],'themeSurface'=>theme_surface_for_product($product),'product'=>$product,'loadedConfig'=>$loadedConfig,'related'=>array_slice($related,0,3),'schema'=>['@context'=>'https://schema.org','@type'=>'Product','name'=>$product['name'],'sku'=>$product['sku'],'description'=>$product['short'],'image'=>[image_url(mediaos_primary_file($product))],'offers'=>['@type'=>'AggregateOffer','priceCurrency'=>'INR','lowPrice'=>$product['price'],'offerCount'=>1,'availability'=>(empty($product['inventory']['track'])||!empty($product['inventory']['made_to_order'])||(int)($product['inventory']['stock']??0)>0)?'https://schema.org/InStock':'https://schema.org/OutOfStock','url'=>absolute_url('/product/'.$product['slug'])]]]);exit;}
+if ($path === '/cart'){render('cart',['title'=>'Your Cart','description'=>'Review your selected handcrafted pieces.','lines'=>commerce_cart_lines()]);exit;}
+if ($path === '/wishlist'){$want=$_SESSION['wishlist']??[];$items=array_values(array_filter(products_public(),fn($p)=>in_array($p['slug'],$want,true)));render('wishlist',['title'=>'Wishlist','description'=>'Saved pieces for your home.','items'=>$items]);exit;}
+if ($path === '/style-finder'){$result=null;if($method==='POST'){verify_csrf();$result=designos_style_score($_POST);$_SESSION['designos_style_result']=$result;}elseif(isset($_SESSION['designos_style_result'])&&is_array($_SESSION['designos_style_result']))$result=$_SESSION['designos_style_result'];render('style-finder',['title'=>'Style Finder','description'=>'Find a considered material and product direction for your room.','result'=>$result]);exit;}
+if ($path === '/materials'){render('materials',['title'=>'Material Library','description'=>'Understand wood, finishes and care before you buy.']);exit;}
+if ($path === '/about'){render('about',['title'=>'Our Craft','description'=>'The Atelier Wood approach to material, making and quiet design.']);exit;}
+
+http_response_code(404);render('404',['title'=>'Page not found','description'=>'The page you requested could not be found.']);

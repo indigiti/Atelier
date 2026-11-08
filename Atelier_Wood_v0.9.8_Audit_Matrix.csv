@@ -1,0 +1,15 @@
+Gate,Result,Evidence / scope
+Foundation regression,PASS,UUID/repository/encryption/session/storage baseline retained
+Catalogue/PIM regression,PASS,34-product staging catalogue remains structurally valid
+Commerce regression,PASS,"accounts, cart, checkout, sandbox payment, orders and invoices retained"
+Configurator/Bespoke regression,PASS,server-authoritative pricing and design-freeze contracts retained
+MakeOS/Operations regression,PASS,"manufacturing, procurement, quality and fulfilment contracts retained"
+CMS/SEO/ThemeOS regression,PASS,"crawlable content, feeds foundation and collection themes retained"
+MediaOS/My Spaces/Passport/TradeOS/Integrations,PASS,all cumulative milestone suites pass
+Security regression,PASS,API throttling/private storage/fail-closed checks pass
+End-user HTTP workflow,PASS,59/59 tested interactions pass
+Responsive visual render,PASS,"26 desktop/mobile page renders: no horizontal overflow, broken images or JS/page errors"
+Mobile interactive controls,PASS,no undersized tested interactive controls on mobile audit
+Mobile menu interaction,PASS,opens and closes on navigation
+Theme toggle interaction,PASS,theme state visibly changes
+Release readiness endpoint,PASS,/ready returns HTTP 200 in clean staging runtime

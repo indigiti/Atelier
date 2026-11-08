@@ -1,0 +1,22 @@
+Gate,Result,Notes
+PHP syntax,PASS,All PHP files lint clean
+Foundation regression,PASS,Inherited hardening verified
+Commerce regression,PASS,Accounts cart checkout orders retained
+Configurator coverage,PASS,34/34 active products covered
+Bespoke regression,PASS,Quote and Design Freeze retained
+MakeOS regression,PASS,Workshop workflow retained
+Procurement regression,PASS,Inventory/PO/GRN retained
+Quality regression,PASS,Defect/QA gates retained
+Fulfilment regression,PASS,Shipment/installation retained
+CMS/SEO regression,PASS,CMS redirects sitemap retained
+DesignOS regression,PASS,Style Finder and Room Planner retained
+Sacred Spaces product count,PASS,20 products
+Sacred Spaces media,PASS,20/20 image references resolve
+Sacred Spaces taxonomy,PASS,Category and collection registered
+Sacred Spaces configurator,PASS,20/20 rule sets present
+Collection route,PASS,/collections/sacred-spaces HTTP 200
+Shop filter,PASS,/shop?category=sacred-spaces HTTP 200
+Representative PDPs,PASS,HTTP 200
+Sitemap coverage,PASS,Collection and products included
+Production media rights,REVIEW,Replace/approve staging references before launch
+Workshop specification sign-off,REVIEW,Prices dimensions fixing/electrical specs remain staging

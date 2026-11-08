@@ -1,0 +1,44 @@
+products=34
+media_references=38
+decoded=38
+missing=0
+decode_failures=0
+
+OK artisan-branch-wall-sculpture | branch-sculpture.webp | 1200x1600 | WEBP | 39424 bytes
+OK nordic-ladder-wall-shelf | nordic-ladder.webp | 736x981 | WEBP | 35548 bytes
+OK chevron-walnut-shelf | chevron-shelf.webp | 735x985 | WEBP | 37988 bytes
+OK dual-line-floating-shelf | dual-line-shelf.webp | 736x981 | WEBP | 27152 bytes
+OK origami-triangle-shelf-set | origami-triangle.webp | 645x968 | WEBP | 26736 bytes
+OK bead-folk-key-holder | bead-key-holder.webp | 643x804 | WEBP | 37846 bytes
+OK cedar-bird-feeder | cedar-bird-feeder.webp | 310x310 | WEBP | 8480 bytes
+OK zen-wave-incense-rest | zen-wave.webp | 1199x799 | WEBP | 20628 bytes
+OK zen-wave-incense-rest | zen-curve.webp | 736x552 | WEBP | 8642 bytes
+OK zen-wave-incense-rest | incense-smoke.webp | 1200x1598 | WEBP | 107528 bytes
+OK kyoto-block-incense-holder | kyoto-block.webp | 476x476 | WEBP | 10810 bytes
+OK kyoto-block-incense-holder | incense-smoke.webp | 1200x1598 | WEBP | 107528 bytes
+OK om-ritual-incense-plank | om-ritual.webp | 1200x1500 | WEBP | 106552 bytes
+OK arch-bud-vase-trio | arch-bud-vase.webp | 900x1200 | WEBP | 48202 bytes
+OK duo-propagation-stand | duo-propagation.webp | 736x736 | WEBP | 28932 bytes
+OK hexanest-wall-cubes | hexanest-cubes.webp | 1080x1319 | WEBP | 51638 bytes
+OK hexanest-wall-cubes | hex-wall-composition.webp | 735x550 | WEBP | 31172 bytes
+OK bath-caddy-roll-shelf | bath-caddy.webp | 736x736 | WEBP | 29618 bytes
+OK shubh-labh-heritage-floor-mandir | shubh-labh-heritage-floor-mandir.webp | 494x544 | WEBP | 33408 bytes
+OK pearl-niche-pooja-console | pearl-niche-pooja-console.webp | 494x544 | WEBP | 15208 bytes
+OK vrindavan-jali-floor-mandir | vrindavan-jali-floor-mandir.webp | 494x544 | WEBP | 55698 bytes
+OK sattva-open-niche-console | sattva-open-niche-console.webp | 494x544 | WEBP | 14056 bytes
+OK aarti-jharokha-wall-mandir | aarti-jharokha-wall-mandir.webp | 494x544 | WEBP | 51948 bytes
+OK ganesha-compact-wall-mandir | ganesha-compact-wall-mandir.webp | 494x544 | WEBP | 65504 bytes
+OK heritage-open-arch-wall-mandir | heritage-open-arch-wall-mandir.webp | 494x544 | WEBP | 53848 bytes
+OK curtain-darshan-wall-mandir | curtain-darshan-wall-mandir.webp | 494x544 | WEBP | 64964 bytes
+OK devlok-storage-floor-mandir | devlok-storage-floor-mandir.webp | 494x544 | WEBP | 33080 bytes
+OK mayura-glow-pooja-console | mayura-glow-pooja-console.webp | 494x544 | WEBP | 34822 bytes
+OK rajwada-carved-table-mandir | rajwada-carved-table-mandir.webp | 494x544 | WEBP | 37012 bytes
+OK krishna-desktop-jharokha-mandir | krishna-desktop-jharokha-mandir.webp | 494x544 | WEBP | 30554 bytes
+OK shri-yantra-lotus-floor-mandir | shri-yantra-lotus-floor-mandir.webp | 494x544 | WEBP | 27550 bytes
+OK pichwai-golden-wall-mandir | pichwai-golden-wall-mandir.webp | 494x544 | WEBP | 47372 bytes
+OK radha-niche-mandir-shelf | radha-niche-mandir-shelf.webp | 494x544 | WEBP | 14538 bytes
+OK om-shubh-tabletop-mandir | om-shubh-tabletop-mandir.webp | 494x544 | WEBP | 18676 bytes
+OK chakra-compact-wall-shrine | chakra-compact-wall-shrine.webp | 494x544 | WEBP | 26172 bytes
+OK lotus-arch-wall-mandir | lotus-arch-wall-mandir.webp | 494x544 | WEBP | 32470 bytes
+OK devdarsh-lattice-wall-mandir | devdarsh-lattice-wall-mandir.webp | 494x544 | WEBP | 25270 bytes
+OK painted-ganesha-wall-mandir | painted-ganesha-wall-mandir.webp | 494x544 | WEBP | 31810 bytes

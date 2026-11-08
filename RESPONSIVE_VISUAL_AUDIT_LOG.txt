@@ -1,0 +1,3 @@
+screens 32 screen_failures 0 interaction_failures 0
+touch_warning_screens 0
+PASS

@@ -1,0 +1,43 @@
+== foundation_hardening ==
+PASS: lock/write/checksum guard, transaction journal, stale-write rejection, authenticated encryption and tamper detection verified.
+== smoke ==
+PASS: 34 structured products; GUID/SKU/slug uniqueness; media, taxonomies, configurator rule coverage and private storage baseline verified.
+== commerce_core ==
+PASS: customer auth, encrypted addresses, persistent cart v2, pincode/shipping, checkout idempotency, immutable order snapshots, signed/idempotent payment events, invoice issuance, object authorization, cancellation/refund, PII audit minimization and encrypted restore parity verified.
+== configurator ==
+PASS: rule coverage, deterministic server pricing, input tamper rejection, dimension pricing, encrypted saved configurations, object authorization, configured cart pricing and immutable order configuration snapshots verified.
+== bespoke ==
+PASS: encrypted bespoke request, immutable revision, customer approval, deterministic deposit, signed/idempotent settlement, post-deposit revision lock, design freeze integrity and object authorization verified.
+== makeos ==
+PASS: bespoke Design Freeze and standard order-item handoff, encrypted production jobs, BOM lock/cost integrity, material reservation, sequential workshop stages, QA/rework, packing, commerce status synchronization and customer-safe progress verified.
+== procurement ==
+PASS: supplier/material masters, PO issue, partial/full GRN, lot creation, FIFO reservation, stock invariants, consumption, cost variance and encrypted persistence verified.
+== quality ==
+PASS: defect lifecycle, major/critical QA gate, corrective action, private evidence upload/fingerprint and encrypted quality metadata verified.
+== fulfilment ==
+PASS: shipment idempotency, carrier booking, dispatch/order sync, tracking, delivery, installation scheduling/completion and encrypted fulfilment persistence verified.
+== cms ==
+PASS: CMS draft/publish, safe body rendering, reusable blocks, SEO fields, redirects and sitemap coverage verified.
+== designos ==
+PASS: DesignOS Style Finder scoring, encrypted saved profiles, room CRUD, object authorization, catalogue recommendations, placement boundary validation and release gates verified.
+== sacred_spaces ==
+PASS: 20 Sacred Spaces products, media, taxonomy, configurator rules and sitemap coverage verified.
+== themes ==
+PASS: Theme registry, Sacred Luxury assignment, sanitized overrides and CSS token export verified.
+== mediaos ==
+PASS: MediaOS role coverage, alt metadata, safe Python/Pillow upload fallback and expanded ThemeOS surfaces verified.
+== intelligence ==
+PASS: private room photo processing, sandbox visual analysis, My Spaces ownership and cleanup verified.
+== passport ==
+PASS: delivered-order passport issue/idempotency, public projection, QR generation, ownership and service request verified.
+== tradeos ==
+PASS: trade application/approval, discount boundary, project BOQ, canonical product references and CSV export verified.
+== integrations ==
+PASS: explicit Merchant/AI/agent serializers, feed generation, signed short-lived scoped token and scope denial verified.
+== security ==
+PASS: API throttling, private-storage boundary and staging production fail-closed security controls verified.
+== commerce_ux ==
+PASS: marketplace search/filter/sort, responsive header/PLP/PDP markers and room-commerce integration verified.
+== release_regression ==
+PASS: taxonomy references, absolute canonical URLs, Nginx release path, media dimension ceiling and critical release configuration checks verified.
+PASS: full v0.9.8.1 regression suite

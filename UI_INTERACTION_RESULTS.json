@@ -1,0 +1,14 @@
+[
+  {
+    "test": "mobile menu opens",
+    "ok": true
+  },
+  {
+    "test": "mobile menu closes on navigation",
+    "ok": true
+  },
+  {
+    "test": "theme toggle changes theme",
+    "ok": true
+  }
+]

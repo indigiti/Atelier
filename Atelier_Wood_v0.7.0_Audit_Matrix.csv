@@ -1,0 +1,31 @@
+Area,Gate,Expected,Status,Notes
+Foundation,PHP syntax,No syntax errors,PASS,Full PHP source/template/test scan
+Foundation,Transaction journal recovery,No incomplete transactions,PASS,Inherited hardening regression
+Security,Authenticated encryption,Private stores encrypted,PASS,MakeOS uses confidential repository
+Security,CSRF,All MakeOS mutations protected,PASS,Admin POST routes verify CSRF
+Security,Object projection,Customer sees only authorized reduced progress,PASS,Quote/order projections filter by customer
+MakeOS,Source schema,Required job/source/workflow fields,PASS,Validated by release check
+MakeOS,Job number uniqueness,0 duplicates,PASS,AWJ identity check
+MakeOS,Source uniqueness,At most one job per immutable source,PASS,Idempotent source_key
+MakeOS,Source fingerprint,Bespoke freeze/order-item snapshot validates,PASS,Recomputed against canonical source
+BOM,BOM calculation,Quantity + waste + unit cost deterministic,PASS,Regression includes 10 percent waste case
+BOM,BOM lock,SHA-256 lock fingerprint,PASS,Post-lock edits rejected
+Materials,Reservation gate,Requires locked valid BOM,PASS,Job-level reservation only
+Workshop,Assignment gate,Artisan or station required before start,PASS,Validated in domain service
+Workshop,Sequential stages,Only active stage can complete,PASS,Material Prep through Packing
+QA,QA bypass prevention,Normal stage action cannot complete QA,PASS,QA has separate domain action
+QA,Structured QA pass,All six checks required,PASS,Incomplete PASS rejected
+QA,Rework,Failed QA resets downstream route,PASS,Selected rework stage verified
+Packing,Ready dispatch,Only after QA pass + packing,PASS,Workflow closure tested
+Commerce,Order-item source,Immutable paid/confirmed order item supported,PASS,Source fingerprint and idempotency tested
+Bespoke,Design Freeze source,Only verified frozen design can hand off,PASS,Freeze integrity rechecked
+Commerce,Order production sync,Confirmed order moves to IN_PRODUCTION on workshop start,PASS,Verified by MakeOS regression
+Commerce,Order ready sync,All item jobs must be READY_TO_DISPATCH before order promotion,PASS,Verified by MakeOS regression
+UX,Admin MakeOS responsive,Desktop/table/mobile-safe layout,PASS,Existing responsive system extended
+UX,Customer progress,No internal costs/QA notes exposed,PASS,Reduced progress projection
+Regression,Commerce Core,Existing tests pass,PASS,No regression detected
+Regression,Configurator,Existing tests pass,PASS,No regression detected
+Regression,Bespoke,Existing tests pass,PASS,No regression detected
+Deployment,Nginx path,Points to v0.7.0 public root,PASS,Release regression
+Production,PostgreSQL authoritative,Required for production,PENDING,Intentional future gate
+Production,Global material inventory / procurement,Required for full MakeOS stock control,PENDING,Next MakeOS expansion

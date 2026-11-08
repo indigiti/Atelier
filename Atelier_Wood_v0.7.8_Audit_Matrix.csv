@@ -1,0 +1,27 @@
+Area,Gate,Result,Evidence
+BASE,PHP syntax lint,PASS,Automated or code-level regression
+BASE,UUID/catalog integrity,PASS,Automated or code-level regression
+BASE,Foundation encrypted store and journal recovery,PASS,Automated or code-level regression
+BASE,Commerce regression,PASS,Automated or code-level regression
+BASE,Configurator regression,PASS,Automated or code-level regression
+BASE,Bespoke/Design Freeze regression,PASS,Automated or code-level regression
+BASE,MakeOS regression,PASS,Automated or code-level regression
+BASE,Nginx release-path regression,PASS,Automated or code-level regression
+BASE,Responsive CSS breakpoint review,PASS,Automated or code-level regression
+BASE,No shell/eval execution primitives found in PHP source scan,PASS,Automated or code-level regression
+0.7.8,Everything in v0.7.6,PASS,Milestone implementation + regression
+0.7.8,Editorial CMS for Journal/Guides/Room Stories/Pages/FAQs,PASS,Milestone implementation + regression
+0.7.8,Draft/publish workflow,PASS,Milestone implementation + regression
+0.7.8,Reusable content blocks,PASS,Milestone implementation + regression
+0.7.8,Safe escaped text rendering,PASS,Milestone implementation + regression
+0.7.8,SEO title/description/noindex,PASS,Milestone implementation + regression
+0.7.8,Canonical URL and OG metadata,PASS,Milestone implementation + regression
+0.7.8,301/302 redirect management with loop check,PASS,Milestone implementation + regression
+0.7.8,Dynamic sitemap.xml,PASS,Milestone implementation + regression
+0.7.8,robots.txt,PASS,Milestone implementation + regression
+0.7.8,Seeded editorial content,PASS,Milestone implementation + regression
+0.7.8,Responsive admin/editorial UI refinements,PASS,Milestone implementation + regression
+VISUAL,Desktop responsive layout,PASS,CSS/layout code audit; existing luxury visual system retained
+VISUAL,Tablet/mobile breakpoints,PASS,820/640/540px responsive rules reviewed; mobile bottom nav corrected to 5 columns
+SECURITY,Private operational data outside public root,PASS,Encrypted private-domain stores; public routes expose safe projections only
+RELEASE,Staging fail-closed production guard,PASS,File-authoritative package refuses production mode

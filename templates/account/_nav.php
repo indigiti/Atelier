@@ -1,0 +1,14 @@
+<?php
+$uri = parse_url($_SERVER['REQUEST_URI'] ?? '/account', PHP_URL_PATH) ?: '/account';
+$nav = [
+  ['/account','Overview'], ['/account/spaces','My Spaces'], ['/account/rooms','Room Planner'],
+  ['/account/passports','Product Passports'], ['/account/addresses','Addresses'], ['/account/orders','Orders'],
+  ['/account/configurations','Configurations'], ['/account/quotes','Bespoke projects'], ['/wishlist','Wishlist'], ['/trade','TradeOS']
+];
+?>
+<aside class="account-side" aria-label="Account navigation">
+<?php foreach($nav as [$href,$label]): $active = $href==='/account' ? $uri==='/account' : str_starts_with($uri,$href); ?>
+<a class="<?= $active?'active':'' ?>" href="<?= e(url($href)) ?>"><?= e($label) ?></a>
+<?php endforeach; ?>
+<form method="post" action="<?=e(url('/account/logout'))?>"><?=csrf_field()?><button type="submit">Sign out</button></form>
+</aside>

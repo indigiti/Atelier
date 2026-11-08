@@ -1,0 +1,586 @@
+{
+    "version": 1,
+    "products": {
+        "01a099fe-505a-7d43-8ba2-d110e9240571": {
+            "product_guid": "01a099fe-505a-7d43-8ba2-d110e9240571",
+            "slug": "artisan-branch-wall-sculpture",
+            "roles": {
+                "hero": {
+                    "file": "branch-sculpture.webp",
+                    "alt": "Artisan Branch Wall Sculpture — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-505b-7f1b-a502-e8b32741be0c": {
+            "product_guid": "01a099fe-505b-7f1b-a502-e8b32741be0c",
+            "slug": "nordic-ladder-wall-shelf",
+            "roles": {
+                "hero": {
+                    "file": "nordic-ladder.webp",
+                    "alt": "Nordic Ladder Wall Shelf — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-505c-7840-b05e-111d3f4f6ca4": {
+            "product_guid": "01a099fe-505c-7840-b05e-111d3f4f6ca4",
+            "slug": "chevron-walnut-shelf",
+            "roles": {
+                "hero": {
+                    "file": "chevron-shelf.webp",
+                    "alt": "Chevron Walnut Shelf — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-505d-71db-accd-d8eeed2372f5": {
+            "product_guid": "01a099fe-505d-71db-accd-d8eeed2372f5",
+            "slug": "dual-line-floating-shelf",
+            "roles": {
+                "hero": {
+                    "file": "dual-line-shelf.webp",
+                    "alt": "Dual Line Floating Shelf — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-505e-7770-a974-a87c742101b4": {
+            "product_guid": "01a099fe-505e-7770-a974-a87c742101b4",
+            "slug": "origami-triangle-shelf-set",
+            "roles": {
+                "hero": {
+                    "file": "origami-triangle.webp",
+                    "alt": "Origami Triangle Shelf Set — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-505f-7680-9eaf-d763c4bd285a": {
+            "product_guid": "01a099fe-505f-7680-9eaf-d763c4bd285a",
+            "slug": "bead-folk-key-holder",
+            "roles": {
+                "hero": {
+                    "file": "bead-key-holder.webp",
+                    "alt": "Bead Folk Key Holder — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5060-782d-ac80-f47a12e71c75": {
+            "product_guid": "01a099fe-5060-782d-ac80-f47a12e71c75",
+            "slug": "cedar-bird-feeder",
+            "roles": {
+                "hero": {
+                    "file": "cedar-bird-feeder.webp",
+                    "alt": "Cedar Bird Feeder — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5061-7761-84c4-095a8afd8480": {
+            "product_guid": "01a099fe-5061-7761-84c4-095a8afd8480",
+            "slug": "zen-wave-incense-rest",
+            "roles": {
+                "hero": {
+                    "file": "zen-wave.webp",
+                    "alt": "Zen Wave Incense Rest — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                },
+                "front": {
+                    "file": "zen-curve.webp",
+                    "alt": "Zen Wave Incense Rest — Front",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 2
+                },
+                "angle": {
+                    "file": "incense-smoke.webp",
+                    "alt": "Zen Wave Incense Rest — 3/4 angle",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 3
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5062-76b1-b6d4-1ec2870b08a5": {
+            "product_guid": "01a099fe-5062-76b1-b6d4-1ec2870b08a5",
+            "slug": "kyoto-block-incense-holder",
+            "roles": {
+                "hero": {
+                    "file": "kyoto-block.webp",
+                    "alt": "Kyoto Block Incense Holder — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                },
+                "front": {
+                    "file": "incense-smoke.webp",
+                    "alt": "Kyoto Block Incense Holder — Front",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 2
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5063-79aa-9d09-02deb5c2105d": {
+            "product_guid": "01a099fe-5063-79aa-9d09-02deb5c2105d",
+            "slug": "om-ritual-incense-plank",
+            "roles": {
+                "hero": {
+                    "file": "om-ritual.webp",
+                    "alt": "Om Ritual Incense Plank — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5064-75c9-b7e2-36db9cad5bd9": {
+            "product_guid": "01a099fe-5064-75c9-b7e2-36db9cad5bd9",
+            "slug": "arch-bud-vase-trio",
+            "roles": {
+                "hero": {
+                    "file": "arch-bud-vase.webp",
+                    "alt": "Arch Bud Vase Trio — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5065-77cf-9e10-68735a0f6e1d": {
+            "product_guid": "01a099fe-5065-77cf-9e10-68735a0f6e1d",
+            "slug": "duo-propagation-stand",
+            "roles": {
+                "hero": {
+                    "file": "duo-propagation.webp",
+                    "alt": "Duo Propagation Stand — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5066-75eb-bc20-26e3b8291f7b": {
+            "product_guid": "01a099fe-5066-75eb-bc20-26e3b8291f7b",
+            "slug": "hexanest-wall-cubes",
+            "roles": {
+                "hero": {
+                    "file": "hexanest-cubes.webp",
+                    "alt": "HexaNest Wall Cubes — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                },
+                "front": {
+                    "file": "hex-wall-composition.webp",
+                    "alt": "HexaNest Wall Cubes — Front",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 2
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a099fe-5067-73a2-9e21-239c74b6eb0b": {
+            "product_guid": "01a099fe-5067-73a2-9e21-239c74b6eb0b",
+            "slug": "bath-caddy-roll-shelf",
+            "roles": {
+                "hero": {
+                    "file": "bath-caddy.webp",
+                    "alt": "Bath Caddy Roll Shelf — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-75c6-a3fc-60e34f2f06f8": {
+            "product_guid": "01a09adf-a69c-75c6-a3fc-60e34f2f06f8",
+            "slug": "shubh-labh-heritage-floor-mandir",
+            "roles": {
+                "hero": {
+                    "file": "shubh-labh-heritage-floor-mandir.webp",
+                    "alt": "Shubh Labh Heritage Floor Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7c84-a2f0-acc513010727": {
+            "product_guid": "01a09adf-a69c-7c84-a2f0-acc513010727",
+            "slug": "pearl-niche-pooja-console",
+            "roles": {
+                "hero": {
+                    "file": "pearl-niche-pooja-console.webp",
+                    "alt": "Pearl Niche Pooja Console — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-73d6-9ef1-db24a398f692": {
+            "product_guid": "01a09adf-a69c-73d6-9ef1-db24a398f692",
+            "slug": "vrindavan-jali-floor-mandir",
+            "roles": {
+                "hero": {
+                    "file": "vrindavan-jali-floor-mandir.webp",
+                    "alt": "Vrindavan Jali Floor Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7414-b12d-07270340363c": {
+            "product_guid": "01a09adf-a69c-7414-b12d-07270340363c",
+            "slug": "sattva-open-niche-console",
+            "roles": {
+                "hero": {
+                    "file": "sattva-open-niche-console.webp",
+                    "alt": "Sattva Open Niche Console Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7423-9497-5c3cc8fb9164": {
+            "product_guid": "01a09adf-a69c-7423-9497-5c3cc8fb9164",
+            "slug": "aarti-jharokha-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "aarti-jharokha-wall-mandir.webp",
+                    "alt": "Aarti Jharokha Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7411-ab4d-8a79840393b3": {
+            "product_guid": "01a09adf-a69c-7411-ab4d-8a79840393b3",
+            "slug": "ganesha-compact-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "ganesha-compact-wall-mandir.webp",
+                    "alt": "Ganesha Compact Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7ca8-b41e-3b3eedc0c504": {
+            "product_guid": "01a09adf-a69c-7ca8-b41e-3b3eedc0c504",
+            "slug": "heritage-open-arch-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "heritage-open-arch-wall-mandir.webp",
+                    "alt": "Heritage Open Arch Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-787c-8ea5-bb999f59b759": {
+            "product_guid": "01a09adf-a69c-787c-8ea5-bb999f59b759",
+            "slug": "curtain-darshan-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "curtain-darshan-wall-mandir.webp",
+                    "alt": "Curtain Darshan Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-71a5-be8b-65c14faf6f78": {
+            "product_guid": "01a09adf-a69c-71a5-be8b-65c14faf6f78",
+            "slug": "devlok-storage-floor-mandir",
+            "roles": {
+                "hero": {
+                    "file": "devlok-storage-floor-mandir.webp",
+                    "alt": "Devlok Storage Floor Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-726b-acdb-a1e0d66c0c23": {
+            "product_guid": "01a09adf-a69c-726b-acdb-a1e0d66c0c23",
+            "slug": "mayura-glow-pooja-console",
+            "roles": {
+                "hero": {
+                    "file": "mayura-glow-pooja-console.webp",
+                    "alt": "Mayura Glow Pooja Console — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7aef-b677-7ece114964e3": {
+            "product_guid": "01a09adf-a69c-7aef-b677-7ece114964e3",
+            "slug": "rajwada-carved-table-mandir",
+            "roles": {
+                "hero": {
+                    "file": "rajwada-carved-table-mandir.webp",
+                    "alt": "Rajwada Carved Table Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7dbf-a043-fb8198af7334": {
+            "product_guid": "01a09adf-a69c-7dbf-a043-fb8198af7334",
+            "slug": "krishna-desktop-jharokha-mandir",
+            "roles": {
+                "hero": {
+                    "file": "krishna-desktop-jharokha-mandir.webp",
+                    "alt": "Krishna Desktop Jharokha Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-734c-8285-d876496ad524": {
+            "product_guid": "01a09adf-a69c-734c-8285-d876496ad524",
+            "slug": "shri-yantra-lotus-floor-mandir",
+            "roles": {
+                "hero": {
+                    "file": "shri-yantra-lotus-floor-mandir.webp",
+                    "alt": "Shri Yantra Lotus Floor Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7bbe-a14d-a36dc860f82f": {
+            "product_guid": "01a09adf-a69c-7bbe-a14d-a36dc860f82f",
+            "slug": "pichwai-golden-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "pichwai-golden-wall-mandir.webp",
+                    "alt": "Pichwai Golden Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-705d-9379-291ecdf0c22a": {
+            "product_guid": "01a09adf-a69c-705d-9379-291ecdf0c22a",
+            "slug": "radha-niche-mandir-shelf",
+            "roles": {
+                "hero": {
+                    "file": "radha-niche-mandir-shelf.webp",
+                    "alt": "Radha Niche Mandir Shelf — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-78ae-b8a9-7dfee5bc2053": {
+            "product_guid": "01a09adf-a69c-78ae-b8a9-7dfee5bc2053",
+            "slug": "om-shubh-tabletop-mandir",
+            "roles": {
+                "hero": {
+                    "file": "om-shubh-tabletop-mandir.webp",
+                    "alt": "Om Shubh Tabletop Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7d7e-bf98-c38088ca8bfb": {
+            "product_guid": "01a09adf-a69c-7d7e-bf98-c38088ca8bfb",
+            "slug": "chakra-compact-wall-shrine",
+            "roles": {
+                "hero": {
+                    "file": "chakra-compact-wall-shrine.webp",
+                    "alt": "Chakra Compact Wall Shrine — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-709a-9d0d-8066bf3d4e50": {
+            "product_guid": "01a09adf-a69c-709a-9d0d-8066bf3d4e50",
+            "slug": "lotus-arch-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "lotus-arch-wall-mandir.webp",
+                    "alt": "Lotus Arch Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7214-b4ba-eecb1c8c332a": {
+            "product_guid": "01a09adf-a69c-7214-b4ba-eecb1c8c332a",
+            "slug": "devdarsh-lattice-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "devdarsh-lattice-wall-mandir.webp",
+                    "alt": "Devdarsh Lattice Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        },
+        "01a09adf-a69c-7ced-88d4-41e8d3bfc572": {
+            "product_guid": "01a09adf-a69c-7ced-88d4-41e8d3bfc572",
+            "slug": "painted-ganesha-wall-mandir",
+            "roles": {
+                "hero": {
+                    "file": "painted-ganesha-wall-mandir.webp",
+                    "alt": "Painted Ganesha Wall Mandir — Hero",
+                    "status": "staging",
+                    "rights": "unverified",
+                    "focal_x": 50,
+                    "focal_y": 50,
+                    "sort": 1
+                }
+            },
+            "updated_at": "2026-09-13T17:20:49+00:00"
+        }
+    },
+    "updated_at": "2026-09-13T17:20:49+00:00"
+}

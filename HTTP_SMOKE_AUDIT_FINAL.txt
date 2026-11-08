@@ -1,0 +1,28 @@
+/                                                      200 bytes=26409
+/shop                                                  200 bytes=66809
+/shop?q=walnut                                         200 bytes=52156
+/shop?room=sacred                                      200 bytes=48560
+/shop?price_max=10000&customisable=1                   200 bytes=42944
+/product/nordic-ladder-wall-shelf                      200 bytes=23064
+/collections/sacred-spaces                             200 bytes=43321
+/materials                                             200 bytes=9819
+/style-finder                                          200 bytes=12683
+/trade                                                 200 bytes=8622
+/health                                                200 bytes=317
+/ready                                                 200 bytes=8797
+/api/v1/catalog                                        200 bytes=21378
+/api/v1/catalog?q=walnut                               200 bytes=1241
+/api/v1/products/nordic-ladder-wall-shelf              200 bytes=623
+/feeds/google-merchant.xml                             200 bytes=22934
+/feeds/ai-products.json                                200 bytes=22543
+/feeds/agent-products.json                             200 bytes=30121
+marker shop:header-search-primary PASS
+marker shop:commerce-category-rail PASS
+marker shop:mobile-filterbar PASS
+marker shop:marketplace-product-grid PASS
+marker pdp:Does it fit my room? PASS
+marker pdp:mobile-purchase-bar PASS
+marker pdp:data-pincode-widget PASS
+marker pdp:id="configure" PASS
+
+PASS: focused v0.9.8.1 live HTTP/commerce UX smoke audit

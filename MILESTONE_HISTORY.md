@@ -1,0 +1,23 @@
+# Atelier Wood milestone history
+
+- v0.1 — storefront / secure foundation baseline
+- v0.2 — Admin OS + PIM
+- v0.2.1 — Foundation hardening
+- v0.3.0 — Commerce Core verified
+- v0.4.0 — Configurator + live pricing + saved configurations
+- v0.4.5 — Bespoke revisions + approval + deposit + Design Freeze
+- v0.7.0 — MakeOS workshop workflow
+- v0.7.2 — Procurement + raw material inventory
+- v0.7.4 — Quality + evidence + rework
+- v0.7.6 — Fulfilment + dispatch + installation
+- v0.7.8 — CMS + SEO
+- v0.8.0 — DesignOS Style Finder + Room Planner
+- v0.8.1 — Sacred Spaces product expansion
+- v0.8.2 — ThemeOS + Sacred Luxury
+- v0.8.4 — MediaOS + collection/theme hardening
+- v0.9.0 — My Spaces + Visual Intelligence
+- v0.9.2 — Product Passport + service/warranty
+- v0.9.4 — TradeOS / Architect Portal
+- v0.9.6 — Merchant/AI feeds + Agent APIs
+- v0.9.8 — Security/performance/end-user hardening
+- **v0.9.8.1 — Commerce UX / Marketplace Luxe + responsive desktop/tablet/mobile verification**

@@ -1,0 +1,2413 @@
+{
+  "artisan-branch-wall-sculpture": {
+    "product_guid": "01a099fe-505a-7d43-8ba2-d110e9240571",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 2490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Smoked walnut",
+            "label": "Smoked walnut",
+            "delta": 0
+          },
+          {
+            "value": "Natural oak",
+            "label": "Natural oak",
+            "delta": 250
+          },
+          {
+            "value": "Deep teak",
+            "label": "Deep teak",
+            "delta": 450
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Matte oil",
+            "label": "Matte oil",
+            "delta": 0
+          },
+          {
+            "value": "Satin clear",
+            "label": "Satin clear",
+            "delta": 100
+          },
+          {
+            "value": "Charcoal stain",
+            "label": "Charcoal stain",
+            "delta": 170
+          }
+        ]
+      },
+      {
+        "key": "height_cm",
+        "label": "Height",
+        "type": "number",
+        "unit": "cm",
+        "base": 80,
+        "min": 80,
+        "max": 120,
+        "step": 10,
+        "delta_per_step": 280
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "nordic-ladder-wall-shelf": {
+    "product_guid": "01a099fe-505b-7f1b-a502-e8b32741be0c",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 4990,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural pine",
+            "label": "Natural pine",
+            "delta": 0
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 500
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 0
+          },
+          {
+            "value": "Honey oak",
+            "label": "Honey oak",
+            "delta": 200
+          },
+          {
+            "value": "Warm walnut",
+            "label": "Warm walnut",
+            "delta": 350
+          }
+        ]
+      },
+      {
+        "key": "height_cm",
+        "label": "Height",
+        "type": "number",
+        "unit": "cm",
+        "base": 92,
+        "min": 92,
+        "max": 142,
+        "step": 10,
+        "delta_per_step": 320
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 52,
+        "min": 52,
+        "max": 82,
+        "step": 10,
+        "delta_per_step": 450
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "chevron-walnut-shelf": {
+    "product_guid": "01a099fe-505c-7840-b05e-111d3f4f6ca4",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 5490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut tone hardwood",
+            "label": "Walnut tone hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 550
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 990
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Dark walnut",
+            "label": "Dark walnut",
+            "delta": 0
+          },
+          {
+            "value": "Natural teak",
+            "label": "Natural teak",
+            "delta": 220
+          },
+          {
+            "value": "Charcoal",
+            "label": "Charcoal",
+            "delta": 380
+          }
+        ]
+      },
+      {
+        "key": "height_cm",
+        "label": "Height",
+        "type": "number",
+        "unit": "cm",
+        "base": 115,
+        "min": 115,
+        "max": 155,
+        "step": 10,
+        "delta_per_step": 420
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 62,
+        "min": 62,
+        "max": 92,
+        "step": 10,
+        "delta_per_step": 520
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "dual-line-floating-shelf": {
+    "product_guid": "01a099fe-505d-71db-accd-d8eeed2372f5",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 1990,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 200
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 360
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Espresso",
+            "label": "Espresso",
+            "delta": 0
+          },
+          {
+            "value": "Natural",
+            "label": "Natural",
+            "delta": 80
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 140
+          }
+        ]
+      },
+      {
+        "key": "width_cm",
+        "label": "Overall width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 70,
+        "max": 120,
+        "step": 10,
+        "delta_per_step": 260
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "origami-triangle-shelf-set": {
+    "product_guid": "01a099fe-505e-7770-a974-a87c742101b4",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 3490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 0
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 350
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 630
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 0
+          },
+          {
+            "value": "Deep walnut",
+            "label": "Deep walnut",
+            "delta": 140
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 240
+          }
+        ]
+      },
+      {
+        "key": "set_size",
+        "label": "Set size",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "set-4",
+            "label": "Set of 4",
+            "delta": 0
+          },
+          {
+            "value": "set-5",
+            "label": "Set of 5",
+            "delta": 850
+          },
+          {
+            "value": "set-6",
+            "label": "Set of 6",
+            "delta": 1550
+          }
+        ]
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "bead-folk-key-holder": {
+    "product_guid": "01a099fe-505f-7680-9eaf-d763c4bd285a",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 1290,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 0
+          },
+          {
+            "value": "Beech",
+            "label": "Beech",
+            "delta": 130
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural",
+            "label": "Natural",
+            "delta": 0
+          },
+          {
+            "value": "Black & natural",
+            "label": "Black & natural",
+            "delta": 50
+          },
+          {
+            "value": "Custom palette",
+            "label": "Custom palette",
+            "delta": 90
+          }
+        ]
+      },
+      {
+        "key": "gift_wrap",
+        "label": "Atelier gift wrap",
+        "type": "boolean",
+        "delta": 190
+      },
+      {
+        "key": "engraving",
+        "label": "Personal engraving",
+        "type": "text",
+        "delta": 350,
+        "max_length": 24,
+        "placeholder": "Name, initials or short word"
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "cedar-bird-feeder": {
+    "product_guid": "01a099fe-5060-782d-ac80-f47a12e71c75",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 2390,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Cedar",
+            "label": "Cedar",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 240
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural cedar",
+            "label": "Natural cedar",
+            "delta": 0
+          },
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 100
+          },
+          {
+            "value": "Graphite roof",
+            "label": "Graphite roof",
+            "delta": 170
+          }
+        ]
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "zen-wave-incense-rest": {
+    "product_guid": "01a099fe-5061-7761-84c4-095a8afd8480",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 990,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 100
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 180
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural oil",
+            "label": "Natural oil",
+            "delta": 0
+          },
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 40
+          },
+          {
+            "value": "Smoked walnut",
+            "label": "Smoked walnut",
+            "delta": 70
+          }
+        ]
+      },
+      {
+        "key": "length_cm",
+        "label": "Length",
+        "type": "number",
+        "unit": "cm",
+        "base": 31,
+        "min": 31,
+        "max": 41,
+        "step": 5,
+        "delta_per_step": 120
+      },
+      {
+        "key": "gift_wrap",
+        "label": "Atelier gift wrap",
+        "type": "boolean",
+        "delta": 190
+      },
+      {
+        "key": "engraving",
+        "label": "Personal engraving",
+        "type": "text",
+        "delta": 350,
+        "max_length": 24,
+        "placeholder": "Name, initials or short word"
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "kyoto-block-incense-holder": {
+    "product_guid": "01a099fe-5062-76b1-b6d4-1ec2870b08a5",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 890,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 90
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 160
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural oil",
+            "label": "Natural oil",
+            "delta": 0
+          },
+          {
+            "value": "Dark walnut",
+            "label": "Dark walnut",
+            "delta": 40
+          },
+          {
+            "value": "Honey teak",
+            "label": "Honey teak",
+            "delta": 60
+          }
+        ]
+      },
+      {
+        "key": "length_cm",
+        "label": "Length",
+        "type": "number",
+        "unit": "cm",
+        "base": 24,
+        "min": 24,
+        "max": 34,
+        "step": 5,
+        "delta_per_step": 110
+      },
+      {
+        "key": "gift_wrap",
+        "label": "Atelier gift wrap",
+        "type": "boolean",
+        "delta": 190
+      },
+      {
+        "key": "engraving",
+        "label": "Personal engraving",
+        "type": "text",
+        "delta": 350,
+        "max_length": 24,
+        "placeholder": "Name, initials or short word"
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "om-ritual-incense-plank": {
+    "product_guid": "01a099fe-5063-79aa-9d09-02deb5c2105d",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 1190,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 120
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Burnished red",
+            "label": "Burnished red",
+            "delta": 0
+          },
+          {
+            "value": "Natural",
+            "label": "Natural",
+            "delta": 50
+          },
+          {
+            "value": "Deep brown",
+            "label": "Deep brown",
+            "delta": 80
+          }
+        ]
+      },
+      {
+        "key": "length_cm",
+        "label": "Length",
+        "type": "number",
+        "unit": "cm",
+        "base": 34,
+        "min": 34,
+        "max": 44,
+        "step": 5,
+        "delta_per_step": 130
+      },
+      {
+        "key": "gift_wrap",
+        "label": "Atelier gift wrap",
+        "type": "boolean",
+        "delta": 190
+      },
+      {
+        "key": "engraving",
+        "label": "Personal engraving",
+        "type": "text",
+        "delta": 350,
+        "max_length": 24,
+        "placeholder": "Name, initials or short word"
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "arch-bud-vase-trio": {
+    "product_guid": "01a099fe-5064-75c9-b7e2-36db9cad5bd9",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 1790,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 180
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 320
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 0
+          },
+          {
+            "value": "Natural",
+            "label": "Natural",
+            "delta": 70
+          },
+          {
+            "value": "Charcoal",
+            "label": "Charcoal",
+            "delta": 130
+          }
+        ]
+      },
+      {
+        "key": "set_size",
+        "label": "Set size",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "trio",
+            "label": "Trio",
+            "delta": 0
+          },
+          {
+            "value": "set-4",
+            "label": "Set of 4",
+            "delta": 520
+          },
+          {
+            "value": "set-5",
+            "label": "Set of 5",
+            "delta": 950
+          }
+        ]
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      },
+      {
+        "key": "gift_wrap",
+        "label": "Atelier gift wrap",
+        "type": "boolean",
+        "delta": 190
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "duo-propagation-stand": {
+    "product_guid": "01a099fe-5065-77cf-9e10-68735a0f6e1d",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 1490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 0
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 150
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 270
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural",
+            "label": "Natural",
+            "delta": 0
+          },
+          {
+            "value": "Honey teak",
+            "label": "Honey teak",
+            "delta": 60
+          },
+          {
+            "value": "Warm walnut",
+            "label": "Warm walnut",
+            "delta": 100
+          }
+        ]
+      },
+      {
+        "key": "height_cm",
+        "label": "Stand height",
+        "type": "number",
+        "unit": "cm",
+        "base": 24,
+        "min": 24,
+        "max": 34,
+        "step": 5,
+        "delta_per_step": 160
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      },
+      {
+        "key": "gift_wrap",
+        "label": "Atelier gift wrap",
+        "type": "boolean",
+        "delta": 190
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "hexanest-wall-cubes": {
+    "product_guid": "01a099fe-5066-75eb-bc20-26e3b8291f7b",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 4490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 0
+          },
+          {
+            "value": "Oak",
+            "label": "Oak",
+            "delta": 450
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 810
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut + charcoal",
+            "label": "Walnut + charcoal",
+            "delta": 0
+          },
+          {
+            "value": "Natural + olive",
+            "label": "Natural + olive",
+            "delta": 180
+          },
+          {
+            "value": "Teak + sand",
+            "label": "Teak + sand",
+            "delta": 310
+          }
+        ]
+      },
+      {
+        "key": "set_size",
+        "label": "Set size",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "set-4",
+            "label": "Set of 4",
+            "delta": 0
+          },
+          {
+            "value": "set-5",
+            "label": "Set of 5",
+            "delta": 1100
+          },
+          {
+            "value": "set-6",
+            "label": "Set of 6",
+            "delta": 2050
+          }
+        ]
+      },
+      {
+        "key": "mounting_kit",
+        "label": "Premium wall mounting kit",
+        "type": "boolean",
+        "delta": 290
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "bath-caddy-roll-shelf": {
+    "product_guid": "01a099fe-5067-73a2-9e21-239c74b6eb0b",
+    "enabled": true,
+    "pricing_version": "2026-09-13.1",
+    "base_price": 2290,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / material",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 0
+          },
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 230
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Deep walnut",
+            "label": "Deep walnut",
+            "delta": 0
+          },
+          {
+            "value": "Natural teak",
+            "label": "Natural teak",
+            "delta": 90
+          },
+          {
+            "value": "Smoked oak",
+            "label": "Smoked oak",
+            "delta": 160
+          }
+        ]
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 42,
+        "min": 42,
+        "max": 72,
+        "step": 10,
+        "delta_per_step": 290
+      },
+      {
+        "key": "gift_wrap",
+        "label": "Atelier gift wrap",
+        "type": "boolean",
+        "delta": 190
+      },
+      {
+        "key": "engraving",
+        "label": "Personal engraving",
+        "type": "text",
+        "delta": 350,
+        "max_length": 24,
+        "placeholder": "Name, initials or short word"
+      }
+    ],
+    "notes": "Staging pricing rules. Workshop validation and commercial sign-off required before production."
+  },
+  "shubh-labh-heritage-floor-mandir": {
+    "product_guid": "01a09adf-a69c-75c6-a3fc-60e34f2f06f8",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 28900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Seasoned hardwood",
+            "label": "Seasoned hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Deep walnut",
+            "label": "Deep walnut",
+            "delta": 0
+          },
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "pearl-niche-pooja-console": {
+    "product_guid": "01a09adf-a69c-7c84-a2f0-acc513010727",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 16900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Engineered wood",
+            "label": "Engineered wood",
+            "delta": 0
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 900
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Warm ivory",
+            "label": "Warm ivory",
+            "delta": 0
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 350
+          },
+          {
+            "value": "Honey teak",
+            "label": "Honey teak",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "vrindavan-jali-floor-mandir": {
+    "product_guid": "01a09adf-a69c-73d6-9ef1-db24a398f692",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 32900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Rich walnut",
+            "label": "Rich walnut",
+            "delta": 0
+          },
+          {
+            "value": "Dark teak",
+            "label": "Dark teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "sattva-open-niche-console": {
+    "product_guid": "01a09adf-a69c-7414-b12d-07270340363c",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 14900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Engineered wood",
+            "label": "Engineered wood",
+            "delta": 0
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 900
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Soft white",
+            "label": "Soft white",
+            "delta": 0
+          },
+          {
+            "value": "Warm ivory",
+            "label": "Warm ivory",
+            "delta": 350
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "aarti-jharokha-wall-mandir": {
+    "product_guid": "01a09adf-a69c-7423-9497-5c3cc8fb9164",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 11900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Dark walnut",
+            "label": "Dark walnut",
+            "delta": 0
+          },
+          {
+            "value": "Honey teak",
+            "label": "Honey teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "ganesha-compact-wall-mandir": {
+    "product_guid": "01a09adf-a69c-7411-ab4d-8a79840393b3",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 8490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 0
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "heritage-open-arch-wall-mandir": {
+    "product_guid": "01a09adf-a69c-7ca8-b41e-3b3eedc0c504",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 9990,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Deep walnut",
+            "label": "Deep walnut",
+            "delta": 0
+          },
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural oil",
+            "label": "Natural oil",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "curtain-darshan-wall-mandir": {
+    "product_guid": "01a09adf-a69c-787c-8ea5-bb999f59b759",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 10900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 0
+          },
+          {
+            "value": "Honey teak",
+            "label": "Honey teak",
+            "delta": 350
+          },
+          {
+            "value": "Deep brown",
+            "label": "Deep brown",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "devlok-storage-floor-mandir": {
+    "product_guid": "01a09adf-a69c-71a5-be8b-65c14faf6f78",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 26900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Espresso walnut",
+            "label": "Espresso walnut",
+            "delta": 0
+          },
+          {
+            "value": "Deep teak",
+            "label": "Deep teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "mayura-glow-pooja-console": {
+    "product_guid": "01a09adf-a69c-726b-acdb-a1e0d66c0c23",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 24900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Engineered wood",
+            "label": "Engineered wood",
+            "delta": 0
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 900
+          },
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Ivory + warm gold",
+            "label": "Ivory + warm gold",
+            "delta": 0
+          },
+          {
+            "value": "Warm white",
+            "label": "Warm white",
+            "delta": 350
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "rajwada-carved-table-mandir": {
+    "product_guid": "01a09adf-a69c-7aef-b677-7ece114964e3",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 13900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Heritage teak",
+            "label": "Heritage teak",
+            "delta": 0
+          },
+          {
+            "value": "Warm walnut",
+            "label": "Warm walnut",
+            "delta": 350
+          },
+          {
+            "value": "Natural oil",
+            "label": "Natural oil",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "krishna-desktop-jharokha-mandir": {
+    "product_guid": "01a09adf-a69c-7dbf-a043-fb8198af7334",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 6490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 0
+          },
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "shri-yantra-lotus-floor-mandir": {
+    "product_guid": "01a09adf-a69c-734c-8285-d876496ad524",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 22900,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Engineered wood",
+            "label": "Engineered wood",
+            "delta": 0
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 900
+          },
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Ivory",
+            "label": "Ivory",
+            "delta": 0
+          },
+          {
+            "value": "Warm white",
+            "label": "Warm white",
+            "delta": 350
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "pichwai-golden-wall-mandir": {
+    "product_guid": "01a09adf-a69c-7bbe-a14d-a36dc860f82f",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 9990,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hand-painted gold",
+            "label": "Hand-painted gold",
+            "delta": 0
+          },
+          {
+            "value": "Antique gold",
+            "label": "Antique gold",
+            "delta": 350
+          },
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "radha-niche-mandir-shelf": {
+    "product_guid": "01a09adf-a69c-705d-9379-291ecdf0c22a",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 7990,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Engineered oak",
+            "label": "Engineered oak",
+            "delta": 0
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 900
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Natural oak",
+            "label": "Natural oak",
+            "delta": 0
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 350
+          },
+          {
+            "value": "Honey oak",
+            "label": "Honey oak",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "om-shubh-tabletop-mandir": {
+    "product_guid": "01a09adf-a69c-78ae-b8a9-7dfee5bc2053",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 5490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Warm walnut",
+            "label": "Warm walnut",
+            "delta": 0
+          },
+          {
+            "value": "Honey teak",
+            "label": "Honey teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "width_cm",
+        "label": "Width",
+        "type": "number",
+        "unit": "cm",
+        "base": 70,
+        "min": 60,
+        "max": 100,
+        "step": 10,
+        "delta_per_step": 850
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "chakra-compact-wall-shrine": {
+    "product_guid": "01a09adf-a69c-7d7e-bf98-c38088ca8bfb",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 8990,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Dark walnut",
+            "label": "Dark walnut",
+            "delta": 0
+          },
+          {
+            "value": "Warm teak",
+            "label": "Warm teak",
+            "delta": 350
+          },
+          {
+            "value": "Natural matte",
+            "label": "Natural matte",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "lotus-arch-wall-mandir": {
+    "product_guid": "01a09adf-a69c-709a-9d0d-8066bf3d4e50",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 12490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Engineered wood",
+            "label": "Engineered wood",
+            "delta": 0
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 900
+          },
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Warm white",
+            "label": "Warm white",
+            "delta": 0
+          },
+          {
+            "value": "Ivory",
+            "label": "Ivory",
+            "delta": 350
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "devdarsh-lattice-wall-mandir": {
+    "product_guid": "01a09adf-a69c-7214-b4ba-eecb1c8c332a",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 10490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Teak",
+            "label": "Teak",
+            "delta": 900
+          },
+          {
+            "value": "Walnut",
+            "label": "Walnut",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Teak walnut",
+            "label": "Teak walnut",
+            "delta": 0
+          },
+          {
+            "value": "Deep walnut",
+            "label": "Deep walnut",
+            "delta": 350
+          },
+          {
+            "value": "Natural oil",
+            "label": "Natural oil",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  },
+  "painted-ganesha-wall-mandir": {
+    "product_guid": "01a09adf-a69c-7ced-88d4-41e8d3bfc572",
+    "enabled": true,
+    "pricing_version": "2026-09-13.2",
+    "base_price": 7490,
+    "currency": "INR",
+    "options": [
+      {
+        "key": "material",
+        "label": "Wood / construction",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hardwood",
+            "label": "Hardwood",
+            "delta": 0
+          },
+          {
+            "value": "Pine",
+            "label": "Pine",
+            "delta": 900
+          },
+          {
+            "value": "Ash",
+            "label": "Ash",
+            "delta": 1800
+          }
+        ]
+      },
+      {
+        "key": "finish",
+        "label": "Finish",
+        "type": "choice",
+        "choices": [
+          {
+            "value": "Hand-painted cream",
+            "label": "Hand-painted cream",
+            "delta": 0
+          },
+          {
+            "value": "Warm ivory",
+            "label": "Warm ivory",
+            "delta": 350
+          },
+          {
+            "value": "Natural ash",
+            "label": "Natural ash",
+            "delta": 650
+          }
+        ]
+      },
+      {
+        "key": "premium_lighting",
+        "label": "Warm LED pooja lighting",
+        "type": "boolean",
+        "delta": 1290
+      },
+      {
+        "key": "installation_kit",
+        "label": "Wall installation hardware kit",
+        "type": "boolean",
+        "delta": 690
+      }
+    ],
+    "notes": "Staging mandir configuration rules. Site, load, fire-safety and electrical suitability require workshop/installer approval."
+  }
+}

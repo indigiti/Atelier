@@ -1,0 +1,32 @@
+Area,Gate,Status,Evidence
+Code,PHP syntax lint,PASS,119 PHP files; no syntax errors
+Regression,Full cumulative regression,PASS,Foundation through Commerce UX and release regression
+Readiness,/ready,PASS,HTTP 200; 78 checks; 0 failures
+HTTP,Homepage / Shop / PDP / Sacred Spaces,PASS,All returned HTTP 200
+HTTP,Marketplace text search,PASS,q=walnut returned HTTP 200
+HTTP,Room filter,PASS,room=sacred returned HTTP 200
+HTTP,Price + customisable filter,PASS,Combined filter returned HTTP 200
+Header,Search-first desktop header,PASS,Primary search visible
+Header,Tablet compact header/search row,PASS,1024/820/768 layouts audited
+Navigation,Desktop mega menu,PASS,Open and Escape close
+Navigation,Tablet/mobile menu,PASS,Open and close
+PLP,Visual category rail,PASS,Responsive/internal horizontal scrolling
+PLP,Filter sheet,PASS,Open and close
+PLP,Sort sheet,PASS,Open and Escape close
+PLP,Marketplace card density,PASS,2/3/4-column responsive behaviour
+PDP,First-viewport title/price,PASS,Tablet/mobile summary visible before dominant gallery
+PDP,Room fit bridge,PASS,DesignOS link present
+PDP,Pincode widget,PASS,Live markup + serviceability surface present
+PDP,Sticky mobile purchase bar,PASS,Visible at mobile audited widths
+ThemeOS,Sacred Luxury preservation,PASS,Collection-specific look retained
+Responsive,32 page/viewport renders,PASS,1440/1280/1024/820/768/430/390/360 x 4 surfaces
+Responsive,Horizontal overflow,PASS,0 failures after mobile rail fix
+Responsive,Broken images,PASS,0
+Responsive,JS/page errors,PASS,0
+Accessibility,Primary mobile touch targets,PASS,0 audited warnings after final hardening
+Media,Referenced media availability,PASS,38/38 decoded; 0 missing/corrupt
+API,Public catalogue API,PASS,/api/v1/catalog + product endpoint
+Feeds,Google Merchant feed,PASS,HTTP 200
+Feeds,AI product feed,PASS,HTTP 200
+Feeds,Agent product feed,PASS,HTTP 200
+Security,Private storage / signing / rate-limit gates,PASS,Release checks green

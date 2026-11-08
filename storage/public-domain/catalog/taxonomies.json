@@ -1,0 +1,96 @@
+{
+  "categories": [
+    {
+      "slug": "wall-shelves",
+      "name": "Wall Shelves"
+    },
+    {
+      "slug": "utility-gifting",
+      "name": "Utility & Gifting"
+    },
+    {
+      "slug": "outdoor-accents",
+      "name": "Outdoor Accents"
+    },
+    {
+      "slug": "ritual-incense",
+      "name": "Ritual & Incense"
+    },
+    {
+      "slug": "plant-displays",
+      "name": "Plant Displays"
+    },
+    {
+      "slug": "sacred-spaces",
+      "name": "Sacred Spaces / Mandirs"
+    }
+  ],
+  "materials": [
+    "Ash",
+    "Beech",
+    "Cedar",
+    "Deep teak",
+    "Engineered oak",
+    "Engineered wood",
+    "Hardwood",
+    "Hardwood trim",
+    "Natural oak",
+    "Natural pine",
+    "Oak",
+    "Pine",
+    "Seasoned hardwood",
+    "Smoked walnut",
+    "Solid hardwood",
+    "Teak",
+    "Walnut",
+    "Walnut tone hardwood"
+  ],
+  "finishes": [
+    "Black & natural",
+    "Burnished red",
+    "Charcoal",
+    "Charcoal stain",
+    "Custom palette",
+    "Dark walnut",
+    "Deep brown",
+    "Deep walnut",
+    "Espresso",
+    "Graphite roof",
+    "Hand-painted cream",
+    "Hand-painted gold",
+    "Heritage teak",
+    "Honey oak",
+    "Honey teak",
+    "Ivory",
+    "Ivory + warm gold",
+    "Matte oil",
+    "Natural",
+    "Natural + olive",
+    "Natural ash",
+    "Natural cedar",
+    "Natural matte",
+    "Natural oil",
+    "Natural teak",
+    "Rich walnut",
+    "Satin clear",
+    "Smoked oak",
+    "Smoked walnut",
+    "Soft white",
+    "Teak + sand",
+    "Teak walnut",
+    "Walnut",
+    "Walnut + charcoal",
+    "Warm ivory",
+    "Warm teak",
+    "Warm walnut"
+  ],
+  "collections": [
+    "Gifting",
+    "Living Walls",
+    "Outdoor Living",
+    "Plant & Propagation",
+    "Quiet Rituals",
+    "Sacred Spaces",
+    "Signature Objects"
+  ]
+}

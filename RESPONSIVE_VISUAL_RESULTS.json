@@ -1,0 +1,535 @@
+[
+  {
+    "mode": "desktop",
+    "page": "home",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 6707
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "shop",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 6259
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "sacred",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 6809
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "product",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 3757
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": [
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "Smoked walnut"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "Natural oak"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "Deep teak"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "Matte oil"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "Satin clear"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "Charcoal stain"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 16,
+        "text": "80"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "1"
+      }
+    ]
+  },
+  {
+    "mode": "desktop",
+    "page": "stylefinder",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 3083
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": [
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "living-room"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "bedroom"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "dining-room"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "study"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "entryway"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "balcony"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "pooja"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "bathroom"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "warm-natural"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "quiet-minimal"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "dark-sculptural"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "playful-craft"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "indian-contemporary"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "japandi-calm"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "light-ash-pine"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "warm-teak"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "deep-walnut"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "mixed-wood-black"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "storage"
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 13,
+        "text": "display"
+      }
+    ]
+  },
+  {
+    "mode": "desktop",
+    "page": "cart",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 1400
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "account",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 2148
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "spaces",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 1426
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "passports",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 1361
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "trade",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 1368
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "trade_apply",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 1195
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": [
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 30.796875,
+        "text": ""
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 30.796875,
+        "text": ""
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 30.796875,
+        "text": ""
+      },
+      {
+        "tag": "INPUT",
+        "cls": "",
+        "h": 30.796875,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "mode": "desktop",
+    "page": "room_planner",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 2771
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "desktop",
+    "page": "space_detail",
+    "overflow": false,
+    "dims": {
+      "sw": 1440,
+      "cw": 1440,
+      "sh": 1879
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "home",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 11444
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "shop",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 20189
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "sacred",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 11234
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "product",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 6730
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "stylefinder",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 5460
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "cart",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 2468
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "account",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 3288
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "spaces",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 2309
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "passports",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 2140
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "trade",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 2156
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "trade_apply",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 2149
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "room_planner",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 5344
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  },
+  {
+    "mode": "mobile",
+    "page": "space_detail",
+    "overflow": false,
+    "dims": {
+      "sw": 390,
+      "cw": 390,
+      "sh": 2851
+    },
+    "broken": [],
+    "errors": [],
+    "tiny_controls": []
+  }
+]

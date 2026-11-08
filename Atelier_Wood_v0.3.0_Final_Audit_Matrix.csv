@@ -1,0 +1,30 @@
+Area,Pre-v0.3 State,v0.3.0 Result,Notes
+PHP syntax,Pass,PASS,All PHP files linted
+GUID SKU slug uniqueness,Pass,PASS,Zero duplicates
+CSRF,Pass,PASS,All browser commerce mutations protected; missing token HTTP 419
+Private URL exposure,Pass,PASS,Private commerce stores remain outside public root
+Atomic persistence,Partial,PASS,Locks expected checksums journal atomic rename recovery
+Confidential encryption,Missing,PASS,Customers addresses carts orders payments requests encrypted
+Session Secure flag,Missing explicit,PASS,Secure enabled automatically on HTTPS; HttpOnly SameSite strict cookies baseline
+Rate limiting,Session local,PASS,Server-side customer/admin IP+account buckets
+Customer object authorization,Missing,PASS,Cross-account address/order denied
+Order state machine,Missing,PASS,Explicit legal transition graph and invalid rollback test
+Payment webhook/idempotency,Missing,PASS,HMAC signature + event ID replay protection
+Server-authoritative totals,Missing,PASS,Catalogue price + server shipping/install/tax snapshots
+Media MIME re-encode,Pass,PASS,Retained
+Media pixel ceiling,Missing,PASS,6000px or 36MP ceiling
+Taxonomy integrity,Partial,PASS,Release check rejects orphan product categories
+Health/readiness,Shallow,PASS,/health plus critical /ready endpoint
+Nginx sample path,Wrong,PASS,v0.3.0 public path
+Security headers,Partial,PASS,CSP nonce HSTS HTTPS nosniff referrer permissions framing
+Structured data availability,Always InStock,PASS,Derived from inventory/made-to-order
+Structured data URLs,Relative,PASS,Absolute canonical product offer URL
+Search labels,Partial,PASS,ARIA/label added
+Focus-visible system,Partial,PASS,Global focus-visible treatment
+Product gallery depth,11/14 one image,WARNING,Production content gate remains
+Image consistency,Mixed,WARNING,Production owned/generated standardized media still required
+Mobile bottom navigation,4 items,PASS,Account added as fifth item
+Core Web Vitals,Not measured,PENDING,Must measure on deployed staging/production-like network
+Backup restore,Not demonstrated,PASS,Encrypted backup checksum + restore parity test
+Live payment,Not applicable,PENDING,v0.3 uses sandbox only
+Production PostgreSQL,Deferred,PENDING,Production remains fail-closed in this package

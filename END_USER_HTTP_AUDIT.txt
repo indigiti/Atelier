@@ -1,0 +1,62 @@
+register 200 http://127.0.0.1:18099/account
+
+RESULTS 59 / 59
+PASS GET /                                      200 / 20126
+PASS GET /shop                                  200 /shop 44181
+PASS GET /collections/sacred-spaces             200 /collections/sacred-spaces 35032
+PASS GET /product/artisan-branch-wall-sculpture 200 /product/artisan-branch-wall-sculpture 15915
+PASS GET /style-finder                          200 /style-finder 10225
+PASS GET /materials                             200 /materials 7361
+PASS GET /journal                               200 /journal 5851
+PASS GET /cart                                  200 /cart 6225
+PASS GET /wishlist                              200 /wishlist 5758
+PASS GET /account/login                         200 /account/login 6164
+PASS GET /account/register                      200 /account/register 6408
+PASS GET /account/register                      200 /account/register 6408
+PASS Register account                           200 /account 8328
+PASS GET /account                               200 /account 8237
+PASS GET /account/addresses                     200 /account/addresses 6674
+PASS GET /account/orders                        200 /account/orders 6573
+PASS GET /account/configurations                200 /account/configurations 6756
+PASS GET /account/quotes                        200 /account/quotes 6693
+PASS GET /account/passports                     200 /account/passports 5870
+PASS GET /account/rooms                         200 /account/rooms 6816
+PASS GET /account/spaces                        200 /account/spaces 6168
+PASS GET /account/address/new                   200 /account/address/new 6770
+PASS Create address                             200 /account/addresses 7264
+PASS GET /style-finder                          200 /style-finder 10206
+PASS Style Finder submit                        200 /style-finder 18563
+PASS Save style profile                         200 /account/rooms 7530
+PASS GET /account/rooms/new                     200 /account/rooms/new 7632
+PASS Create room                                302 /account/rooms/01a09be8-af3f-7c05-8fc2-bea4b96d08f4 0
+PASS GET /account/rooms/01a09be8-af3f-7c05-8fc2-bea4b96d08f4 200 /account/rooms/01a09be8-af3f-7c05-8fc2-bea4b96d08f4 14451
+PASS Room planner renders                       200 /account/rooms/01a09be8-af3f-7c05-8fc2-bea4b96d08f4 14451
+PASS Add room product                           200 /account/rooms/01a09be8-af3f-7c05-8fc2-bea4b96d08f4 15986
+PASS GET /account/spaces/01a09be8-af3f-7c05-8fc2-bea4b96d08f4 200 /account/spaces/01a09be8-af3f-7c05-8fc2-bea4b96d08f4 7907
+PASS Upload room photo                          200 /account/spaces/01a09be8-af3f-7c05-8fc2-bea4b96d08f4?photo=01a09be8-af55-758c-8dda-fd1cd22ee0fb 9123
+PASS Analyze room photo                         200 /account/spaces/01a09be8-af3f-7c05-8fc2-bea4b96d08f4?photo=01a09be8-af55-758c-8dda-fd1cd22ee0fb 9489
+PASS Private room image stream                  200 /account/spaces/01a09be8-af3f-7c05-8fc2-bea4b96d08f4/photo/01a09be8-af55-758c-8dda-fd1cd22ee0fb 1632
+PASS GET /product/artisan-branch-wall-sculpture 200 /product/artisan-branch-wall-sculpture 16356
+PASS Wishlist toggle                            200 /wishlist 6839
+PASS GET /product/artisan-branch-wall-sculpture 200 /product/artisan-branch-wall-sculpture 16345
+PASS Add to cart                                200 /cart 7050
+PASS GET /checkout                              200 /checkout 7510
+PASS Create checkout order                      302 /payment/sandbox/01a09be8-b580-789d-a47c-18b0b181e60c 0
+PASS GET /payment/sandbox/01a09be8-b580-789d-a47c-18b0b181e60c 200 /payment/sandbox/01a09be8-b580-789d-a47c-18b0b181e60c 6439
+PASS Sandbox payment success                    200 /order-confirmed/01a09be8-b580-7119-9fb5-5233111f52e1 6138
+PASS GET /account/orders                        200 /account/orders 6743
+PASS GET /trade                                 200 /trade 5911
+PASS Trade dashboard auth                       200 /trade 5911
+PASS GET /trade/apply                           200 /trade/apply 6190
+PASS GET /account                               200 /account 8608
+PASS Issue agent token                          200 /account 9101
+PASS Agent safe order API                       200 /api/agent/me/orders 371
+PASS Public integration /feeds/google-merchant.xml 200 /feeds/google-merchant.xml 23003
+PASS Public integration /feeds/ai-products.json 200 /feeds/ai-products.json 22609
+PASS Public integration /feeds/agent-products.json 200 /feeds/agent-products.json 30189
+PASS Public integration /api/v1/catalog         200 /api/v1/catalog 21446
+PASS Public integration /api/v1/products/artisan-branch-wall-sculpture 200 /api/v1/products/artisan-branch-wall-sculpture 667
+PASS Public integration /api/agent/catalog/search?q=mandir 200 /api/agent/catalog/search?q=mandir 16451
+PASS Agent auth required                        401 /api/agent/me/orders 24
+PASS Private cache/security headers             200 /account 8608
+PASS Final /ready                               200 /ready 8599
