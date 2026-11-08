@@ -1,0 +1,26 @@
+name: Atelier isolated regression
+on:
+  push:
+    branches: [main, 'fix/**']
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  php-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, openssl, sodium, gd, fileinfo, dom, simplexml
+          coverage: none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install sandbox image dependencies
+        run: python3 -m pip install --disable-pip-version-check pillow qrcode
+      - name: Verify test isolation and run disposable suite
+        run: bash scripts/full_regression.sh
