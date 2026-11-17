@@ -7,3 +7,7 @@
 # Local audit output and Python caches
 /audit-output/
 __pycache__/
+
+/ops-ui/node_modules/
+/ops-ui/.next/
+/ops-ui/out/

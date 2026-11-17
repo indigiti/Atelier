@@ -73,6 +73,10 @@ php -r '$d=json_decode(file_get_contents($argv[1]),true,512,JSON_THROW_ON_ERROR)
 curl -fsS "$base/llms.txt" -o "$work/llms.txt"
 grep -q '/feeds/knowledge.json' "$work/llms.txt"
 
+test "$(curl -sS -D "$work/ops.headers" -o "$work/ops.json" -w '%{http_code}' "$base/admin/dashboard.json")" = 401
+grep -qi '^Cache-Control:.*no-store' "$work/ops.headers"
+grep -q 'Sign-in required' "$work/ops.json"
+
 curl -fsS -D "$work/private.headers" "$base/account/login" -o "$work/private.html"
 grep -qi '^X-Robots-Tag: noindex' "$work/private.headers"
 

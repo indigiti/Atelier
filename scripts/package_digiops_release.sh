@@ -13,6 +13,11 @@ mkdir -p "$pub/assets" "$priv/public" "$priv/storage/public-domain"
 # Public payload: entrypoint, rewrite rules and immutable static assets.
 cp -R "$root/public/assets/." "$pub/assets/"
 cp "$root/public/.htaccess" "$pub/.htaccess"
+# Only browser assets cross the deployment boundary; Node stays in CI.
+if [[ -f "$root/ops-ui/out/index.html" ]]; then
+  mkdir -p "$pub/ops-ui"
+  cp -R "$root/ops-ui/out/." "$pub/ops-ui/"
+fi
 
 # Private code, HTML templates, worker scripts and first-run catalogue seeds.
 for dir in config src templates python; do
