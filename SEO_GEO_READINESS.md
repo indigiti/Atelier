@@ -1,8 +1,6 @@
-# Atelier SEO + AI Discoverability — Implementation & Release Gates
+# Atelier SEO and discoverability
 
-Updated: 2026-11-08
-
-## Implemented in this milestone
+## What the staging release provides
 
 - Canonical URLs are query-independent; filtered search and private/customer-specific routes are noindex.
 - Staging pages send noindex through both HTTP X-Robots-Tag and HTML metadata. Production remains blocked by the file-authoritative bootstrap until the database migration is certified.
@@ -20,7 +18,7 @@ Updated: 2026-11-08
 
 **Technical SEO implemented does not mean indexing or ranking is achieved.** Google Search Console must independently verify that production pages are crawled and indexed. Google Merchant Center must accept the real product feed; feed XML validity alone does not establish Shopping eligibility. AI model citation or AI referral traffic cannot be promised.
 
-**Production is not indexable in this release.** The PHP bootstrap intentionally rejects production mode. Do not bypass the production guard to expose staging/file-mode checkout. Only enable indexing on a separately certified production build after persistence, payment, policies, pricing, images, stock and fulfilment are approved.
+**This release cannot run in production mode.** The PHP bootstrap intentionally rejects production mode. Do not bypass the production guard to expose staging/file-mode checkout. Only enable indexing on a separately certified production build after persistence, payment, policies, pricing, images, stock and fulfilment are approved.
 
 **Images and claims:** MediaOS marks rights and status separately. Items tagged unverified or staging are flagged by the dashboard and cannot be treated as licensed or launch-ready. The catalogue's product prices, inventory and wording are staging data pending commercial verification.
 

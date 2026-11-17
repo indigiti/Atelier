@@ -1,56 +1,31 @@
-# Atelier Wood / LivingOS v0.9.8.1
+# Atelier Wood / LivingOS
 
-## Commerce UX / Marketplace Luxe — Verified Staging Release
+Atelier Wood is a PHP storefront and operations suite for handcrafted furniture and décor. It includes a searchable catalogue, product configuration, sandbox checkout, customer accounts, and administration for content, quotes, workshop jobs, inventory, and fulfilment.
 
-This release upgrades Atelier Wood from an editorial-first storefront into a mature search/filter/category commerce experience while preserving the Atelier visual identity, ThemeOS, Sacred Luxury, Configurator, DesignOS, My Spaces, Product Passport, TradeOS and MakeOS stack.
+**Staging only.** This release uses file-backed persistence and sandbox payments. The application rejects production mode. See [production release gates](RELEASE_READINESS.md).
 
-### Main additions
+## Run locally
 
-- search-first desktop header
-- keyboard/escape-capable mega menu
-- compact tablet header + dedicated search row
-- visual category rail + Shop by Room
-- marketplace search, material/finish/price/customisable filters and sort
-- mobile/tablet filter and sort sheets
-- denser but still premium product cards
-- responsive PDP with first-viewport product identity/price
-- `Does it fit my room?` DesignOS bridge
-- pincode/serviceability panel
-- sticky mobile purchase bar
-- responsive commerce hardening at 1440/1280/1024/820/768/430/390/360 widths
-
-## Verification summary
-
-- cumulative regression: **PASS**
-- PHP syntax: **119/119 files PASS**
-- responsive visual audit: **32/32 page/viewport combinations PASS**
-- representative UI interaction checks: **PASS**
-- media integrity: **38/38 referenced assets decode, 0 missing**
-- focused live HTTP marketplace/API/feed smoke test: **PASS**
-- `/ready`: **HTTP 200, 78 checks, 0 failures**
-
-## Staging setup
-
-1. Point the web root to `public/`, not the project root.
-2. Configure a unique 32-byte `ATELIER_DATA_KEY` outside source control.
-3. Configure environment-specific webhook/payment/agent secrets.
-4. Keep debug disabled on public staging.
-5. Run `scripts/full_regression.sh`.
-6. Open `/ready` and require HTTP 200 before exposing the environment.
-7. Provision the first administrator through `/admin/setup` in a protected environment.
-
-Example local staging server:
+Use PHP 8.4 and Python 3.12 with Pillow and qrcode for the worker-backed features. See the [staging runbook](DIGIOPS_STAGING.md) for PHP extensions and required secrets. Configure local secrets outside Git before testing encrypted storage or checkout. Use disposable data, not a copy of live private storage.
 
 ```bash
 php -S 127.0.0.1:8080 -t public router.php
 ```
 
-This remains **staging-only**. PostgreSQL authority is intentionally deferred to v0.9.9, payments remain sandbox until production gateway validation, and final media/specification/legal approval is still required.
+## Verify and deploy
 
-## SEO and AI Discoverability
+```bash
+bash scripts/full_regression.sh
+bash tests/digiops_package.sh
+```
 
-Technical SEO, Merchant feeds, AI-readable knowledge and the admin SEO Control Center are documented in [SEO_GEO_READINESS.md](SEO_GEO_READINESS.md). Staging remains noindex and production indexing/merchant acceptance are independent launch gates.
+The regression suite uses an isolated workspace. The package test simulates the Cloudways directory layout with PHP `putenv()` disabled. GitHub Actions publishes `digiops-release` only on successful pushes to `main`. A successful build does not prove deployment or readiness.
 
-## Deploying with DigiOps
+| Guide | Purpose |
+| --- | --- |
+| [DigiOps staging](DIGIOPS_STAGING.md) | Cloudways setup, deploy, health, and rollback |
+| [Release readiness](RELEASE_READINESS.md) | Outstanding production gates |
+| [SEO and discoverability](SEO_GEO_READINESS.md) | Feeds, indexing boundaries, and launch checks |
+| [Milestone history](MILESTONE_HISTORY.md) | Feature and release history |
 
-The verified main branch produces a split public/private artifact named `digiops-release`. See [DIGIOPS_STAGING.md](DIGIOPS_STAGING.md) for persistent storage, Cloudways path mapping, deployment and post-activation SEO checks. The CI artifact is **not** proof of a remote deployment.
+Historical audit snapshots and generated reports are available in Git history. Use CI results for the commit under review rather than treating old snapshots as current evidence.

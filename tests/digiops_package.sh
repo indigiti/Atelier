@@ -18,6 +18,12 @@ test ! -e "$payload/public/storage"
 test ! -e "$payload/private/storage"
 test ! -e "$payload/private/app/storage/private-domain"
 test ! -e "$payload/private/app/.env"
+for script in commerce_backup.php commerce_backup_verify.php migrate_admin_encryption.php recovery_check.php send_notification_queue.php; do
+  test -f "$payload/private/app/scripts/$script"
+done
+test ! -e "$payload/private/app/scripts/full_regression.sh"
+test ! -e "$payload/private/app/scripts/package_digiops_release.sh"
+test ! -e "$payload/private/app/SEO_GEO_READINESS.md"
 
 # Simulate the exact DigiOps Cloudways sibling public_html/private_html layout.
 home="$tmp/cloudways"

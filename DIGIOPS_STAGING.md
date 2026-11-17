@@ -49,16 +49,21 @@ The public entrypoint resolves the private application from sibling private_html
 
 ## Cloudways requirements
 
-- PHP 8.4 with curl, GD, DOM, SimpleXML, fileinfo, and sodium or OpenSSL.
+- PHP 8.4 with curl, mbstring, GD, DOM, SimpleXML, fileinfo, and sodium or OpenSSL.
 - A stable, unique ATELIER_DATA_KEY (base64-encoded 32 bytes) and ATELIER_SANDBOX_WEBHOOK_SECRET, kept only in secure Cloudways/server settings.
 - `ATELIER_AGENT_SIGNING_KEY` must be at least 32 characters to pass the current `/ready` gate, even if agent access is not being exercised. Use a separate secret from the data and webhook keys.
 - Ensure these environment variables are visible to the web PHP process, not only to the shell. Do not rotate an existing data key as part of a release.
 - Restrict staging to testers. For a fresh installation, provision the first administrator via `/atelier/admin/setup` behind access restrictions; use a securely supplied `ATELIER_SETUP_KEY` or the private setup-key file. Never expose the key in the document root, artifact, or logs. Ensure any restrictions still allow DigiOps to reach its health probe.
 - Media/visual/QR worker flows invoke `python3` from PHP; verify the web worker can run it and import Pillow and qrcode before testing those features.
-- Optional `ATELIER_ALLOWED_HOSTS`, `ATELIER_SENDGRID_API_KEY` and `ATELIER_MAIL_FROM`.
+- Set `ATELIER_ALLOWED_HOSTS` to the expected hostname allowlist for staging. Set `ATELIER_SENDGRID_API_KEY` and `ATELIER_MAIL_FROM` only if enabling outbound email.
 - The web server must support PHP routing to public_html/<app>/index.php and preserve SCRIPT_NAME=/atelier/index.php when the app is hosted under /atelier.
-- Schedule notification CLI processing only when email is configured.
+- If email is enabled, schedule `php scripts/send_notification_queue.php 20` from the private `app/` directory in the application environment. Verify delivery and monitor failed or abandoned attempts.
 - Do not enable APP_ENV=production: the application rejects file-mode production until the PostgreSQL migration is certified.
+
+## Troubleshooting
+
+- An HTTP 500 naming undefined `putenv()` in the public entry point indicates an old package. Select a successful `main` artifact containing the wrapper fix. Do not enable `putenv()` or delete runtime storage to work around it.
+- A responding `/health` with a failing `/ready` requires resolving the reported readiness checks before handoff.
 
 ## Search and AI launch gates
 

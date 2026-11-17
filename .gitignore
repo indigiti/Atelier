@@ -3,3 +3,7 @@
 # Local PHP caches and temporary files
 *.tmp
 .DS_Store
+
+# Local audit output and Python caches
+/audit-output/
+__pycache__/
