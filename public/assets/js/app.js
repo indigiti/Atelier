@@ -12,7 +12,8 @@
   const menuBtn = document.querySelector('[data-menu-toggle]');
   const menu = document.querySelector('[data-menu]');
   if (menuBtn && menu) {
-    const header = menu.closest('[data-header]');
+    const header = menuBtn.closest('[data-header]');
+    const background = [...document.querySelectorAll('#main, .site-footer, .commerce-bottom')];
     const openIcon = menuBtn.querySelector('svg');
     const closeIcon = menuBtn.querySelector('template[data-menu-close-icon]')?.content.querySelector('svg');
     const syncInset = () => {
@@ -21,12 +22,15 @@
     const setOpen = (open, restore = false) => {
       if (open) syncInset();
       menu.hidden = !open;
+      if (open) menu.scrollTop = 0;
+      background.forEach(region => { region.inert = open; });
       const icon = open ? closeIcon : openIcon;
       if (icon) menuBtn.querySelector('svg')?.replaceWith(icon.cloneNode(true));
       menuBtn.setAttribute('aria-expanded', String(open));
       menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       document.body.classList.toggle('menu-open', open);
-      if (restore) menuBtn.focus();
+      if (open) menu.querySelector('a')?.focus({ preventScroll: true });
+      else if (restore) menuBtn.focus();
     };
     menuBtn.addEventListener('click', () => setOpen(menu.hidden));
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
@@ -34,7 +38,7 @@
       if (!menu.hidden && event.key === 'Escape') { event.preventDefault(); setOpen(false, true); }
     });
     document.addEventListener('pointerdown', event => {
-      if (!menu.hidden && !menu.contains(event.target) && !menuBtn.contains(event.target)) setOpen(false);
+      if (!menu.hidden && !menu.contains(event.target) && !menuBtn.contains(event.target)) setOpen(false, menu.contains(document.activeElement));
     });
     window.addEventListener('resize', () => {
       if (menu.hidden) return;
