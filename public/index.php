@@ -137,6 +137,17 @@ if ($path === '/admin/login') {
 if ($path === '/admin/logout' && $method === 'POST') { verify_csrf(); admin_logout(); redirect('/admin/login'); }
 
 if ($path === '/admin' || str_starts_with($path,'/admin/')) {
+    if ($path === '/admin/dashboard.json') {
+        header('Content-Type: application/json; charset=utf-8');
+        if (!admin_logged_in()) { http_response_code(401); echo '{"error":"Sign-in required"}'; exit; }
+        if ($method!=='GET') { header('Allow: GET'); http_response_code(405); echo '{"error":"Method not allowed"}'; exit; }
+        try { echo json_encode(admin_operations_snapshot(), JSON_THROW_ON_ERROR); }
+        catch (Throwable $e) {
+            error_log('Atelier dashboard snapshot failed: '.get_class($e));
+            http_response_code(503); echo '{"error":"Dashboard data unavailable"}';
+        }
+        exit;
+    }
     require_admin();
     if ($path === '/admin') { render_admin('dashboard',['title'=>'Dashboard','metrics'=>admin_metrics()]); exit; }
     if ($path === '/admin/enquiries') { render_admin('enquiries',['title'=>'Consultation enquiries','enquiries'=>array_reverse(enquiries_all())]); exit; }

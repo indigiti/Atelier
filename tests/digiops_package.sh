@@ -9,6 +9,12 @@ trap 'rm -rf -- "$tmp"' EXIT HUP INT TERM
 # Verify public/private artifact boundaries (secrets and PHP internals never public).
 test -f "$payload/public/index.php"
 test -f "$payload/public/.htaccess"
+if [[ "${CI:-}" == true || -f "$root/ops-ui/out/index.html" ]]; then
+  test -f "$payload/public/ops-ui/index.html"
+  test -d "$payload/public/ops-ui/_next/static"
+  grep -q '/atelier/ops-ui/_next/' "$payload/public/ops-ui/index.html"
+  test ! -e "$payload/public/ops-ui/node_modules"
+fi
 test -d "$payload/public/assets/images/products"
 test -f "$payload/private/app/public/index.php"
 test -f "$payload/private/app/src/seo.php"

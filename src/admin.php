@@ -352,6 +352,21 @@ function admin_metrics(): array {
     ];
 }
 
+/** Return only aggregate counts and fixed admin destinations to the dashboard. */
+function admin_operations_snapshot(): array {
+    $mail=confidential_json_read(notification_outbox_path(),'atelierwood:notifications:v1');
+    $checks=release_checks();
+    return [
+        'queues'=>[
+            ['label'=>'Paid orders to confirm','count'=>count(admin_orders('PAID')),'href'=>url('/admin/orders?status=PAID')],
+            ['label'=>'Quotes awaiting customer approval','count'=>count(bespoke_admin_quotes('AWAITING_APPROVAL')),'href'=>url('/admin/quotes?status=AWAITING_APPROVAL')],
+            ['label'=>'Workshop jobs in rework','count'=>count(makeos_open_jobs('REWORK')),'href'=>url('/admin/makeos?status=REWORK')],
+            ['label'=>'Emails retrying or abandoned','count'=>count(array_filter($mail,fn($row)=>($row['status']??'')==='ABANDONED'||(($row['status']??'')==='QUEUED'&&(int)($row['attempts']??0)>0)))],
+        ],
+        'release'=>['passed'=>count(array_filter($checks,fn($check)=>!empty($check['ok']))),'total'=>count($checks),'href'=>url('/admin/release')],
+    ];
+}
+
 function render_admin(string $template, array $data=[]): void {
     extract($data, EXTR_SKIP);
     $templateFile=dirname(__DIR__).'/templates/admin/'.$template.'.php';

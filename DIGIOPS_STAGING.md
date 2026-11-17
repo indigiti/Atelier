@@ -68,3 +68,7 @@ The public entrypoint resolves the private application from sibling private_html
 ## Search and AI launch gates
 
 Staging must remain noindex. Merchant feed XML, structured data and AI feeds do not prove Merchant Center acceptance or actual Google/AI indexing. Independently verify after a properly approved production deployment.
+
+## Static operations dashboard
+
+CI uses Node.js to build the Next.js export. DigiOps serves the resulting public `ops-ui/` files under `/atelier/ops-ui/`; no Node process runs on Cloudways. The export contains no admin data. The PHP admin session protects `/atelier/admin/dashboard.json`, which returns aggregate counts with private/no-store caching. Sign in at `/atelier/admin` and confirm the overview loads, queue links open, and signed-out API requests return 401. The existing PHP admin screens remain available. PostgreSQL is not required for this staging dashboard; the separate production commerce gate is unchanged.

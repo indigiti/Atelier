@@ -24,6 +24,14 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check pillow qrcode
       - name: Verify test isolation and run disposable suite
         run: bash scripts/full_regression.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build static operations dashboard
+        working-directory: ops-ui
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
       - name: Validate DigiOps staging release and persistent-state protection
         run: bash tests/digiops_package.sh
       - name: Publish DigiOps release artifact from verified main
