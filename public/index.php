@@ -36,7 +36,7 @@ if ($method==='GET' && preg_match('#^/media/(products|passports)/([A-Za-z0-9._-]
 if (!headers_sent() && (!seo_indexable_environment() || seo_private_route($path))) {
     header('X-Robots-Tag: noindex, nofollow, noarchive');
 }
-if (str_starts_with($path,'/account') || str_starts_with($path,'/admin') || str_starts_with($path,'/trade')) { header('Cache-Control: no-store, private'); header('Pragma: no-cache'); }
+if ($path==='/wishlist' || $path==='/wishlist/toggle' || str_starts_with($path,'/account') || str_starts_with($path,'/admin') || str_starts_with($path,'/trade')) { header('Cache-Control: no-store, private'); header('Pragma: no-cache'); }
 
 if ($method==='GET' && !str_starts_with($path,'/admin/')) {
     if ($path==='/robots.txt') { header('Content-Type: text/plain; charset=utf-8'); echo seo_robots_txt(); exit; }
@@ -324,7 +324,29 @@ if ($method === 'POST') {
     if ($path === '/cart/add') {$slug=trim((string)($_POST['slug']??''));$p=product_by_slug($slug);if(!$p){flash('error','Product not found.');redirect('/shop');}$qty=max(1,min(10,(int)($_POST['qty']??1)));$configuration=configurator_input_from_post($_POST);$ok=commerce_cart_add($slug,$qty,(string)($_POST['material']??''),(string)($_POST['finish']??''),$configuration);flash($ok?'success':'error',$ok?$p['name'].' added to your cart.':'Please review the configuration options.');redirect($ok?'/cart':'/product/'.$slug);}
     if ($path === '/cart/update') {commerce_cart_update((array)($_POST['qty']??[]));flash('success','Cart updated.');redirect('/cart');}
     if ($path === '/cart/remove') {commerce_cart_remove((string)($_POST['key']??''));flash('success','Item removed from cart.');redirect('/cart');}
-    if ($path === '/wishlist/toggle') {$slug=trim((string)($_POST['slug']??''));if(!product_by_slug($slug))redirect('/wishlist');$wishlist=$_SESSION['wishlist']??[];if(in_array($slug,$wishlist,true)){$wishlist=array_values(array_filter($wishlist,fn($s)=>$s!==$slug));flash('success','Removed from wishlist.');}else{$wishlist[]=$slug;flash('success','Saved to wishlist.');}$_SESSION['wishlist']=array_values(array_unique($wishlist));$back=(string)($_POST['back']??'/wishlist');if(!str_starts_with($back,'/'))$back='/wishlist';redirect($back);}
+    if ($path === '/wishlist/toggle') {
+        $slug=trim((string)($_POST['slug']??''));
+        $json=($_SERVER['HTTP_ACCEPT']??'')==='application/json';
+        if (!product_by_slug($slug)) {
+            if (!$json) redirect('/wishlist');
+            http_response_code(404);
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(['ok'=>false]); exit;
+        }
+        $wishlist=$_SESSION['wishlist']??[];
+        $saved=!in_array($slug,$wishlist,true);
+        $_SESSION['wishlist']=$saved ? array_values(array_unique([...$wishlist,$slug])) : array_values(array_filter($wishlist,fn($s)=>$s!==$slug));
+        if ($json) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(['ok'=>true,'saved'=>$saved]); exit;
+        }
+        flash('success',$saved?'Saved to wishlist.':'Removed from wishlist.');
+        $back=(string)($_POST['back']??'/wishlist');
+        if (preg_match('~^/(?!/)[^\\\\\\x00-\\x20\\x7f]*$~D',$back)!==1) $back='/wishlist';
+        $prefix=base_path();
+        if ($prefix!=='' && str_starts_with($back,$prefix.'/')) $back=substr($back,strlen($prefix));
+        redirect($back);
+    }
     if ($path === '/quote') {try{[$ok,$result]=enquiry_submit($_POST);flash($ok?'success':'error',$ok?'Your enquiry has been received.':(string)$result);}catch(Throwable $e){error_log('Atelier enquiry persistence failure: '.get_class($e));flash('error','Enquiry could not be saved. Please try again.');}redirect('/style-finder#consult');}
 }
 

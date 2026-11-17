@@ -184,3 +184,60 @@ document.addEventListener('submit', function(e){ const f=e.target.closest('form[
     new MutationObserver(sync).observe(configuredPrice,{childList:true,subtree:true,characterData:true}); sync();
   }
 })();
+
+(() => {
+  if (!window.fetch || !window.FormData) return;
+  const feedback = document.querySelector('[data-wishlist-feedback]');
+  let feedbackTimer;
+  const announce = (message) => {
+    if (!feedback) return;
+    clearTimeout(feedbackTimer);
+    feedback.textContent = message;
+    feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, 3500);
+  };
+  const forms = [...document.querySelectorAll('[data-wishlist-form]')];
+  for (const form of forms) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const buttons = forms.filter(candidate => candidate.elements.slug.value === data.get('slug'))
+        .map(candidate => candidate.querySelector('button'));
+      if (buttons.some(button => button.disabled)) return;
+      const sourceButton = form.querySelector('button');
+      const restoreFocus = document.activeElement === sourceButton;
+      buttons.forEach(button => { button.disabled = true; });
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' }, credentials: 'same-origin' });
+        if (!response.ok) throw new Error(response.status === 419 ? 'Session expired. Refresh to try again.' : 'Could not update wishlist.');
+        const result = await response.json();
+        if (!result.ok || typeof result.saved !== 'boolean') throw new Error('Could not update wishlist.');
+        buttons.forEach(button => {
+          button.setAttribute('aria-pressed', String(result.saved));
+          button.classList.toggle('active', result.saved);
+          if (button.hasAttribute('data-wishlist-inline')) button.textContent = result.saved ? '♥ Saved' : '♡ Save to wishlist';
+        });
+        const grid = form.closest('[data-wishlist-grid]');
+        if (grid && !result.saved) {
+          const card = form.closest('.product-card');
+          const next = card.nextElementSibling || card.previousElementSibling;
+          card.remove();
+          const count = grid.childElementCount;
+          const counter = document.querySelector('[data-wishlist-count]');
+          counter.textContent = count + (count === 1 ? ' item' : ' items');
+          if (!count) {
+            grid.hidden = true;
+            const empty = document.querySelector('[data-wishlist-empty]');
+            empty.hidden = false;
+            if (restoreFocus) empty.querySelector('a')?.focus();
+          } else if (restoreFocus) next?.querySelector('[data-wishlist-heart]')?.focus({ preventScroll: true });
+        }
+        announce(result.saved ? 'Saved to wishlist.' : 'Removed from wishlist.');
+      } catch (error) {
+        announce(error.message === 'Session expired. Refresh to try again.' ? error.message : 'Could not update wishlist. Please try again.');
+      } finally {
+        buttons.forEach(button => { button.disabled = false; });
+        if (restoreFocus && sourceButton.isConnected && document.activeElement === document.body) sourceButton.focus({ preventScroll: true });
+      }
+    });
+  }
+})();

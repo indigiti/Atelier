@@ -27,11 +27,32 @@ grep -q '"@type":"Organization"' "$work/home.html"
 grep -q '<link rel="canonical" href="http://127.0.0.1:' "$work/home.html"
 
 slug="$(php -r '$r=json_decode(file_get_contents("storage/public-domain/catalog/products.json"),true,512,JSON_THROW_ON_ERROR); echo $r[0]["slug"];')"
-curl -fsS "$base/product/$slug" -o "$work/product.html"
+curl -fsS -c "$work/wishlist.cookies" "$base/product/$slug" -o "$work/product.html"
 grep -q '"@type":"Product"' "$work/product.html"
 grep -q '"@type":"Offer"' "$work/product.html"
 grep -q '"@type":"BreadcrumbList"' "$work/product.html"
 grep -q 'property="og:image"' "$work/product.html"
+grep -q 'data-wishlist-heart' "$work/product.html"
+grep -q '♡ Save to wishlist' "$work/product.html"
+csrf="$(php -r 'preg_match("/name=\x22_csrf\x22 value=\x22([^\x22]+)/",file_get_contents($argv[1]),$m); echo $m[1]??"";' "$work/product.html")"
+test -n "$csrf"
+toggle_wishlist() {
+  curl -fsS -b "$work/wishlist.cookies" -H 'Accept: application/json' \
+    --data-urlencode "_csrf=$csrf" --data-urlencode "slug=$slug" "$base/wishlist/toggle"
+}
+test "$(toggle_wishlist)" = '{"ok":true,"saved":true}'
+curl -fsS -b "$work/wishlist.cookies" "$base/wishlist" -o "$work/wishlist.html"
+grep -q 'data-wishlist-count>1 item' "$work/wishlist.html"
+grep -q 'aria-pressed="true" data-wishlist-heart' "$work/wishlist.html"
+curl -fsS -b "$work/wishlist.cookies" "$base/product/$slug" -o "$work/saved-product.html"
+grep -q 'data-wishlist-inline aria-pressed="true">♥ Saved' "$work/saved-product.html"
+test "$(toggle_wishlist)" = '{"ok":true,"saved":false}'
+curl -fsS -b "$work/wishlist.cookies" "$base/wishlist" -o "$work/wishlist-empty.html"
+grep -q 'data-wishlist-count>0 items' "$work/wishlist-empty.html"
+test "$(curl -sS -o /dev/null -w '%{http_code}' -b "$work/wishlist.cookies" -d "slug=$slug" "$base/wishlist/toggle")" = 419
+curl -fsS -b "$work/wishlist.cookies" -D "$work/wishlist-redirect.headers" -o /dev/null \
+  --data-urlencode "_csrf=$csrf" --data-urlencode "slug=$slug" --data-urlencode "back=/shop?q=shelf" "$base/wishlist/toggle"
+grep -Fqi 'Location: /shop?q=shelf' "$work/wishlist-redirect.headers"
 
 curl -fsS "$base/shop?q=shelf" -o "$work/shop.html"
 grep -q 'rel="canonical" href="' "$work/shop.html"
