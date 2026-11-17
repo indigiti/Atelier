@@ -49,21 +49,21 @@ $error = flash('error');
 <div class="utility-bar"><div class="shell utility-inner"><span>STAGING · Handcrafted in India · <?= e($app['version']) ?></span><nav aria-label="Utility navigation"><a href="<?= e(url('/style-finder#consult')) ?>">Design consultation</a><a href="<?= e(url(customer_logged_in()?'/account/orders':'/account/login')) ?>">Order status</a><a href="<?= e(url('/trade')) ?>">Trade</a></nav></div></div>
 <header class="site-header marketplace-header" data-header>
   <div class="shell nav-row commerce-nav-row">
-    <button class="icon-button compact-only" type="button" data-menu-toggle aria-label="Open menu" aria-controls="store-mobile-menu" aria-expanded="false"><svg class="store-menu-open-icon" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg class="store-menu-close-icon" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <button class="icon-button compact-only" type="button" data-menu-toggle aria-label="Open menu" aria-controls="store-mobile-menu" aria-expanded="false"><?=lucide_icon('menu','store-menu-open-icon')?><?=lucide_icon('x','store-menu-close-icon')?></button>
     <a class="brand" href="<?= e(url('/')) ?>" aria-label="Atelier Wood home"><span class="brand-main">Atelier Wood</span><span class="brand-sub"><?= e($app['tagline']) ?></span></a>
-    <form class="header-search header-search-primary" action="<?= e(url('/shop')) ?>" method="get" role="search"><input type="search" name="q" placeholder="Search furniture, spaces, materials…" aria-label="Search products"><button type="submit" aria-label="Search">⌕</button></form>
+    <form class="header-search header-search-primary" action="<?= e(url('/shop')) ?>" method="get" role="search"><input type="search" name="q" placeholder="Search furniture, spaces, materials…" aria-label="Search products"><button type="submit" aria-label="Search"><?=lucide_icon('search')?></button></form>
     <div class="nav-actions">
-      <button class="icon-button theme-desktop" type="button" data-theme-toggle aria-label="Toggle light and dark theme">◐</button>
-      <a class="icon-link wishlist-desktop" href="<?= e(url('/wishlist')) ?>" aria-label="Wishlist">♡</a>
+      <button class="icon-button theme-desktop" type="button" data-theme-toggle aria-label="Toggle light and dark theme"><?=lucide_icon('moon')?></button>
+      <a class="icon-link wishlist-desktop" href="<?= e(url('/wishlist')) ?>" aria-label="Wishlist"><?=lucide_icon('heart')?></a>
       <a class="icon-link account-link" href="<?= e(url(customer_logged_in()?'/account':'/account/login')) ?>" aria-label="Account"><?= customer_logged_in() ? 'Account' : 'Sign in' ?></a>
-      <a class="icon-link bag" href="<?= e(url('/cart')) ?>" aria-label="<?=e('Cart'.(cart_count()>0?', '.cart_count().' items':''))?>"><svg class="store-cart-icon" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h3l2.4 11h11.8L22 7H6 M10 19a1 1 0 1 0 0 .01 M18 19a1 1 0 1 0 0 .01"/></svg><span class="store-cart-label">Bag</span><?php if(cart_count()>0): ?><span class="store-cart-count" aria-hidden="true"><?=cart_count()>99?'99+':cart_count()?></span><?php endif; ?></a>
+      <a class="icon-link bag" href="<?= e(url('/cart')) ?>" aria-label="<?=e('Cart'.(cart_count()>0?', '.cart_count().' items':''))?>"><?=lucide_icon('shopping-cart','store-cart-icon')?><span class="store-cart-label">Bag</span><?php if(cart_count()>0): ?><span class="store-cart-count" aria-hidden="true"><?=cart_count()>99?'99+':cart_count()?></span><?php endif; ?></a>
     </div>
   </div>
-  <div class="tablet-search-row"><div class="shell"><form class="header-search tablet-search" action="<?= e(url('/shop')) ?>" method="get" role="search"><input type="search" name="q" placeholder="Search products, rooms, materials…" aria-label="Search products"><button type="submit">Search</button></form></div></div>
+  <div class="tablet-search-row"><div class="shell"><form class="header-search tablet-search" action="<?= e(url('/shop')) ?>" method="get" role="search"><input type="search" name="q" placeholder="Search products, rooms, materials…" aria-label="Search products"><button type="submit" aria-label="Search"><?=lucide_icon('search')?></button></form></div></div>
   <div class="category-nav-wrap">
     <div class="shell category-nav-shell">
       <nav class="category-nav" aria-label="Shop navigation">
-        <button class="mega-trigger" type="button" data-mega-toggle aria-expanded="false" aria-controls="shop-mega">Shop <span>⌄</span></button>
+        <button class="mega-trigger" type="button" data-mega-toggle aria-expanded="false" aria-controls="shop-mega">Shop <?=lucide_icon('chevron-down')?></button>
         <a href="<?= e(url('/collections/sacred-spaces')) ?>">Sacred Spaces</a><a href="<?= e(url('/shop?category=wall-shelves')) ?>">Wall & Shelves</a><a href="<?= e(url('/shop?category=ritual-incense')) ?>">Ritual</a><a href="<?= e(url('/shop?category=plant-displays')) ?>">Plant Displays</a><a href="<?= e(url('/shop?category=utility-gifting')) ?>">Gifts</a><a href="<?= e(url('/shop?category=outdoor-accents')) ?>">Outdoor</a><a href="<?= e(url('/materials')) ?>">Materials</a><a href="<?= e(url(customer_logged_in()?'/account/spaces':'/account/login')) ?>">Rooms</a><a href="<?= e(url('/account/quotes')) ?>">Custom Made</a>
       </nav>
     </div>
@@ -77,7 +77,7 @@ $error = flash('error');
     </div>
   </div>
   <nav class="mobile-menu" id="store-mobile-menu" aria-label="Browse Atelier Wood" data-menu hidden>
-    <div class="mobile-menu-head"><span>Browse Atelier Wood</span><button type="button" class="menu-theme" data-theme-toggle>Theme ◐</button></div>
+    <div class="mobile-menu-head"><span>Browse Atelier Wood</span><button type="button" class="menu-theme" data-theme-toggle><?=lucide_icon('moon')?> Theme</button></div>
     <a href="<?= e(url('/shop')) ?>">Shop all</a><a href="<?= e(url('/shop?room=living')) ?>">Living Room</a><a href="<?= e(url('/collections/sacred-spaces')) ?>">Sacred Spaces / Mandirs</a><a href="<?= e(url('/shop?category=wall-shelves')) ?>">Wall & Shelves</a><a href="<?= e(url('/shop?category=ritual-incense')) ?>">Ritual & Incense</a><a href="<?= e(url('/shop?category=plant-displays')) ?>">Plant Displays</a><a href="<?= e(url('/shop?category=utility-gifting')) ?>">Gifts</a><a href="<?= e(url('/materials')) ?>">Materials</a><a href="<?= e(url('/style-finder')) ?>">Style Finder</a><a href="<?= e(url(customer_logged_in()?'/account/rooms':'/account/login')) ?>">Room Planner</a><a href="<?= e(url('/account/quotes')) ?>">Custom Made</a><a href="<?= e(url('/trade')) ?>">Trade / Architects</a><a href="<?= e(url(customer_logged_in()?'/account':'/account/login')) ?>"><?= customer_logged_in() ? 'My account' : 'Sign in / Register' ?></a>
   </nav>
 </header>
@@ -102,14 +102,14 @@ $error = flash('error');
 <nav class="mobile-bottom commerce-bottom" aria-label="Mobile navigation">
   <?php
   $mobileTabs=[
-    ['/','Home','M3 11 12 3l9 8 M5 10v10h5v-6h4v6h5V10',$mobilePath==='/'],
-    ['/shop','Shop','M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z',preg_match('~^/(shop|product|collections)(/|$)~',$mobilePath)===1],
-    ['/wishlist','Saved','M12 20 4.5 13C0 8.5 6.5 3 12 8c5.5-5 12 .5 7.5 5z',$mobilePath==='/wishlist'],
-    ['/cart','Cart','M2 3h3l2.4 11h11.8L22 7H6 M10 19a1 1 0 1 0 0 .01 M18 19a1 1 0 1 0 0 .01',$mobilePath==='/cart'],
-    [customer_logged_in()?'/account':'/account/login','Account','M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z M4 21v-2a8 6 0 0 1 16 0v2z',str_starts_with($mobilePath,'/account')],
+    ['/','Home','house',$mobilePath==='/'],
+    ['/shop','Shop','grid-2x2',preg_match('~^/(shop|product|collections)(/|$)~',$mobilePath)===1],
+    ['/wishlist','Saved','heart',$mobilePath==='/wishlist'],
+    ['/cart','Cart','shopping-cart',$mobilePath==='/cart'],
+    [customer_logged_in()?'/account':'/account/login','Account','circle-user-round',str_starts_with($mobilePath,'/account')],
   ];
   foreach ($mobileTabs as [$destination,$label,$icon,$current]): ?>
-  <a href="<?=e(url($destination))?>"<?= $current?' aria-current="location"':'' ?>><svg aria-hidden="true" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="<?=e($icon)?>"/></svg><?=e($label)?><?php if($label==='Cart' && cart_count()>0): ?><b><?=cart_count()>99?'99+':cart_count()?></b><?php endif; ?></a>
+  <a href="<?=e(url($destination))?>"<?= $current?' aria-current="location"':'' ?>><?=lucide_icon($icon)?><?=e($label)?><?php if($label==='Cart' && cart_count()>0): ?><b><?=cart_count()>99?'99+':cart_count()?></b><?php endif; ?></a>
 <?php endforeach; ?>
 </nav>
 <p class="wishlist-feedback" role="status" aria-atomic="true" data-wishlist-feedback></p>

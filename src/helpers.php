@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__.'/icons.php';
+
 
 function text_lower(string $value): string {
     return function_exists('mb_strtolower') ? mb_strtolower($value) : strtolower($value);

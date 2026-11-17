@@ -363,3 +363,9 @@ body.sheet-open{overflow:hidden}
   body.menu-open .mobile-purchase-bar{visibility:hidden}
   .marketplace-pdp #configure{scroll-margin-top:150px}
 }
+
+/* Lucide: consistent outline weight; actions keep their existing hit areas. */
+.lucide{flex:none;vertical-align:middle}
+.mega-trigger .lucide,.mobile-filterbar .lucide,.admin-user .lucide,.menu-theme .lucide{width:16px;height:16px}
+.header-search button .lucide{width:18px;height:18px}
+.tablet-search button{display:grid;place-items:center;min-width:44px;min-height:44px}
