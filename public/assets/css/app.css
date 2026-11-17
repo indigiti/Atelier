@@ -377,3 +377,19 @@ body.sheet-open{overflow:hidden}
   .trust-grid .trust-icon svg{width:18px;height:18px}
   .trust-grid b,.trust-grid small{line-height:1.35;overflow-wrap:break-word}
 }
+
+/* The viewport drawer is a header sibling, outside the sticky header's containing block. */
+body > #store-mobile-menu[hidden]{display:none}
+body > #store-mobile-menu:not([hidden]){
+  position:fixed;inset:var(--store-menu-top,116px) 0 0;z-index:125;
+  display:block;overflow-y:auto;overscroll-behavior:contain;
+  padding:14px max(16px,calc((100% - 640px)/2)) max(20px,env(safe-area-inset-bottom,0px));
+  background:var(--bg);color:var(--ink);border-top:1px solid var(--line);
+}
+#store-mobile-menu .mobile-menu-head{gap:12px;min-height:48px}
+#store-mobile-menu .menu-theme{min-height:44px;white-space:nowrap}
+#store-mobile-menu .store-menu-group{margin-top:16px}
+#store-mobile-menu .store-menu-label{margin:0 0 5px;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+#store-mobile-menu .store-menu-group a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:46px;padding:8px 10px;border-bottom:1px solid var(--line);font-size:.96rem}
+#store-mobile-menu .store-menu-group a:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+#store-mobile-menu .store-menu-group .lucide{width:15px;height:15px;color:var(--muted)}

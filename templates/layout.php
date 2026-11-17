@@ -76,11 +76,29 @@ $error = flash('error');
       </div>
     </div>
   </div>
-  <nav class="mobile-menu" id="store-mobile-menu" aria-label="Browse Atelier Wood" data-menu hidden>
-    <div class="mobile-menu-head"><span>Browse Atelier Wood</span><button type="button" class="menu-theme" data-theme-toggle><?=lucide_icon('moon')?> Theme</button></div>
-    <a href="<?= e(url('/shop')) ?>">Shop all</a><a href="<?= e(url('/shop?room=living')) ?>">Living Room</a><a href="<?= e(url('/collections/sacred-spaces')) ?>">Sacred Spaces / Mandirs</a><a href="<?= e(url('/shop?category=wall-shelves')) ?>">Wall & Shelves</a><a href="<?= e(url('/shop?category=ritual-incense')) ?>">Ritual & Incense</a><a href="<?= e(url('/shop?category=plant-displays')) ?>">Plant Displays</a><a href="<?= e(url('/shop?category=utility-gifting')) ?>">Gifts</a><a href="<?= e(url('/materials')) ?>">Materials</a><a href="<?= e(url('/style-finder')) ?>">Style Finder</a><a href="<?= e(url(customer_logged_in()?'/account/rooms':'/account/login')) ?>">Room Planner</a><a href="<?= e(url('/account/quotes')) ?>">Custom Made</a><a href="<?= e(url('/trade')) ?>">Trade / Architects</a><a href="<?= e(url(customer_logged_in()?'/account':'/account/login')) ?>"><?= customer_logged_in() ? 'My account' : 'Sign in / Register' ?></a>
-  </nav>
 </header>
+<nav class="mobile-menu" id="store-mobile-menu" aria-label="Browse Atelier Wood" data-menu hidden>
+    <div class="mobile-menu-head"><span>Browse Atelier Wood</span><button type="button" class="menu-theme" data-theme-toggle><?=lucide_icon('moon')?> Theme</button></div>
+    <div class="store-menu-group"><p class="store-menu-label">Shop</p>
+      <a href="<?= e(url('/shop')) ?>">Shop all<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/shop?room=living')) ?>">Living Room<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/collections/sacred-spaces')) ?>">Sacred Spaces / Mandirs<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/shop?category=wall-shelves')) ?>">Wall & Shelves<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/shop?category=ritual-incense')) ?>">Ritual & Incense<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/shop?category=plant-displays')) ?>">Plant Displays<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/shop?category=utility-gifting')) ?>">Gifts<?=lucide_icon('arrow-up-right')?></a>
+    </div>
+    <div class="store-menu-group"><p class="store-menu-label">Design & trade</p>
+      <a href="<?= e(url('/materials')) ?>">Materials<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/style-finder')) ?>">Style Finder<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url(customer_logged_in()?'/account/rooms':'/account/login')) ?>">Room Planner<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/account/quotes')) ?>">Custom Made<?=lucide_icon('arrow-up-right')?></a>
+      <a href="<?= e(url('/trade')) ?>">Trade / Architects<?=lucide_icon('arrow-up-right')?></a>
+    </div>
+    <div class="store-menu-group"><p class="store-menu-label">Your account</p>
+      <a href="<?= e(url(customer_logged_in()?'/account':'/account/login')) ?>"><?= customer_logged_in() ? 'My account' : 'Sign in / Register' ?><?=lucide_icon('arrow-up-right')?></a>
+    </div>
+</nav>
 <?php if ($success || $error): ?><div class="shell flash-wrap"><div class="flash <?= $error ? 'error':'success' ?>"><?= e($error ?: $success) ?></div></div><?php endif; ?>
 
 <main id="main"><?= $content ?></main>

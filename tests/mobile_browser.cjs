@@ -33,6 +33,16 @@ const { chromium } = require('playwright');
       assert.equal(await page.getByRole('button', {name:'Close menu', exact:true}).locator('svg path').count(), 2);
       const menu = page.getByRole('navigation', {name:'Browse Atelier Wood'});
       await menu.getByRole('link', {name:'Shop all', exact:true}).waitFor();
+      const geometry = await menu.evaluate(panel => {
+        const bounds = panel.getBoundingClientRect();
+        const header = document.querySelector('[data-header]').getBoundingClientRect();
+        const hit = document.elementFromPoint(innerWidth / 2, innerHeight - 12);
+        return { gap: Math.abs(bounds.top - header.bottom), reachesBottom: Math.abs(bounds.bottom - innerHeight) <= 2, coversPage: panel.contains(hit), scrollable: panel.scrollHeight > panel.clientHeight };
+      });
+      assert.ok(geometry.gap <= 2 && geometry.reachesBottom && geometry.coversPage && geometry.scrollable, 'Mobile menu must cover the viewport below the header at ' + width + 'px');
+      assert.equal(await page.locator('#main').evaluate(main => main.inert), true);
+      await menu.getByRole('link', {name:'Sign in / Register'}).scrollIntoViewIfNeeded();
+      assert.ok(await menu.evaluate(panel => panel.scrollTop > 0));
       const links = await menu.locator('a').evaluateAll(anchors => anchors.map(a => a.href));
       for (const href of new Set(links)) {
         const response = await page.request.get(href);
@@ -40,6 +50,7 @@ const { chromium } = require('playwright');
       }
       await page.keyboard.press('Escape');
       await menu.waitFor({state:'hidden'});
+      assert.equal(await page.locator('#main').evaluate(main => main.inert), false);
       assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
       await toggle.click();
       await menu.getByRole('link', {name:'Shop all', exact:true}).click();
