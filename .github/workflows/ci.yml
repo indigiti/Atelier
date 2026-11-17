@@ -8,7 +8,7 @@ permissions:
   contents: read
 jobs:
   php-regression:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Supported by the pinned Playwright browser installer
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
