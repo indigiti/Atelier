@@ -1,4 +1,4 @@
-<section class="hero hero-home">
+<section class="hero hero-home atelier-mobile-editorial">
   <div class="hero-media"><img src="<?= e(image_url('incense-smoke.webp')) ?>" alt="Wooden incense holder with gentle smoke" fetchpriority="high"><div class="hero-overlay"></div></div>
   <div class="shell hero-inner">
     <div class="hero-copy reveal">
@@ -14,7 +14,7 @@
 <section class="trust-strip"><div class="shell trust-grid"><div><span>⌁</span><b>Handcrafted with care</b><small>Small-batch making</small></div><div><span>♧</span><b>Material conscious</b><small>Wood-first construction</small></div><div><span>◇</span><b>Designed to last</b><small>Repairable, simple forms</small></div><div><span>⌂</span><b>Custom sizing</b><small>Selected pieces only</small></div></div></section>
 
 <section class="section shell home-commerce-discovery">
-  <div class="section-head commerce-section-head"><div><p class="kicker">Shop by room</p><h2>Start with<br><em>the space.</em></h2></div><p>Browse the way you furnish: by room, ritual or everyday need. Then refine by material, finish and size.</p></div>
+  <div class="section-head commerce-section-head"><div><p class="kicker">Shop by room</p><h2>Start with<br><em>the space.</em></h2></div><p>Browse the way you furnish: by room, ritual or everyday need. Then refine by material, finish and size.</p><a class="mobile-room-all" href="<?=e(url('/shop'))?>">See all →</a></div>
   <div class="room-discovery-grid">
     <a href="<?=e(url('/shop?room=living'))?>"><img src="<?=e(image_url('chevron-shelf.webp'))?>" alt="Living room wall shelf"><span><b>Living Room</b><small>Display, storage & useful objects</small></span></a>
     <a href="<?=e(url('/shop?room=sacred'))?>"><img src="<?=e(image_url('shri-yantra-lotus-floor-mandir.webp'))?>" alt="Sacred home mandir"><span><b>Sacred Space</b><small>Mandirs & pooja furniture</small></span></a>
@@ -37,7 +37,7 @@
   </div>
 </section>
 
-<section class="section section-soft">
+<section class="section section-soft home-featured-edit">
   <div class="shell">
     <div class="section-head reveal"><div><p class="kicker">Featured collection</p><h2>Our handcrafted<br><em>favorites.</em></h2></div><a class="text-link" href="<?= e(url('/shop')) ?>">View all products →</a></div>
     <div class="product-grid"><?php foreach ($featured as $p) include __DIR__.'/_product-card.php'; ?></div>

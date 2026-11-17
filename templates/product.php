@@ -10,17 +10,8 @@ $roomFitUrl = customer_logged_in()
     ? url('/account/rooms?fit=' . $product['slug'])
     : url('/account/login?next=' . rawurlencode($_SERVER['REQUEST_URI'] ?? url('/product/' . $product['slug'])));
 ?>
-<section class="product-mobile-summary shell reveal">
-  <p class="kicker"><?php echo e($product['category_label']); ?> · <?php echo e($product['sku']); ?></p>
-  <h1><?php echo e($product['name']); ?></h1>
-  <div class="mobile-price-row">
-    <strong><?php echo money($displayPrice); ?></strong>
-    <span><?php echo e($product['lead_time']); ?></span>
-  </div>
-</section>
-
 <section class="product-page shell marketplace-pdp">
-  <div class="product-gallery reveal" id="gallery">
+  <div class="product-gallery reveal" id="gallery" data-mobile-gallery>
     <?php foreach ($product['gallery'] as $i => $img): ?>
       <figure class="gallery-item <?php echo $i === 0 ? 'main' : ''; ?>">
         <img src="<?php echo e(image_url($img)); ?>"
@@ -29,8 +20,22 @@ $roomFitUrl = customer_logged_in()
         <?php if ($i === 0): $wishlistProduct=$product; include __DIR__.'/_wishlist-heart.php'; endif; ?>
       </figure>
     <?php endforeach; ?>
+    <?php if (count($product['gallery'])>1): ?>
+    <div class="mobile-gallery-thumbs" role="group" aria-label="Product photos">
+      <?php foreach ($product['gallery'] as $i=>$img): ?>
+      <button type="button" data-photo-src="<?=e(image_url($img))?>" aria-label="View photo <?=$i+1?>" aria-pressed="<?=$i===0?'true':'false'?>"><img src="<?=e(image_url($img))?>" alt="" loading="lazy" width="52" height="52"></button>
+      <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
   </div>
-
+  <div class="product-mobile-summary shell reveal">
+  <p class="kicker"><?php echo e($product['category_label']); ?> · <?php echo e($product['sku']); ?></p>
+  <h1><?php echo e($product['name']); ?></h1>
+  <div class="mobile-price-row">
+    <strong><?php echo money($displayPrice); ?></strong>
+    <span><?php echo e($product['lead_time']); ?></span>
+  </div>
+</div>
   <div class="product-info reveal">
     <div class="desktop-product-summary">
       <p class="kicker"><?php echo e($product['category_label']); ?> · <?php echo e($product['sku']); ?></p>
@@ -180,5 +185,5 @@ $roomFitUrl = customer_logged_in()
 
 <div class="mobile-purchase-bar">
   <div><small>From</small><strong data-mobile-pdp-price><?php echo money($displayPrice); ?></strong></div>
-  <a class="btn outline" href="#configure">Customise</a><a class="btn primary" href="#configure">Add</a>
+  <a class="btn primary" href="#configure"><?=$schema?'Configure & add':'Choose options'?></a>
 </div>
