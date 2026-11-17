@@ -41,7 +41,7 @@ $error = flash('error');
 <meta name="twitter:title" content="<?= e($pageTitle) ?>">
 <meta name="twitter:description" content="<?= e($pageDescription) ?>">
 <meta name="twitter:image" content="<?= e($pageOgImage) ?>">
-<link rel="stylesheet" href="<?= e(asset('css/app.css')) ?>">
+<link rel="stylesheet" href="<?= e(versioned_asset('css/app.css')) ?>">
 <script type="application/ld+json" nonce="<?= e($GLOBALS['csp_nonce'] ?? '') ?>"><?= json_encode($pageSchema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_THROW_ON_ERROR) ?></script>
 </head>
 <body class="page-theme page-theme-<?= e($pageTheme['key'] ?? 'atelier-natural') ?> surface-<?= e(str_replace('_','-',$pageTheme['surface'] ?? 'default')) ?>" style="<?= e($themeStyle) ?>" data-page-theme="<?= e($pageTheme['key'] ?? 'atelier-natural') ?>">
@@ -49,14 +49,14 @@ $error = flash('error');
 <div class="utility-bar"><div class="shell utility-inner"><span>STAGING · Handcrafted in India · <?= e($app['version']) ?></span><nav aria-label="Utility navigation"><a href="<?= e(url('/style-finder#consult')) ?>">Design consultation</a><a href="<?= e(url(customer_logged_in()?'/account/orders':'/account/login')) ?>">Order status</a><a href="<?= e(url('/trade')) ?>">Trade</a></nav></div></div>
 <header class="site-header marketplace-header" data-header>
   <div class="shell nav-row commerce-nav-row">
-    <button class="icon-button compact-only" type="button" data-menu-toggle aria-label="Open menu" aria-controls="store-mobile-menu" aria-expanded="false"><?=lucide_icon('menu','store-menu-open-icon')?><?=lucide_icon('x','store-menu-close-icon')?></button>
+    <button class="icon-button compact-only" type="button" data-menu-toggle aria-label="Open menu" aria-controls="store-mobile-menu" aria-expanded="false"><?=lucide_icon('menu')?><template data-menu-close-icon><?=lucide_icon('x')?></template></button>
     <a class="brand" href="<?= e(url('/')) ?>" aria-label="Atelier Wood home"><span class="brand-main">Atelier Wood</span><span class="brand-sub"><?= e($app['tagline']) ?></span></a>
     <form class="header-search header-search-primary" action="<?= e(url('/shop')) ?>" method="get" role="search"><input type="search" name="q" placeholder="Search furniture, spaces, materials…" aria-label="Search products"><button type="submit" aria-label="Search"><?=lucide_icon('search')?></button></form>
     <div class="nav-actions">
       <button class="icon-button theme-desktop" type="button" data-theme-toggle aria-label="Toggle light and dark theme"><?=lucide_icon('moon')?></button>
       <a class="icon-link wishlist-desktop" href="<?= e(url('/wishlist')) ?>" aria-label="Wishlist"><?=lucide_icon('heart')?></a>
       <a class="icon-link account-link" href="<?= e(url(customer_logged_in()?'/account':'/account/login')) ?>" aria-label="Account"><?= customer_logged_in() ? 'Account' : 'Sign in' ?></a>
-      <a class="icon-link bag" href="<?= e(url('/cart')) ?>" aria-label="<?=e('Cart'.(cart_count()>0?', '.cart_count().' items':''))?>"><?=lucide_icon('shopping-cart','store-cart-icon')?><span class="store-cart-label">Bag</span><?php if(cart_count()>0): ?><span class="store-cart-count" aria-hidden="true"><?=cart_count()>99?'99+':cart_count()?></span><?php endif; ?></a>
+      <a class="icon-link bag" href="<?= e(url('/cart')) ?>" aria-label="<?=e('Cart'.(cart_count()>0?', '.cart_count().' items':''))?>"><?=lucide_icon('shopping-cart','store-cart-icon')?><?php if(cart_count()>0): ?><span class="store-cart-count" aria-hidden="true"><?=cart_count()>99?'99+':cart_count()?></span><?php endif; ?></a>
     </div>
   </div>
   <div class="tablet-search-row"><div class="shell"><form class="header-search tablet-search" action="<?= e(url('/shop')) ?>" method="get" role="search"><input type="search" name="q" placeholder="Search products, rooms, materials…" aria-label="Search products"><button type="submit" aria-label="Search"><?=lucide_icon('search')?></button></form></div></div>
@@ -113,6 +113,6 @@ $error = flash('error');
 <?php endforeach; ?>
 </nav>
 <p class="wishlist-feedback" role="status" aria-atomic="true" data-wishlist-feedback></p>
-<script src="<?= e(asset('js/app.js')) ?>" defer></script>
+<script src="<?= e(versioned_asset('js/app.js')) ?>" defer></script>
 </body>
 </html>

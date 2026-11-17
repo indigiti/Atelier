@@ -13,12 +13,16 @@
   const menu = document.querySelector('[data-menu]');
   if (menuBtn && menu) {
     const header = menu.closest('[data-header]');
+    const openIcon = menuBtn.querySelector('svg');
+    const closeIcon = menuBtn.querySelector('template[data-menu-close-icon]')?.content.querySelector('svg');
     const syncInset = () => {
       if (header) menu.style.setProperty('--store-menu-top', Math.max(0, header.getBoundingClientRect().bottom) + 'px');
     };
     const setOpen = (open, restore = false) => {
       if (open) syncInset();
       menu.hidden = !open;
+      const icon = open ? closeIcon : openIcon;
+      if (icon) menuBtn.querySelector('svg')?.replaceWith(icon.cloneNode(true));
       menuBtn.setAttribute('aria-expanded', String(open));
       menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       document.body.classList.toggle('menu-open', open);
