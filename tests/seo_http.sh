@@ -11,7 +11,7 @@ export APP_ENV=staging
 export ATELIER_DATA_KEY="$(php -r 'echo base64_encode(str_repeat("S",32));')"
 export ATELIER_SANDBOX_WEBHOOK_SECRET="http-seo-smoke-sandbox"
 # The server is launched only against the isolated test copy, not staging/live.
-php -S "127.0.0.1:$port" router.php > "$work/php-server.log" 2>&1 &
+php -S "127.0.0.1:$port" -t public router.php > "$work/php-server.log" 2>&1 &
 server_pid=$!
 cleanup() {
   kill "$server_pid" 2>/dev/null || true
@@ -21,6 +21,9 @@ cleanup() {
 trap cleanup EXIT HUP INT TERM
 base="http://127.0.0.1:$port"
 curl --retry 12 --retry-connrefused --retry-delay 1 -fsS -D "$work/home.headers" "$base/" -o "$work/home.html"
+curl -fsS -D "$work/script.headers" "$base/assets/js/app.js" -o "$work/app.js"
+grep -qi '^Content-Type:.*javascript' "$work/script.headers"
+grep -q 'data-menu-toggle' "$work/app.js"
 grep -qi '^X-Robots-Tag: noindex' "$work/home.headers"
 grep -q 'name="robots" content="noindex' "$work/home.html"
 grep -q '"@type":"Organization"' "$work/home.html"
@@ -80,4 +83,7 @@ grep -q 'Sign-in required' "$work/ops.json"
 curl -fsS -D "$work/private.headers" "$base/account/login" -o "$work/private.html"
 grep -qi '^X-Robots-Tag: noindex' "$work/private.headers"
 
+if [[ "${ATELIER_MOBILE_BROWSER_TEST:-}" == 1 ]]; then
+  node tests/mobile_browser.cjs "$base"
+fi
 echo "PASS: HTTP staging noindex, canonical, product Offer/breadcrumb JSON-LD, robots, XML feeds and AI entity endpoints."

@@ -12,15 +12,32 @@
   const menuBtn = document.querySelector('[data-menu-toggle]');
   const menu = document.querySelector('[data-menu]');
   if (menuBtn && menu) {
-    menuBtn.addEventListener('click', () => {
-      const open = menu.hasAttribute('hidden');
-      if (open) menu.removeAttribute('hidden'); else menu.setAttribute('hidden','');
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    const header = menu.closest('[data-header]');
+    const syncInset = () => {
+      if (header) menu.style.setProperty('--store-menu-top', Math.max(0, header.getBoundingClientRect().bottom) + 'px');
+    };
+    const setOpen = (open, restore = false) => {
+      if (open) syncInset();
+      menu.hidden = !open;
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       document.body.classList.toggle('menu-open', open);
+      if (restore) menuBtn.focus();
+    };
+    menuBtn.addEventListener('click', () => setOpen(menu.hidden));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', event => {
+      if (!menu.hidden && event.key === 'Escape') { event.preventDefault(); setOpen(false, true); }
     });
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      menu.setAttribute('hidden',''); document.body.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded','false');
-    }));
+    document.addEventListener('pointerdown', event => {
+      if (!menu.hidden && !menu.contains(event.target) && !menuBtn.contains(event.target)) setOpen(false);
+    });
+    window.addEventListener('resize', () => {
+      if (menu.hidden) return;
+      if (!menuBtn.getClientRects().length) setOpen(false);
+      else syncInset();
+    });
+    window.addEventListener('pageshow', event => { if (event.persisted) setOpen(false); });
   }
 
   if ('IntersectionObserver' in window) {
