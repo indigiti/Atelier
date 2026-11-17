@@ -1,8 +1,8 @@
-# Atelier Release Hardening — 2026-11-08
+# Atelier production release gates
 
 Status: **STAGING ONLY**. Production is explicitly blocked in `src/bootstrap.php`.
 
-## Implemented in this branch
+## Safeguards in the staging release
 
 - Regression suite executes in a disposable workspace and never copies application private data.
 - Every regression entry point rejects direct execution outside the isolated sandbox.
@@ -26,6 +26,6 @@ Status: **STAGING ONLY**. Production is explicitly blocked in `src/bootstrap.php
 
 ## Operating rules
 
-Run `bash scripts/full_regression.sh` only. Do not invoke individual tests directly. Configure a unique `ATELIER_DATA_KEY` before storing user data. Store all secrets outside Git. Do not bypass the production guard to deploy this release. Keep media and private storage backups prior to any environment migration.
+Run application tests through `bash scripts/full_regression.sh`; use `bash tests/digiops_package.sh` for the isolated packaging simulation. Do not invoke individual application tests directly. For staging setup and recovery, follow the [DigiOps runbook](DIGIOPS_STAGING.md). Configure a unique `ATELIER_DATA_KEY` before storing user data. Store all secrets outside Git. Do not bypass the production guard to deploy this release. Keep media and private storage backups prior to any environment migration.
 
 **Next milestone:** PostgreSQL-authoritative A4, with inventory reservations and transactional payment/order transitions implemented in one database transaction. This must be completed before enabling real checkout.

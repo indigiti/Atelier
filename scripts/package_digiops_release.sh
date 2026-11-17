@@ -15,12 +15,16 @@ cp -R "$root/public/assets/." "$pub/assets/"
 cp "$root/public/.htaccess" "$pub/.htaccess"
 
 # Private code, HTML templates, worker scripts and first-run catalogue seeds.
-for dir in config src templates python scripts; do
+for dir in config src templates python; do
   cp -R "$root/$dir" "$priv/$dir"
+done
+# Ship operator tools only; build/test tooling and repository docs stay in Git.
+mkdir -p "$priv/scripts"
+for script in commerce_backup.php commerce_backup_verify.php migrate_admin_encryption.php recovery_check.php send_notification_queue.php; do
+  cp "$root/scripts/$script" "$priv/scripts/$script"
 done
 cp "$root/public/index.php" "$priv/public/index.php"
 cp -R "$root/storage/public-domain/." "$priv/storage/public-domain/"
-cp "$root/SEO_GEO_READINESS.md" "$priv/SEO_GEO_READINESS.md"
 
 cat > "$pub/index.php" <<'PHP'
 <?php
