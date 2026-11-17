@@ -57,7 +57,7 @@ The public entrypoint resolves the private application from sibling private_html
 - Media/visual/QR worker flows invoke `python3` from PHP; verify the web worker can run it and import Pillow and qrcode before testing those features.
 - Set `ATELIER_ALLOWED_HOSTS` to the expected hostname allowlist for staging. Set `ATELIER_SENDGRID_API_KEY` and `ATELIER_MAIL_FROM` only if enabling outbound email.
 - The web server must support PHP routing to public_html/<app>/index.php and preserve SCRIPT_NAME=/atelier/index.php when the app is hosted under /atelier.
-- If email is enabled, schedule `php scripts/send_notification_queue.php 20` from the private `app/` directory in the application environment. Verify delivery and monitor failed or abandoned attempts.
+- If email is enabled, schedule `php scripts/send_notification_queue.php 20` from the private `app/` directory. For CLI tools, set `ATELIER_STORAGE_ROOT` to the absolute path of `private_html/atelier/storage/` and supply the same staging secrets securely; the public web wrapper does not run for CLI commands. Verify delivery and monitor failed or abandoned attempts.
 - Do not enable APP_ENV=production: the application rejects file-mode production until the PostgreSQL migration is certified.
 
 ## Troubleshooting
