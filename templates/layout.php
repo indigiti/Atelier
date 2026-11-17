@@ -105,6 +105,7 @@ $error = flash('error');
   <a href="<?= e(url('/cart')) ?>"><span>▣</span>Cart<?php if(cart_count()>0): ?><b><?= cart_count() ?></b><?php endif; ?></a>
   <a href="<?= e(url(customer_logged_in()?'/account':'/account/login')) ?>"><span>◎</span>Account</a>
 </nav>
+<p class="wishlist-feedback" role="status" aria-atomic="true" data-wishlist-feedback></p>
 <script src="<?= e(asset('js/app.js')) ?>" defer></script>
 </body>
 </html>

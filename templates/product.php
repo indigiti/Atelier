@@ -8,7 +8,7 @@ $isCustom = !empty($product['customisation']['enabled']);
 $madeToOrder = !empty($product['inventory']['made_to_order']);
 $roomFitUrl = customer_logged_in()
     ? url('/account/rooms?fit=' . $product['slug'])
-    : url('/account/login?next=' . rawurlencode('/product/' . $product['slug']));
+    : url('/account/login?next=' . rawurlencode($_SERVER['REQUEST_URI'] ?? url('/product/' . $product['slug'])));
 ?>
 <section class="product-mobile-summary shell reveal">
   <p class="kicker"><?php echo e($product['category_label']); ?> · <?php echo e($product['sku']); ?></p>
@@ -26,6 +26,7 @@ $roomFitUrl = customer_logged_in()
         <img src="<?php echo e(image_url($img)); ?>"
              alt="<?php echo e($product['name'] . ($i ? ' detail' : '')); ?>"
              <?php echo $i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>>
+        <?php if ($i === 0): $wishlistProduct=$product; include __DIR__.'/_wishlist-heart.php'; endif; ?>
       </figure>
     <?php endforeach; ?>
   </div>
@@ -157,9 +158,9 @@ $roomFitUrl = customer_logged_in()
       </form>
     <?php endif; ?>
 
-    <form class="wishlist-inline" method="post" action="<?php echo e(url('/wishlist/toggle')); ?>">
+    <form class="wishlist-inline" data-wishlist-form method="post" action="<?php echo e(url('/wishlist/toggle')); ?>">
       <?php echo csrf_field(); ?><input type="hidden" name="slug" value="<?php echo e($product['slug']); ?>"><input type="hidden" name="back" value="<?php echo e('/product/' . $product['slug']); ?>">
-      <button type="submit"><?php echo is_wishlisted($product['slug']) ? '♥ Saved' : '♡ Save to wishlist'; ?></button>
+      <button type="submit" data-wishlist-inline aria-pressed="<?=is_wishlisted($product['slug'])?'true':'false'?>"><?php echo is_wishlisted($product['slug']) ? '♥ Saved' : '♡ Save to wishlist'; ?></button>
     </form>
     <div class="product-note">Staging note: live configurator pricing is deterministic and server-validated, but workshop dimensions, structural feasibility and commercial pricing require production sign-off.</div>
   </div>

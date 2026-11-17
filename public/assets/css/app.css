@@ -260,3 +260,28 @@ body.sheet-open{overflow:hidden}
 .seo-count-ok {background:#e9f6ee;color:#17643a}
 .seo-good {color:#17643a}
 .seo-issue-list {margin:0;padding-left:1rem;line-height:1.65}
+
+/* Wishlist controls stay separate from the photo link and above its image. */
+.wishlist-photo-wrap,.product-gallery .gallery-item.main{position:relative}
+.wishlist-photo-form{position:absolute;top:10px;right:10px;z-index:3;margin:0}
+.wishlist-photo-form .wishlist-photo-heart{width:44px;height:44px;border:1px solid #ded6cc;background:#fffaf5;color:#40352e;box-shadow:0 2px 8px #21160e22}
+.wishlist-photo-heart svg{fill:none}
+.wishlist-photo-form .wishlist-photo-heart[aria-pressed="true"]{color:#a6333e}
+.wishlist-photo-heart[aria-pressed="true"] svg{fill:currentColor}
+.wishlist-photo-heart:focus-visible{outline:2px solid #9a6032;outline-offset:2px}
+[data-wishlist-form] button:disabled{cursor:wait}
+.wishlist-heading{display:flex;align-items:end;justify-content:space-between;gap:12px}
+.wishlist-heading h1,.wishlist-heading p{margin-bottom:0}
+.wishlist-grid .product-image{aspect-ratio:4/3}
+.wishlist-grid .product-description,.wishlist-grid .product-meta-line,.wishlist-grid .product-commerce-line,.wishlist-grid .card-badges,.wishlist-grid .product-category{display:none}
+.wishlist-grid .product-card-foot{margin-top:6px}
+[data-wishlist-page] [hidden]{display:none}
+.wishlist-feedback{position:fixed;bottom:calc(82px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:110;margin:0;max-width:calc(100% - 32px);padding:10px 16px;border-radius:999px;background:#352922;color:#fffaf5;font-size:.82rem;text-align:center;pointer-events:none}
+.wishlist-feedback:empty{padding:0}
+@media(max-width:600px){
+  .product-grid.wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .wishlist-grid .product-card-body{padding:10px}
+  .wishlist-grid .product-card-foot a{display:none}
+  .wishlist-heading h1{font-size:clamp(1.8rem,8vw,2.6rem)}
+  .wishlist-heading [data-wishlist-count]{white-space:nowrap;font-size:.75rem}
+}
