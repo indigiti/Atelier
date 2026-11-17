@@ -31,6 +31,13 @@ function asset(string $path): string {
     return url('/assets/' . ltrim($path, '/'));
 }
 
+/** Change the browser cache key when a packaged stylesheet or script changes. */
+function versioned_asset(string $path): string {
+    $file=atelier_public_root().'/assets/'.$path;
+    $hash=is_readable($file)?hash_file('sha256',$file):false;
+    return asset($path).($hash!==false?'?v='.substr($hash,0,16):'');
+}
+
 function absolute_url(string $path='/'): string {
     $scheme=request_is_https()?'https':'http';
     $host=strtolower(trim((string)($_SERVER['HTTP_HOST']??'localhost')));

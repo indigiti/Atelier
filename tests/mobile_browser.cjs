@@ -5,7 +5,7 @@ const { chromium } = require('playwright');
   assert.match(base, /^http:\/\/127\.0\.0\.1:\d+$/);
   const browser = await chromium.launch();
   try {
-    for (const width of [320, 375, 390, 430]) {
+    for (const width of [320, 375, 390, 430, 533, 767]) {
       const page = await browser.newPage({ viewport: { width, height: 820 }, isMobile: true, hasTouch: true, reducedMotion: 'reduce' });
       const open = async path => {
         const response = await page.goto(base + path);
@@ -13,7 +13,16 @@ const { chromium } = require('playwright');
       };
       await open('/');
       const toggle = page.getByRole('button', { name: 'Open menu', exact: true });
+      const assertHeader = async () => {
+        assert.equal(await page.locator('[data-menu-toggle] > svg:visible').count(), 1);
+        const cart = page.locator('.commerce-nav-row .bag');
+        assert.equal(await cart.locator('svg:visible').count(), 1);
+        assert.doesNotMatch(await cart.innerText(), /bag|cart/i);
+      };
+      await assertHeader();
       await toggle.click();
+      await assertHeader();
+      assert.equal(await page.getByRole('button', {name:'Close menu', exact:true}).locator('svg path').count(), 2);
       const menu = page.getByRole('navigation', {name:'Browse Atelier Wood'});
       await menu.getByRole('link', {name:'Shop all', exact:true}).waitFor();
       const links = await menu.locator('a').evaluateAll(anchors => anchors.map(a => a.href));
@@ -46,6 +55,7 @@ const { chromium } = require('playwright');
       await page.waitForURL('**/cart');
       for (const path of ['/','/shop','/wishlist','/cart','/account/login',product]) {
         await open(path);
+        await assertHeader();
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
         assert.ok(overflow <= 2, path + ' overflows by ' + overflow + 'px at ' + width);
       }
