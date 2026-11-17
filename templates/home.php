@@ -11,7 +11,18 @@
   </div>
 </section>
 
-<section class="trust-strip"><div class="shell trust-grid"><div><span>⌁</span><b>Handcrafted with care</b><small>Small-batch making</small></div><div><span>♧</span><b>Material conscious</b><small>Wood-first construction</small></div><div><span>◇</span><b>Designed to last</b><small>Repairable, simple forms</small></div><div><span>⌂</span><b>Custom sizing</b><small>Selected pieces only</small></div></div></section>
+<section class="trust-strip" aria-label="The Atelier promise">
+  <div class="shell trust-grid">
+    <?php foreach ([
+      ['hammer', 'Handcrafted with care', 'Small-batch making'],
+      ['leaf', 'Material conscious', 'Wood-first construction'],
+      ['shield-check', 'Designed to last', 'Repairable, simple forms'],
+      ['ruler', 'Custom sizing', 'Selected pieces only'],
+    ] as [$trustIcon, $trustTitle, $trustDetail]): ?>
+      <div><span class="trust-icon"><?=lucide_icon($trustIcon)?></span><b><?=e($trustTitle)?></b><small><?=e($trustDetail)?></small></div>
+    <?php endforeach; ?>
+  </div>
+</section>
 
 <section class="section shell home-commerce-discovery">
   <div class="section-head commerce-section-head"><div><p class="kicker">Shop by room</p><h2>Start with<br><em>the space.</em></h2></div><p>Browse the way you furnish: by room, ritual or everyday need. Then refine by material, finish and size.</p><a class="mobile-room-all" href="<?=e(url('/shop'))?>">See all →</a></div>
