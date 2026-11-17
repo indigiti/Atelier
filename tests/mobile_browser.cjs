@@ -12,6 +12,14 @@ const { chromium } = require('playwright');
         assert.equal(response.status(), 200, path);
       };
       await open('/');
+      const trustCards = page.locator('.trust-strip .trust-grid > div');
+      assert.equal(await trustCards.count(), 4);
+      assert.equal(await trustCards.locator('.trust-icon svg:visible').count(), 4);
+      const boxes = await trustCards.evaluateAll(cards => cards.map(card => {
+        const { x, y } = card.getBoundingClientRect();
+        return { x, y };
+      }));
+      assert.ok(boxes[0].x < boxes[1].x && boxes[0].y === boxes[1].y && boxes[2].y === boxes[3].y && boxes[2].y > boxes[0].y, 'Trust strip must show two columns at ' + width + 'px');
       const toggle = page.getByRole('button', { name: 'Open menu', exact: true });
       const assertHeader = async () => {
         assert.equal(await page.locator('[data-menu-toggle] > svg:visible').count(), 1);
