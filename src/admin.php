@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-function data_root(): string { $configured=trim((string)getenv('ATELIER_STORAGE_ROOT')); return $configured!==''?rtrim($configured,'/'):dirname(__DIR__).'/storage'; }
-function atelier_public_root(): string { $configured=trim((string)getenv('ATELIER_PUBLIC_ROOT')); return $configured!==''?rtrim($configured,'/'):dirname(__DIR__).'/public'; }
+function data_root(): string { if (defined('ATELIER_DIGIOPS_STORAGE_ROOT')) return ATELIER_DIGIOPS_STORAGE_ROOT; $configured=trim((string)getenv('ATELIER_STORAGE_ROOT')); return $configured!==''?rtrim($configured,'/'):dirname(__DIR__).'/storage'; }
+function atelier_public_root(): string { if (defined('ATELIER_DIGIOPS_PUBLIC_ROOT')) return ATELIER_DIGIOPS_PUBLIC_ROOT; $configured=trim((string)getenv('ATELIER_PUBLIC_ROOT')); return $configured!==''?rtrim($configured,'/'):dirname(__DIR__).'/public'; }
 function atelier_upload_root(): string { return data_root().'/public-domain/uploads'; }
 function atelier_media_file_exists(string $name): bool { $name=basename($name);return (bool)preg_match('/^[a-zA-Z0-9._-]+\.(?:webp|png|jpe?g)$/i',$name) && (is_file(atelier_public_root().'/assets/images/products/'.$name)||is_file(atelier_upload_root().'/products/'.$name)); }
 function admin_user_file(): string { return data_root() . '/private-domain/admin/users.json'; }
