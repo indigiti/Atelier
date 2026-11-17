@@ -241,3 +241,24 @@ document.addEventListener('submit', function(e){ const f=e.target.closest('form[
     });
   }
 })();
+
+(() => {
+  const gallery = document.querySelector('[data-mobile-gallery]');
+  if (!gallery) return;
+  const hero = gallery.querySelector('.gallery-item.main img');
+  const buttons = [...gallery.querySelectorAll('[data-photo-src]')];
+  if (!hero || !buttons.length) return;
+  const mobile = window.matchMedia('(max-width: 767px)');
+  const original = hero.getAttribute('src');
+  const originalAlt = hero.alt;
+  const show = (button, index) => {
+    hero.src = button.dataset.photoSrc;
+    hero.alt = index ? originalAlt + ' — detail ' + index : originalAlt;
+    buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  };
+  buttons.forEach((button, index) => button.addEventListener('click', () => show(button, index)));
+  gallery.classList.add('gallery-enhanced');
+  mobile.addEventListener('change', event => {
+    if (!event.matches) { show(buttons[0], 0); hero.src = original; }
+  });
+})();

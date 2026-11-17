@@ -98,12 +98,19 @@ $error = flash('error');
   <div class="shell footer-bottom"><span>© 2026 Atelier Wood</span><span>Staging build <?= e($app['version']) ?></span></div>
 </footer>
 
+<?php $mobilePath=parse_url($_SERVER['REQUEST_URI']??'/', PHP_URL_PATH) ?: '/'; $mobilePath=rtrim(substr($mobilePath,strlen(base_path())),'/') ?: '/'; ?>
 <nav class="mobile-bottom commerce-bottom" aria-label="Mobile navigation">
-  <a href="<?= e(url('/')) ?>"><span>⌂</span>Home</a>
-  <a href="<?= e(url('/shop')) ?>"><span>▦</span>Shop</a>
-  <a href="<?= e(url('/wishlist')) ?>"><span>♡</span>Saved</a>
-  <a href="<?= e(url('/cart')) ?>"><span>▣</span>Cart<?php if(cart_count()>0): ?><b><?= cart_count() ?></b><?php endif; ?></a>
-  <a href="<?= e(url(customer_logged_in()?'/account':'/account/login')) ?>"><span>◎</span>Account</a>
+  <?php
+  $mobileTabs=[
+    ['/','Home','M3 11 12 3l9 8 M5 10v10h5v-6h4v6h5V10',$mobilePath==='/'],
+    ['/shop','Shop','M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z',preg_match('~^/(shop|product|collections)(/|$)~',$mobilePath)===1],
+    ['/wishlist','Saved','M12 20 4.5 13C0 8.5 6.5 3 12 8c5.5-5 12 .5 7.5 5z',$mobilePath==='/wishlist'],
+    ['/cart','Cart','M4 8h16l1 13H3z M8 9V7a4 4 0 0 1 8 0v2',$mobilePath==='/cart'],
+    [customer_logged_in()?'/account':'/account/login','Account','M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z M4 21v-2a8 6 0 0 1 16 0v2z',str_starts_with($mobilePath,'/account')],
+  ];
+  foreach ($mobileTabs as [$destination,$label,$icon,$current]): ?>
+  <a href="<?=e(url($destination))?>"<?= $current?' aria-current="location"':'' ?>><svg aria-hidden="true" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="<?=e($icon)?>"/></svg><?=e($label)?><?php if($label==='Cart' && cart_count()>0): ?><b><?=cart_count()?></b><?php endif; ?></a>
+<?php endforeach; ?>
 </nav>
 <p class="wishlist-feedback" role="status" aria-atomic="true" data-wishlist-feedback></p>
 <script src="<?= e(asset('js/app.js')) ?>" defer></script>
