@@ -20,7 +20,7 @@ Create the artifact with bash scripts/package_digiops_release.sh and validate it
 | private_html/<app>/app/ | PHP source, worker code, templates, first-run seed data | Replaceable code only |
 | private_html/<app>/storage/ | Catalog, CMS edits, encrypted records, uploaded media/QR, audit | Persistent; never packaged |
 
-The public entrypoint resolves the private application from sibling private_html/<app>/app/public/index.php and configures ATELIER_STORAGE_ROOT and ATELIER_PUBLIC_ROOT. New media is served through validated /media/products/<filename> and /media/passports/<filename> paths; binary uploads stay under private storage.
+The public entrypoint resolves the private application from sibling private_html/<app>/app/public/index.php and passes trusted filesystem paths through request-local constants, without requiring PHP `putenv()`. New media is served through validated /media/products/<filename> and /media/passports/<filename> paths; binary uploads stay under private storage.
 
 **Existing-installation warning:** if an earlier Atelier installation already contains state elsewhere, stop and migrate/backup it before enabling the new layout. First-run seeds are created only when the corresponding persistent file does not exist. A deployment must not reset an existing catalog or customer database.
 

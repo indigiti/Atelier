@@ -28,7 +28,8 @@ wrapper="$home/public_html/atelier/index.php"
 key="$(php -r 'echo base64_encode(str_repeat("D",32));')"
 request() {
   local route="$1"
-  APP_ENV=staging ATELIER_DATA_KEY="$key" ATELIER_SANDBOX_WEBHOOK_SECRET=staging-package-test php -r '
+  APP_ENV=staging ATELIER_DATA_KEY="$key" ATELIER_SANDBOX_WEBHOOK_SECRET=staging-package-test php -d disable_functions=putenv -r '
+    if (function_exists("putenv")) throw new RuntimeException("Expected putenv to be disabled.");
     $_SERVER["SCRIPT_NAME"]="/atelier/index.php";
     $_SERVER["REQUEST_URI"]=$argv[1];
     $_SERVER["REQUEST_METHOD"]="GET";

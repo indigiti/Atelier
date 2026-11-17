@@ -43,8 +43,9 @@ if (!is_file($entry) || !is_readable($entry)) {
     http_response_code(503);
     exit('The application has not been activated.');
 }
-putenv('ATELIER_STORAGE_ROOT='.$privateRoot.'/storage');
-putenv('ATELIER_PUBLIC_ROOT='.__DIR__);
+// Deployment paths are request-local constants; managed PHP may disable putenv().
+define('ATELIER_DIGIOPS_STORAGE_ROOT', $privateRoot.'/storage');
+define('ATELIER_DIGIOPS_PUBLIC_ROOT', __DIR__);
 require $entry;
 PHP
 
