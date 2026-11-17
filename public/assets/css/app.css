@@ -338,3 +338,28 @@ body.sheet-open{overflow:hidden}
 @media(max-width:767px) and (prefers-reduced-motion:reduce){
   .atelier-mobile-editorial *,.home-featured-edit *,.marketplace-pdp *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* Shared storefront controls: use one icon and one badge, regardless of route. */
+.store-menu-close-icon,[data-menu-toggle][aria-expanded=true] .store-menu-open-icon{display:none}
+[data-menu-toggle][aria-expanded=true] .store-menu-close-icon{display:block}
+.nav-actions .bag .store-cart-icon{display:none}
+.nav-actions .bag .store-cart-label{display:inline;min-width:0;padding:0;background:none;color:inherit;font:inherit;border-radius:0}
+[data-menu-toggle]:focus-visible,.nav-actions .bag:focus-visible,.commerce-bottom a:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.site-header .mobile-menu[hidden]{display:none}
+.site-header .mobile-menu:not([hidden]){top:var(--store-menu-top,116px);overscroll-behavior:contain}
+.site-header .mobile-menu>a{min-height:46px}
+@media(max-width:820px){
+  .commerce-nav-row [data-menu-toggle],.commerce-nav-row .nav-actions .bag{width:44px;height:44px;min-width:44px;min-height:44px;padding:0;position:relative;place-items:center;display:grid;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink)}
+  .nav-actions .bag .store-cart-icon{display:block}
+  .nav-actions .bag .store-cart-label{display:none}
+  .nav-actions .bag .store-cart-count{position:absolute;top:0;right:0;display:grid;place-items:center;min-width:17px;height:17px;padding:0 3px;font-size:.59rem;line-height:1;background:var(--ink);color:var(--paper)}
+  .tablet-search input,.marketplace-search input,.sheet-panel select,.sheet-panel input{font-size:16px}
+  .sheet-panel{max-height:min(82dvh,720px);overscroll-behavior:contain}
+}
+@media(max-width:767px){
+  .commerce-bottom a b{position:absolute;top:1px;left:calc(50% + 7px);min-width:16px;padding:2px 3px;line-height:1;font-size:.6rem}
+  .commerce-bottom a{min-width:0}
+  .site-header .mobile-menu:not([hidden]){bottom:calc(63px + env(safe-area-inset-bottom,0px));padding:12px 18px 18px}
+  body.menu-open .mobile-purchase-bar{visibility:hidden}
+  .marketplace-pdp #configure{scroll-margin-top:150px}
+}

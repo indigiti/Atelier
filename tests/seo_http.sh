@@ -80,4 +80,7 @@ grep -q 'Sign-in required' "$work/ops.json"
 curl -fsS -D "$work/private.headers" "$base/account/login" -o "$work/private.html"
 grep -qi '^X-Robots-Tag: noindex' "$work/private.headers"
 
+if [[ "${ATELIER_MOBILE_BROWSER_TEST:-}" == 1 ]]; then
+  node tests/mobile_browser.cjs "$base"
+fi
 echo "PASS: HTTP staging noindex, canonical, product Offer/breadcrumb JSON-LD, robots, XML feeds and AI entity endpoints."

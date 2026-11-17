@@ -22,11 +22,18 @@ jobs:
           python-version: '3.12'
       - name: Install sandbox image dependencies
         run: python3 -m pip install --disable-pip-version-check pillow qrcode
-      - name: Verify test isolation and run disposable suite
-        run: bash scripts/full_regression.sh
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install mobile browser test dependencies
+        run: |
+          npm install --prefix build/mobile-test --no-audit --no-fund playwright@1.58.2
+          build/mobile-test/node_modules/.bin/playwright install --with-deps chromium
+      - name: Verify isolated regression and mobile browser flows
+        run: |
+          export NODE_PATH="$GITHUB_WORKSPACE/build/mobile-test/node_modules"
+          export ATELIER_MOBILE_BROWSER_TEST=1
+          bash scripts/full_regression.sh
       - name: Build static operations dashboard
         working-directory: ops-ui
         run: |
